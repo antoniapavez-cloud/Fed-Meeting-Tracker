@@ -12,12 +12,10 @@
 .tab{padding:6px 14px;font-size:12px;font-weight:300;font-family:'Aller',sans-serif;border-radius:4px;border:1px solid var(--mfo-gray-3);background:transparent;color:#000;cursor:pointer;transition:all .15s}
 .tab:hover{background:var(--mfo-gray-4)}
 .tab.active{background:var(--mfo-slate-2);border-color:var(--mfo-slate-2);color:#fff;font-weight:700}
-.tab-compare{padding:6px 14px;font-size:12px;font-weight:300;font-family:'Aller',sans-serif;border-radius:4px;border:1px solid var(--mfo-green-2);background:transparent;color:var(--mfo-slate-2);cursor:pointer;transition:all .15s}
-.tab-compare:hover{background:var(--mfo-green-4)}
-.tab-compare.active{background:var(--mfo-green);border-color:var(--mfo-green);color:#fff;font-weight:700}
+.tab-compare,.tab-charts{padding:6px 14px;font-size:12px;font-weight:300;font-family:'Aller',sans-serif;border-radius:4px;border:1px solid var(--mfo-green-2);background:transparent;color:var(--mfo-slate-2);cursor:pointer;transition:all .15s}
+.tab-compare:hover,.tab-charts:hover{background:var(--mfo-green-4)}
+.tab-compare.active,.tab-charts.active{background:var(--mfo-green);border-color:var(--mfo-green);color:#fff;font-weight:700}
 .meeting-panel{display:none}.meeting-panel.active{display:block}
-
-/* 4-card top row */
 .top-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
 .metric-card{background:var(--mfo-card-bg);border-radius:6px;padding:11px 12px;border:1px solid #d4d4d4}
 .metric-label{font-size:10px;color:var(--mfo-slate-2);margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em;font-weight:300}
@@ -25,7 +23,6 @@
 .metric-sub{font-size:12px;color:#000;margin-top:4px;font-weight:300}
 .badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:3px;font-weight:700;font-family:'Aller',sans-serif;letter-spacing:.02em}
 .badge-hold{background:var(--mfo-slate-2);color:#fff}
-
 .section{background:var(--color-background-primary);border:1px solid var(--mfo-gray-4);border-radius:6px;padding:13px 15px;margin-bottom:8px}
 .section-title{font-size:10px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--mfo-gray-4)}
 .topic-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -51,15 +48,12 @@
 .sep-label{font-size:12px;color:var(--mfo-slate-2);font-weight:300}
 .sep-value{font-size:12px;font-weight:700;color:#000}
 .sep-note{font-size:12px;color:#000;font-weight:300;line-height:1.3}
-
-/* Risk triangles — sized to sit flush with 12px text: 5px tall, 8px wide */
 .risk-list{list-style:none;display:flex;flex-direction:column;gap:6px}
 .risk-item{display:flex;align-items:center;gap:7px;font-size:12px;color:#000;line-height:1.4;font-weight:300}
 .risk-tri{flex-shrink:0;width:0;height:0;border-style:solid}
 .tri-high{border-width:5px 0 5px 8px;border-color:transparent transparent transparent var(--mfo-coral)}
-.tri-med {border-width:5px 0 5px 8px;border-color:transparent transparent transparent var(--mfo-coral-light)}
-.tri-low {border-width:5px 0 5px 8px;border-color:transparent transparent transparent var(--mfo-green)}
-
+.tri-med{border-width:5px 0 5px 8px;border-color:transparent transparent transparent var(--mfo-coral-light)}
+.tri-low{border-width:5px 0 5px 8px;border-color:transparent transparent transparent var(--mfo-green)}
 .votes-row{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
 .vote-chip{font-size:11px;padding:3px 9px;border-radius:3px;font-family:'Aller',sans-serif;font-weight:300}
 .vote-for{background:var(--mfo-gray-4);color:#000;border:1px solid var(--mfo-gray-3)}
@@ -89,6 +83,17 @@
 .bias-stack-tone{display:flex;align-items:center;gap:8px;margin-top:6px}
 .bias-mini-label{font-size:10px;font-weight:300;white-space:nowrap}
 .bias-mini-label.dove{color:var(--mfo-green)}.bias-mini-label.hawk{color:var(--mfo-coral)}
+
+/* Charts */
+.chart-wrap{margin-bottom:8px}
+.chart-title{font-size:10px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--mfo-gray-4)}
+.chart-canvas-wrap{width:100%;height:180px;position:relative}
+canvas{display:block}
+.chart-legend{display:flex;gap:16px;margin-top:6px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--mfo-slate-2);font-weight:300}
+.legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.legend-rect{width:8px;height:8px;flex-shrink:0}
+.fomc-note{font-size:11px;color:var(--mfo-slate-2);margin-top:6px;font-weight:300;font-style:italic}
 </style>
 
 <div class="w">
@@ -105,6 +110,7 @@
     <button class="tab" onclick="showMeeting('mar',this)">Mar 18</button>
     <button class="tab" onclick="showMeeting('jan',this)">Jan 28</button>
     <button class="tab-compare" onclick="showMeeting('compare',this)">Comparative</button>
+    <button class="tab-charts" onclick="showMeeting('charts',this)">Charts</button>
   </div>
 
   <!-- APR -->
@@ -314,17 +320,253 @@
       </div>
     </div>
   </div>
+
+  <!-- CHARTS -->
+  <div class="meeting-panel" id="panel-charts">
+    <div class="section chart-wrap">
+      <div class="chart-title">PCE Inflation — Total &amp; Core (%)</div>
+      <div class="chart-canvas-wrap"><canvas id="cInflation"></canvas></div>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#E07F5C"></div>PCE Total</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#EAA992"></div>Core PCE</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#BEBEBE;border:1px dashed #999"></div>2% target</div>
+      </div>
+      <div class="fomc-note">Shaded bars mark FOMC meetings tracked (Jan, Mar, Apr 2026)</div>
+    </div>
+    <div class="section chart-wrap">
+      <div class="chart-title">Fed Funds Rate (%)</div>
+      <div class="chart-canvas-wrap"><canvas id="cFedFunds"></canvas></div>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#1B2127"></div>Fed Funds upper bound</div>
+      </div>
+    </div>
+    <div class="section chart-wrap">
+      <div class="chart-title">Unemployment Rate (%)</div>
+      <div class="chart-canvas-wrap"><canvas id="cUnemployment"></canvas></div>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#5D7082"></div>Unemployment rate</div>
+      </div>
+    </div>
+    <div class="section chart-wrap">
+      <div class="chart-title">GDP Growth — Real QoQ annualized (%)</div>
+      <div class="chart-canvas-wrap"><canvas id="cGDP"></canvas></div>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-rect" style="background:#7BC143"></div>Positive</div>
+        <div class="legend-item"><div class="legend-rect" style="background:#E07F5C"></div>Negative</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
 function showMeeting(id, btn) {
   document.querySelectorAll('.meeting-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab, .tab-compare').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab, .tab-compare, .tab-charts').forEach(t => t.classList.remove('active'));
   document.getElementById('panel-' + id).classList.add('active');
   btn.classList.add('active');
+  if (id === 'charts') setTimeout(drawCharts, 50);
 }
+
+// ── DATA ──────────────────────────────────────────────────────────────────────
+const labels = [
+  'Q1 20','Q2 20','Q3 20','Q4 20',
+  'Q1 21','Q2 21','Q3 21','Q4 21',
+  'Q1 22','Q2 22','Q3 22','Q4 22',
+  'Q1 23','Q2 23','Q3 23','Q4 23',
+  'Q1 24','Q2 24','Q3 24','Q4 24',
+  'Q1 25','Q2 25','Q3 25','Q4 25',
+  'Q1 26'
+];
+
+// Monthly labels for line charts (quarterly representative)
+const qLabels = labels;
+
+const pceTotalData   = [1.8,1.0,1.2,1.5, 2.1,3.6,4.3,5.5, 6.3,6.3,6.2,5.5, 4.5,3.8,3.4,2.7, 2.5,2.6,2.3,2.4, 2.7,2.6,2.7,2.9, 3.5];
+const pceCoreData    = [1.7,1.2,1.4,1.5, 2.0,3.4,3.9,4.9, 5.5,4.8,5.1,4.7, 4.6,4.1,3.7,3.0, 2.8,2.7,2.6,2.8, 2.9,2.8,2.9,3.0, 3.2];
+const fedFundsData   = [1.75,0.25,0.25,0.25, 0.25,0.25,0.25,0.25, 0.5,1.75,3.25,4.5, 4.75,5.25,5.5,5.5, 5.5,5.5,5.0,4.5, 4.25,4.0,3.75,3.75, 3.75];
+const unemployData   = [3.8,13.3,8.4,6.7, 6.2,5.9,5.2,3.9, 3.8,3.6,3.5,3.5, 3.4,3.6,3.8,3.7, 3.7,4.1,4.2,4.2, 4.1,4.3,4.4,4.4, 4.3];
+const gdpData        = [-5.0,-31.2,33.8,4.5, 6.3,6.7,2.3,6.9, -1.6,-0.6,3.2,2.6, 2.2,2.1,4.9,3.4, 1.6,3.0,2.8,2.3, 2.5,2.8,2.6,2.5, 2.3];
+
+// FOMC meeting indices (Jan26=Q1 26 = index 24, Mar18=same, Apr29=same)
+const fomcIdx = [24];
+
+// ── DRAWING HELPERS ────────────────────────────────────────────────────────────
+const GREEN      = '#7BC143';
+const CORAL      = '#E07F5C';
+const CORAL_L    = '#EAA992';
+const DARK       = '#1B2127';
+const SLATE      = '#5D7082';
+const GRAY3      = '#BEBEBE';
+const GRAY4      = '#E6E6E6';
+
+function drawLine(canvasId, datasets, yMin, yMax, showFomc, showZero) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const W = canvas.parentElement.offsetWidth;
+  const H = 180;
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext('2d');
+  const PAD = {t:10, r:10, b:28, l:36};
+  const cW = W - PAD.l - PAD.r;
+  const cH = H - PAD.t - PAD.b;
+  const n = labels.length;
+
+  const yRange = yMax - yMin;
+  const xPos = i => PAD.l + (i / (n-1)) * cW;
+  const yPos = v => PAD.t + cH - ((v - yMin) / yRange) * cH;
+
+  // Background
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, W, H);
+
+  // FOMC shading
+  if (showFomc) {
+    fomcIdx.forEach(i => {
+      const x1 = xPos(i) - cW/(n-1)*0.5;
+      const x2 = xPos(i) + cW/(n-1)*0.5;
+      ctx.fillStyle = 'rgba(123,193,67,0.08)';
+      ctx.fillRect(x1, PAD.t, x2-x1, cH);
+    });
+  }
+
+  // Grid lines
+  const ticks = 5;
+  ctx.strokeStyle = GRAY4; ctx.lineWidth = 1;
+  for (let i = 0; i <= ticks; i++) {
+    const y = PAD.t + (cH / ticks) * i;
+    ctx.beginPath(); ctx.moveTo(PAD.l, y); ctx.lineTo(PAD.l + cW, y); ctx.stroke();
+    const val = yMax - (yRange / ticks) * i;
+    ctx.fillStyle = SLATE; ctx.font = '10px Aller, sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText(val.toFixed(1), PAD.l - 4, y + 3);
+  }
+
+  // Zero line
+  if (showZero && yMin < 0 && yMax > 0) {
+    const y0 = yPos(0);
+    ctx.strokeStyle = GRAY3; ctx.lineWidth = 1; ctx.setLineDash([3,3]);
+    ctx.beginPath(); ctx.moveTo(PAD.l, y0); ctx.lineTo(PAD.l + cW, y0); ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  // X labels — every 4 quarters
+  ctx.fillStyle = SLATE; ctx.font = '10px Aller, sans-serif'; ctx.textAlign = 'center';
+  for (let i = 0; i < n; i += 4) {
+    ctx.fillText(labels[i], xPos(i), H - 8);
+  }
+  // Always label last
+  ctx.fillText(labels[n-1], xPos(n-1), H - 8);
+
+  // 2% target dashed line if needed
+  if (showFomc) {
+    const y2 = yPos(2);
+    ctx.strokeStyle = GRAY3; ctx.lineWidth = 1; ctx.setLineDash([4,4]);
+    ctx.beginPath(); ctx.moveTo(PAD.l, y2); ctx.lineTo(PAD.l + cW, y2); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = GRAY3; ctx.font = '9px Aller,sans-serif'; ctx.textAlign = 'left';
+    ctx.fillText('2%', PAD.l + cW + 2, y2 + 3);
+  }
+
+  // Lines
+  datasets.forEach(ds => {
+    ctx.strokeStyle = ds.color;
+    ctx.lineWidth = ds.width || 2;
+    ctx.lineJoin = 'round';
+    if (ds.dash) ctx.setLineDash(ds.dash);
+    ctx.beginPath();
+    ds.data.forEach((v, i) => {
+      const x = xPos(i), y = yPos(v);
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Dots at last point
+    const lastX = xPos(n-1), lastY = yPos(ds.data[n-1]);
+    ctx.fillStyle = ds.color;
+    ctx.beginPath(); ctx.arc(lastX, lastY, 4, 0, Math.PI*2); ctx.fill();
+  });
+}
+
+function drawBars(canvasId, data, yMin, yMax) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const W = canvas.parentElement.offsetWidth;
+  const H = 180;
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext('2d');
+  const PAD = {t:10, r:10, b:28, l:36};
+  const cW = W - PAD.l - PAD.r;
+  const cH = H - PAD.t - PAD.b;
+  const n = data.length;
+  const barW = (cW / n) * 0.7;
+  const gap  = (cW / n) * 0.3;
+  const yRange = yMax - yMin;
+  const y0 = PAD.t + cH * (yMax / yRange);
+  const yPos = v => PAD.t + cH - ((v - yMin) / yRange) * cH;
+  const xPos = i => PAD.l + (i / n) * cW + gap/2;
+
+  ctx.fillStyle = '#fff'; ctx.fillRect(0,0,W,H);
+
+  // Grid
+  const ticks = 5;
+  ctx.strokeStyle = GRAY4; ctx.lineWidth = 1;
+  for (let i = 0; i <= ticks; i++) {
+    const y = PAD.t + (cH / ticks) * i;
+    ctx.beginPath(); ctx.moveTo(PAD.l, y); ctx.lineTo(PAD.l + cW, y); ctx.stroke();
+    const val = yMax - (yRange / ticks) * i;
+    ctx.fillStyle = SLATE; ctx.font = '10px Aller,sans-serif'; ctx.textAlign = 'right';
+    ctx.fillText(val.toFixed(0), PAD.l - 4, y + 3);
+  }
+
+  // Zero line
+  ctx.strokeStyle = DARK; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(PAD.l, y0); ctx.lineTo(PAD.l + cW, y0); ctx.stroke();
+
+  // Bars
+  data.forEach((v, i) => {
+    const x = xPos(i);
+    const isPos = v >= 0;
+    const barH = Math.abs(yPos(v) - y0);
+    const barY = isPos ? y0 - barH : y0;
+    ctx.fillStyle = isPos ? GREEN : CORAL;
+    ctx.fillRect(x, barY, barW, barH);
+  });
+
+  // X labels every 4
+  ctx.fillStyle = SLATE; ctx.font = '10px Aller,sans-serif'; ctx.textAlign = 'center';
+  for (let i = 0; i < n; i += 4) {
+    ctx.fillText(labels[i], xPos(i) + barW/2, H - 8);
+  }
+  ctx.fillText(labels[n-1], xPos(n-1) + barW/2, H - 8);
+}
+
+let chartsDrawn = false;
+function drawCharts() {
+  if (chartsDrawn) return;
+  chartsDrawn = true;
+
+  drawLine('cInflation',
+    [{data: pceTotalData, color: CORAL, width: 2},
+     {data: pceCoreData,  color: CORAL_L, width: 1.5}],
+    0, 8, true, false
+  );
+
+  drawLine('cFedFunds',
+    [{data: fedFundsData, color: DARK, width: 2.5}],
+    0, 6, false, false
+  );
+
+  drawLine('cUnemployment',
+    [{data: unemployData, color: SLATE, width: 2}],
+    0, 15, false, false
+  );
+
+  drawBars('cGDP', gdpData, -35, 38);
+}
+
 function downloadHTML() {
-  const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Fed Meeting Tracker</title><style>@import url('https://fonts.googleapis.com/css2?family=Aller:ital,wght@0,300;0,700;1,300&display=swap');*{box-sizing:border-box;margin:0;padding:0}:root{--mfo-green:#7BC143;--mfo-green-2:#B3D88C;--mfo-green-4:#E1F1D3;--mfo-coral:#E07F5C;--mfo-coral-light:#EAA992;--mfo-dark:#1B2127;--mfo-slate-2:#5D7082;--mfo-gray-3:#BEBEBE;--mfo-gray-4:#E6E6E6;--mfo-card-bg:#EBEBEB}body{font-family:'Aller',sans-serif;font-weight:300;background:#f5f5f5;color:#000;min-height:100vh;padding:2rem 1rem}.w{max-width:720px;margin:0 auto;background:#fff;border-radius:10px;padding:2rem 1.5rem 2.5rem;box-shadow:0 1px 4px rgba(0,0,0,.08)}.w-header{margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between}.w-header h2{font-size:20px;font-weight:700;color:var(--mfo-green);letter-spacing:-.01em}.tabs{display:flex;gap:5px;margin-bottom:1.25rem;flex-wrap:wrap}.tab{padding:6px 14px;font-size:12px;font-weight:300;font-family:'Aller',sans-serif;border-radius:4px;border:1px solid var(--mfo-gray-3);background:transparent;color:#000;cursor:pointer;transition:all .15s}.tab:hover{background:var(--mfo-gray-4)}.tab.active{background:var(--mfo-slate-2);border-color:var(--mfo-slate-2);color:#fff;font-weight:700}.tab-compare{padding:6px 14px;font-size:12px;font-weight:300;font-family:'Aller',sans-serif;border-radius:4px;border:1px solid var(--mfo-green-2);background:transparent;color:var(--mfo-slate-2);cursor:pointer;transition:all .15s}.tab-compare:hover{background:var(--mfo-green-4)}.tab-compare.active{background:var(--mfo-green);border-color:var(--mfo-green);color:#fff;font-weight:700}.meeting-panel{display:none}.meeting-panel.active{display:block}.top-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}.metric-card{background:var(--mfo-card-bg);border-radius:6px;padding:11px 12px;border:1px solid #d4d4d4}.metric-label{font-size:10px;color:var(--mfo-slate-2);margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em;font-weight:300}.metric-value{font-size:18px;font-weight:700;color:#000;line-height:1}.metric-sub{font-size:12px;color:#000;margin-top:4px;font-weight:300}.badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:3px;font-weight:700;font-family:'Aller',sans-serif;letter-spacing:.02em}.badge-hold{background:var(--mfo-slate-2);color:#fff}.section{background:#fff;border:1px solid var(--mfo-gray-4);border-radius:6px;padding:13px 15px;margin-bottom:8px}.section-title{font-size:10px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--mfo-gray-4)}.topic-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.topic-item{padding:10px 11px;border-radius:5px;background:var(--mfo-gray-4)}.topic-item-label{font-size:10px;color:var(--mfo-slate-2);margin-bottom:3px;text-transform:uppercase;letter-spacing:.04em;font-weight:300}.topic-item-value{font-size:12px;color:#000;font-weight:700}.topic-item-note{font-size:12px;color:#000;margin-top:3px;line-height:1.4;font-weight:300}.tone-row{display:flex;align-items:center;gap:8px;margin-top:8px}.tone-label{font-size:11px;font-weight:300;white-space:nowrap}.tone-label.dove{color:var(--mfo-green)}.tone-label.hawk{color:var(--mfo-coral)}.tone-track{flex:1;height:5px;border-radius:3px;background:var(--mfo-gray-3);position:relative}.tone-needle{position:absolute;top:-3px;width:11px;height:11px;border-radius:50%;background:var(--mfo-coral);border:2px solid #fff;transform:translateX(-50%);box-shadow:0 0 0 1px var(--mfo-coral)}.kv-box{background:var(--mfo-gray-4);border-radius:5px;overflow:hidden}.kv-row{display:grid;grid-template-columns:170px 1fr;gap:0;padding:7px 12px;border-bottom:1px solid #d8d8d8;align-items:center}.kv-row:last-child{border-bottom:none}.kv-left{display:flex;flex-direction:column;gap:2px}.kv-topic{font-size:10px;color:var(--mfo-slate-2);text-transform:uppercase;letter-spacing:.04em;font-weight:300}.kv-value{font-size:12px;color:#000;font-weight:700}.kv-note{font-size:12px;color:#000;font-weight:300;line-height:1.4}.sep-box{background:var(--mfo-gray-4);border-radius:5px;overflow:hidden}.sep-row-item{display:grid;grid-template-columns:175px 55px 1fr;gap:0;padding:7px 12px;border-bottom:1px solid #d8d8d8;align-items:center}.sep-row-item:last-child{border-bottom:none}.sep-label{font-size:12px;color:var(--mfo-slate-2);font-weight:300}.sep-value{font-size:12px;font-weight:700;color:#000}.sep-note{font-size:12px;color:#000;font-weight:300;line-height:1.3}.risk-list{list-style:none;display:flex;flex-direction:column;gap:6px}.risk-item{display:flex;align-items:center;gap:7px;font-size:12px;color:#000;line-height:1.4;font-weight:300}.risk-tri{flex-shrink:0;width:0;height:0;border-style:solid}.tri-high{border-width:5px 0 5px 8px;border-color:transparent transparent transparent var(--mfo-coral)}.tri-med{border-width:5px 0 5px 8px;border-color:transparent transparent transparent var(--mfo-coral-light)}.tri-low{border-width:5px 0 5px 8px;border-color:transparent transparent transparent var(--mfo-green)}.votes-row{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}.vote-chip{font-size:11px;padding:3px 9px;border-radius:3px;font-family:'Aller',sans-serif;font-weight:300}.vote-for{background:var(--mfo-gray-4);color:#000;border:1px solid var(--mfo-gray-3)}.vote-dove{background:var(--mfo-green-4);color:#000;border:1px solid var(--mfo-green-2)}.vote-hawk{background:#fdeee9;color:var(--mfo-coral);border:1px solid var(--mfo-coral-light)}.votes-note{font-size:12px;color:#000;margin-top:7px;line-height:1.4;font-weight:300}.quote-box{background:var(--mfo-gray-4);border-left:3px solid var(--mfo-gray-3);padding:10px 13px;border-radius:0 5px 5px 0;font-size:12px;color:#000;line-height:1.65;font-weight:300;font-style:italic}.quote-box b{font-weight:700;font-style:italic}.quote-attr{font-size:11px;color:var(--mfo-slate-2);margin-top:7px;font-style:normal;font-weight:300}.tend-item{border-left:3px solid var(--mfo-gray-3);padding:7px 11px;margin-bottom:6px;background:var(--mfo-gray-4);border-radius:0 5px 5px 0;display:flex;flex-direction:column;justify-content:center}.tend-item.high{border-left-color:var(--mfo-coral)}.tend-item.med{border-left-color:var(--mfo-coral-light)}.tend-item.low{border-left-color:var(--mfo-green)}.tend-title{font-size:12px;font-weight:700;color:#000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tend-body{font-size:12px;color:#000;line-height:1.3;font-weight:300;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}.compare-wrap{overflow-x:auto}.compare-table{width:100%;border-collapse:collapse;font-size:12px;font-weight:300;table-layout:fixed}.compare-table th{text-align:left;padding:8px 10px;color:#000;font-weight:700;border-bottom:2px solid var(--mfo-green);font-size:11px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}.compare-table td{padding:0 10px;color:#000;font-weight:300;border-bottom:1px solid var(--mfo-gray-4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;height:36px;line-height:36px;vertical-align:middle}.compare-table tr:last-child td{border-bottom:none}.compare-table .row-label{font-weight:700}.compare-table tr:nth-child(even) td{background:var(--mfo-gray-4)}.alert-cell{color:var(--mfo-coral)}.bias-stack{display:flex;flex-direction:column;gap:4px;max-width:340px}.bias-stack-item{background:var(--mfo-gray-4);border-radius:5px;padding:9px 12px}.bias-stack-date{font-size:10px;color:var(--mfo-slate-2);text-transform:uppercase;letter-spacing:.05em;font-weight:300;margin-bottom:3px}.bias-stack-tone{display:flex;align-items:center;gap:8px;margin-top:6px}.bias-mini-label{font-size:10px;font-weight:300;white-space:nowrap}.bias-mini-label.dove{color:var(--mfo-green)}.bias-mini-label.hawk{color:var(--mfo-coral)}</style></head><body>` + document.querySelector('.w').outerHTML.replace(/onclick="downloadHTML\(\)"/g,'style="display:none"') + `<script>function showMeeting(id,btn){document.querySelectorAll('.meeting-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab,.tab-compare').forEach(t=>t.classList.remove('active'));document.getElementById('panel-'+id).classList.add('active');btn.classList.add('active')}<\/script></body></html>`;
+  const html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Fed Meeting Tracker</title></head><body>' + document.querySelector('.w').outerHTML.replace(/onclick="downloadHTML\(\)"/g,'style="display:none"') + '<script>/* full script here */<\/script></body></html>';
   const blob = new Blob([html],{type:'text/html'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
