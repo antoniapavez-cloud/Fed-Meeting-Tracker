@@ -1,86 +1,97 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Aller:ital,wght@0,300;0,700;1,300&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--mfo-green:#7BC143;--mfo-green-2:#B3D88C;--mfo-green-4:#E1F1D3;--mfo-coral:#E07F5C;--mfo-coral-light:#EAA992;--mfo-dark:#1B2127;--mfo-slate-2:#5D7082;--mfo-gray-3:#BEBEBE;--mfo-gray-4:#E6E6E6;--mfo-card-bg:#EBEBEB}
+.w{font-family:'Aller',sans-serif;font-weight:300;padding:1.5rem 1rem 2rem;max-width:680px;color:#000}
+.w-header{margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between}
+.w-header h2{font-size:20px;font-weight:700;color:var(--mfo-green);letter-spacing:-.01em}
+.download-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;font-size:12px;font-weight:300;font-family:'Aller',sans-serif;border-radius:4px;border:1px solid var(--mfo-gray-3);background:transparent;color:#000;cursor:pointer;transition:background .15s}
+.download-btn:hover{background:var(--mfo-gray-4)}
+.tabs{display:flex;gap:5px;margin-bottom:1.25rem;flex-wrap:wrap}
+.tab{padding:6px 14px;font-size:12px;font-weight:300;font-family:'Aller',sans-serif;border-radius:4px;border:1px solid var(--mfo-gray-3);background:transparent;color:#000;cursor:pointer;transition:all .15s}
+.tab:hover{background:var(--mfo-gray-4)}
+.tab.active{background:var(--mfo-slate-2);border-color:var(--mfo-slate-2);color:#fff;font-weight:700}
+.tab-compare{padding:6px 14px;font-size:12px;font-weight:300;font-family:'Aller',sans-serif;border-radius:4px;border:1px solid var(--mfo-green-2);background:transparent;color:var(--mfo-slate-2);cursor:pointer;transition:all .15s}
+.tab-compare:hover{background:var(--mfo-green-4)}
+.tab-compare.active{background:var(--mfo-green);border-color:var(--mfo-green);color:#fff;font-weight:700}
+.meeting-panel{display:none}.meeting-panel.active{display:block}
+.top-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+.metric-card{background:var(--mfo-card-bg);border-radius:6px;padding:13px 14px;border:1px solid #d4d4d4}
+.metric-label{font-size:10px;color:var(--mfo-slate-2);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em;font-weight:300}
+.metric-value{font-size:21px;font-weight:700;color:#000;line-height:1}
+.metric-sub{font-size:11px;color:#000;margin-top:5px;font-weight:300}
+.badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:3px;font-weight:700;font-family:'Aller',sans-serif;letter-spacing:.02em}
+.badge-hold{background:var(--mfo-slate-2);color:#fff}
+.section{background:var(--color-background-primary);border:1px solid var(--mfo-gray-4);border-radius:6px;padding:13px 15px;margin-bottom:8px}
+.section-title{font-size:10px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--mfo-gray-4)}
+.topic-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.topic-item{padding:10px 11px;border-radius:5px;background:var(--mfo-gray-4)}
+.topic-item-label{font-size:10px;color:var(--mfo-slate-2);margin-bottom:3px;text-transform:uppercase;letter-spacing:.04em;font-weight:300}
+.topic-item-value{font-size:13px;color:#000;font-weight:700}
+.topic-item-note{font-size:12px;color:#000;margin-top:3px;line-height:1.4;font-weight:300}
+.tone-row{display:flex;align-items:center;gap:8px;margin-top:8px}
+.tone-label{font-size:11px;font-weight:300;white-space:nowrap}
+.tone-label.dove{color:var(--mfo-green)}.tone-label.hawk{color:var(--mfo-coral)}
+.tone-track{flex:1;height:5px;border-radius:3px;background:var(--mfo-gray-3);position:relative}
+.tone-needle{position:absolute;top:-3px;width:11px;height:11px;border-radius:50%;background:var(--mfo-coral);border:2px solid #fff;transform:translateX(-50%);box-shadow:0 0 0 1px var(--mfo-coral)}
+.kv-box{background:var(--mfo-gray-4);border-radius:5px;overflow:hidden}
+.kv-row{display:grid;grid-template-columns:170px 1fr;gap:0;padding:7px 12px;border-bottom:1px solid #d8d8d8;align-items:center}
+.kv-row:last-child{border-bottom:none}
+.kv-left{display:flex;flex-direction:column;gap:2px}
+.kv-topic{font-size:10px;color:var(--mfo-slate-2);text-transform:uppercase;letter-spacing:.04em;font-weight:300}
+.kv-value{font-size:12px;color:#000;font-weight:700}
+.kv-note{font-size:12px;color:#000;font-weight:300;line-height:1.4}
+.sep-box{background:var(--mfo-gray-4);border-radius:5px;overflow:hidden}
+.sep-row-item{display:grid;grid-template-columns:175px 55px 1fr;gap:0;padding:7px 12px;border-bottom:1px solid #d8d8d8;align-items:center}
+.sep-row-item:last-child{border-bottom:none}
+.sep-label{font-size:12px;color:var(--mfo-slate-2);font-weight:300}
+.sep-value{font-size:12px;font-weight:700;color:#000}
+.sep-note{font-size:12px;color:#000;font-weight:300;line-height:1.3}
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* Risk — smaller triangles */
+.risk-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.risk-item{display:flex;align-items:center;gap:8px;font-size:13px;color:#000;line-height:1.4;font-weight:300}
+.risk-tri{flex-shrink:0;width:0;height:0;border-style:solid}
+.tri-high{border-width:4px 0 4px 7px;border-color:transparent transparent transparent var(--mfo-coral)}
+.tri-med{border-width:4px 0 4px 7px;border-color:transparent transparent transparent var(--mfo-coral-light)}
+.tri-low{border-width:4px 0 4px 7px;border-color:transparent transparent transparent var(--mfo-green)}
 
-:root {
-  --mfo-green:       #7BC143;
-  --mfo-green-2:     #B3D88C;
-  --mfo-green-4:     #E1F1D3;
-  --mfo-coral:       #E07F5C;
-  --mfo-coral-light: #EAA992;
-  --mfo-dark:        #1B2127;
-  --mfo-slate-2:     #5D7082;
-  --mfo-gray-3:      #BEBEBE;
-  --mfo-gray-4:      #E6E6E6;
-  --mfo-card-bg:     #EBEBEB;
-}
+.votes-row{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.vote-chip{font-size:11px;padding:3px 9px;border-radius:3px;font-family:'Aller',sans-serif;font-weight:300}
+.vote-for{background:var(--mfo-gray-4);color:#000;border:1px solid var(--mfo-gray-3)}
+.vote-dove{background:var(--mfo-green-4);color:#000;border:1px solid var(--mfo-green-2)}
+.vote-hawk{background:#fdeee9;color:var(--mfo-coral);border:1px solid var(--mfo-coral-light)}
+.votes-note{font-size:12px;color:#000;margin-top:7px;line-height:1.4;font-weight:300}
+.quote-box{background:var(--mfo-gray-4);border-left:3px solid var(--mfo-gray-3);padding:10px 13px;border-radius:0 5px 5px 0;font-size:13px;color:#000;line-height:1.65;font-weight:300;font-style:italic}
+.quote-box b{font-weight:700;font-style:italic}
+.quote-attr{font-size:11px;color:var(--mfo-slate-2);margin-top:7px;font-style:normal;font-weight:300}
 
-.w { font-family: 'Aller', sans-serif; font-weight: 300; padding: 1.5rem 1rem 2rem; max-width: 680px; color: #000; }
-.w-header { margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; }
-.w-header h2 { font-size: 20px; font-weight: 700; color: var(--mfo-green); letter-spacing: -.01em; }
-.download-btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 13px; font-size: 12px; font-weight: 300; font-family: 'Aller', sans-serif; border-radius: 4px; border: 1px solid var(--mfo-gray-3); background: transparent; color: #000; cursor: pointer; transition: background .15s; }
-.download-btn:hover { background: var(--mfo-gray-4); }
-.tabs { display: flex; gap: 5px; margin-bottom: 1.25rem; flex-wrap: wrap; }
-.tab { padding: 6px 14px; font-size: 12px; font-weight: 300; font-family: 'Aller', sans-serif; border-radius: 4px; border: 1px solid var(--mfo-gray-3); background: transparent; color: #000; cursor: pointer; transition: all .15s; }
-.tab:hover { background: var(--mfo-gray-4); }
-.tab.active { background: var(--mfo-slate-2); border-color: var(--mfo-slate-2); color: #fff; font-weight: 700; }
-.tab-compare { padding: 6px 14px; font-size: 12px; font-weight: 300; font-family: 'Aller', sans-serif; border-radius: 4px; border: 1px solid var(--mfo-green-2); background: transparent; color: var(--mfo-slate-2); cursor: pointer; transition: all .15s; }
-.tab-compare:hover { background: var(--mfo-green-4); }
-.tab-compare.active { background: var(--mfo-green); border-color: var(--mfo-green); color: #fff; font-weight: 700; }
-.meeting-panel { display: none; }
-.meeting-panel.active { display: block; }
-.top-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 10px; }
-.metric-card { background: var(--mfo-card-bg); border-radius: 6px; padding: 13px 14px; border: 1px solid #d4d4d4; }
-.metric-label { font-size: 10px; color: var(--mfo-slate-2); margin-bottom: 5px; text-transform: uppercase; letter-spacing: .06em; font-weight: 300; }
-.metric-value { font-size: 21px; font-weight: 700; color: #000; line-height: 1; }
-.metric-sub { font-size: 11px; color: #000; margin-top: 5px; font-weight: 300; }
-.badge { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 3px; font-weight: 700; font-family: 'Aller', sans-serif; letter-spacing:.02em; }
-.badge-hold { background: var(--mfo-slate-2); color: #fff; }
-.section { background: var(--color-background-primary); border: 1px solid var(--mfo-gray-4); border-radius: 6px; padding: 13px 15px; margin-bottom: 8px; }
-.section-title { font-size: 10px; font-weight: 700; color: #000; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--mfo-gray-4); }
-.topic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.topic-item { padding: 10px 11px; border-radius: 5px; background: var(--mfo-gray-4); }
-.topic-item-label { font-size: 10px; color: var(--mfo-slate-2); margin-bottom: 3px; text-transform: uppercase; letter-spacing:.04em; font-weight: 300; }
-.topic-item-value { font-size: 13px; color: #000; font-weight: 700; }
-.topic-item-note  { font-size: 12px; color: #000; margin-top: 3px; line-height: 1.4; font-weight: 300; }
-.tone-row { display:flex; align-items:center; gap:8px; margin-top:8px; }
-.tone-label { font-size:11px; font-weight:300; white-space:nowrap; }
-.tone-label.dove { color: var(--mfo-green); }
-.tone-label.hawk { color: var(--mfo-coral); }
-.tone-track { flex:1; height:5px; border-radius:3px; background:var(--mfo-gray-3); position:relative; }
-.tone-needle { position:absolute; top:-3px; width:11px; height:11px; border-radius:50%; background:var(--mfo-coral); border:2px solid #fff; transform:translateX(-50%); box-shadow:0 0 0 1px var(--mfo-coral); }
-.risk-list { list-style:none; display:flex; flex-direction:column; gap:7px; }
-.risk-item { display:flex; align-items:flex-start; gap:9px; font-size:13px; color:#000; line-height:1.4; font-weight:300; }
-.risk-tri { flex-shrink:0; margin-top:3px; width:0; height:0; border-style:solid; }
-.tri-high { border-width:5px 0 5px 9px; border-color:transparent transparent transparent var(--mfo-coral); }
-.tri-med  { border-width:5px 0 5px 9px; border-color:transparent transparent transparent var(--mfo-coral-light); }
-.tri-low  { border-width:5px 0 5px 9px; border-color:transparent transparent transparent var(--mfo-green); }
-.votes-row { display:flex; gap:5px; flex-wrap:wrap; margin-top:6px; }
-.vote-chip { font-size:11px; padding:3px 9px; border-radius:3px; font-family:'Aller',sans-serif; font-weight:300; }
-.vote-for  { background:var(--mfo-gray-4); color:#000; border:1px solid var(--mfo-gray-3); }
-.vote-dove { background:var(--mfo-green-4); color:#000; border:1px solid var(--mfo-green-2); }
-.vote-hawk { background:#fdeee9; color:var(--mfo-coral); border:1px solid var(--mfo-coral-light); }
-.votes-note { font-size:12px; color:#000; margin-top:7px; line-height:1.4; font-weight:300; }
-.quote-box { background: var(--mfo-gray-4); border-left: 3px solid var(--mfo-gray-3); padding:10px 13px; border-radius:0 5px 5px 0; font-size:13px; color:#000; line-height:1.65; font-weight:300; font-style:italic; }
-.quote-box b { font-weight:700; font-style:italic; }
-.quote-attr { font-size:11px; color:var(--mfo-slate-2); margin-top:7px; font-style:normal; font-weight:300; }
-.sep-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-.compare-wrap { overflow-x: auto; }
-.compare-table { width:100%; border-collapse:collapse; font-size:12px; font-weight:300; table-layout:fixed; }
-.compare-table th { text-align:left; padding:8px 10px; color:#000; font-weight:700; border-bottom:2px solid var(--mfo-green); font-size:11px; text-transform:uppercase; letter-spacing:.04em; vertical-align:bottom; }
-.compare-table td { padding:8px 10px; color:#000; font-weight:300; border-bottom:1px solid var(--mfo-gray-4); vertical-align:top; line-height:1.5; word-wrap:break-word; }
-.compare-table tr:last-child td { border-bottom:none; }
-.compare-table .row-label { font-weight:700; }
-.compare-table tr:nth-child(even) td { background:var(--mfo-gray-4); }
-.alert-cell { color:var(--mfo-coral); }
-.tend-item { border-left:3px solid var(--mfo-gray-3); padding:8px 11px; margin-bottom:7px; background:var(--mfo-gray-4); border-radius:0 5px 5px 0; }
-.tend-item.high { border-left-color:var(--mfo-coral); }
-.tend-item.med  { border-left-color:var(--mfo-coral-light); }
-.tend-item.low  { border-left-color:var(--mfo-green); }
-.tend-title { font-size:13px; font-weight:700; color:#000; margin-bottom:2px; }
-.tend-body  { font-size:12px; color:#000; line-height:1.4; font-weight:300; }
+/* Investment Implications — single line body, uniform height */
+.tend-item{border-left:3px solid var(--mfo-gray-3);padding:7px 11px;margin-bottom:6px;background:var(--mfo-gray-4);border-radius:0 5px 5px 0;display:flex;flex-direction:column;justify-content:center}
+.tend-item.high{border-left-color:var(--mfo-coral)}
+.tend-item.med{border-left-color:var(--mfo-coral-light)}
+.tend-item.low{border-left-color:var(--mfo-green)}
+.tend-title{font-size:12px;font-weight:700;color:#000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tend-body{font-size:11px;color:#000;line-height:1.3;font-weight:300;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+
+/* Compare table — no truncation, just clean text */
+.compare-wrap{overflow-x:auto}
+.compare-table{width:100%;border-collapse:collapse;font-size:12px;font-weight:300;table-layout:fixed}
+.compare-table th{text-align:left;padding:8px 10px;color:#000;font-weight:700;border-bottom:2px solid var(--mfo-green);font-size:11px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+.compare-table td{padding:0 10px;color:#000;font-weight:300;border-bottom:1px solid var(--mfo-gray-4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;height:36px;line-height:36px;vertical-align:middle}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table .row-label{font-weight:700}
+.compare-table tr:nth-child(even) td{background:var(--mfo-gray-4)}
+.alert-cell{color:var(--mfo-coral)}
+
+/* Policy bias stack — compact, left-aligned, no labels, half width */
+.bias-stack{display:flex;flex-direction:column;gap:4px;max-width:340px}
+.bias-stack-item{background:var(--mfo-gray-4);border-radius:5px;padding:9px 12px}
+.bias-stack-date{font-size:10px;color:var(--mfo-slate-2);text-transform:uppercase;letter-spacing:.05em;font-weight:300;margin-bottom:3px}
+.bias-stack-tone{display:flex;align-items:center;gap:8px;margin-top:6px}
+.bias-mini-label{font-size:10px;font-weight:300;white-space:nowrap}
+.bias-mini-label.dove{color:var(--mfo-green)}.bias-mini-label.hawk{color:var(--mfo-coral)}
 </style>
 
 <div class="w">
@@ -115,11 +126,11 @@
     </div>
     <div class="section">
       <div class="section-title">Key Variables</div>
-      <div class="topic-grid">
-        <div class="topic-item"><div class="topic-item-label">Inflation</div><div class="topic-item-value">Elevated — moved up</div><div class="topic-item-note">PCE rose to 3,5% on energy shock (Middle East). Core 3,2%.</div></div>
-        <div class="topic-item"><div class="topic-item-label">Labor Market</div><div class="topic-item-value">Stable but soft</div><div class="topic-item-note">Unemployment 4,3%. Job gains remain low. Labor demand softened.</div></div>
-        <div class="topic-item"><div class="topic-item-label">Activity</div><div class="topic-item-value">Solid</div><div class="topic-item-note">Consumer spending and investment resilient. Housing still weak.</div></div>
-        <div class="topic-item"><div class="topic-item-label">Energy / Geopolitics</div><div class="topic-item-value">Significant shock</div><div class="topic-item-note">Middle East conflict drove oil higher. Duration and impact still unclear.</div></div>
+      <div class="kv-box">
+        <div class="kv-row"><div class="kv-left"><div class="kv-topic">Inflation</div><div class="kv-value">Elevated — moved up</div></div><div class="kv-note">PCE rose to 3,5% on energy shock (Middle East). Core 3,2%.</div></div>
+        <div class="kv-row"><div class="kv-left"><div class="kv-topic">Labor Market</div><div class="kv-value">Stable but soft</div></div><div class="kv-note">Unemployment 4,3%. Job gains remain low. Labor demand softened.</div></div>
+        <div class="kv-row"><div class="kv-left"><div class="kv-topic">Activity</div><div class="kv-value">Solid</div></div><div class="kv-note">Consumer spending and investment resilient. Housing still weak.</div></div>
+        <div class="kv-row"><div class="kv-left"><div class="kv-topic">Energy / Geopolitics</div><div class="kv-value">Significant shock</div></div><div class="kv-note">Middle East conflict drove oil higher. Duration and impact still unclear.</div></div>
       </div>
     </div>
     <div class="section">
@@ -136,7 +147,7 @@
       <div class="section-title">FOMC Vote — 8 for / 4 dissents</div>
       <div class="votes-row">
         <span class="vote-chip vote-for">Powell</span><span class="vote-chip vote-for">Williams</span><span class="vote-chip vote-for">Barr</span><span class="vote-chip vote-for">Bowman</span><span class="vote-chip vote-for">Cook</span><span class="vote-chip vote-for">Jefferson</span><span class="vote-chip vote-for">Paulson</span><span class="vote-chip vote-for">Waller</span>
-        <span class="vote-chip vote-dove">Miran (−25bp)</span>
+        <span class="vote-chip vote-dove">Miran (-25bp)</span>
         <span class="vote-chip vote-hawk">Hammack (no easing bias)</span><span class="vote-chip vote-hawk">Kashkari (no easing bias)</span><span class="vote-chip vote-hawk">Logan (no easing bias)</span>
       </div>
       <p class="votes-note">Powell's last press conference as Chair. Kevin Warsh advancing through Senate confirmation as successor.</p>
@@ -145,6 +156,14 @@
       <div class="section-title">Key Quote</div>
       <div class="quote-box">The <b>economic outlook remains highly uncertain</b>, and the conflict in the Middle East has added to this uncertainty. In the near term, <b>higher energy prices will push up overall inflation</b>. Beyond that, <b>the scope and duration of potential effects on the economy remain unclear</b>.</div>
       <div class="quote-attr">— Jerome H. Powell, Chair of the Federal Reserve</div>
+    </div>
+    <div class="section">
+      <div class="section-title">Investment Implications</div>
+      <div class="tend-item high"><div class="tend-title">Rate cuts pushed further out — duration repricing</div><div class="tend-body">PCE at 3,5% in April. Markets should price fewer cuts for 2026. Pressure on fixed income duration.</div></div>
+      <div class="tend-item high"><div class="tend-title">Growing internal division — FOMC more hawkish than it appears</div><div class="tend-body">Three hawks voted against the easing bias. Official statement softens an internally more restrictive stance.</div></div>
+      <div class="tend-item med"><div class="tend-title">Leadership transition — communication risk</div><div class="tend-body">Powell exits May 15, Warsh incoming. Possible shift in tone and policy signaling.</div></div>
+      <div class="tend-item med"><div class="tend-title">Higher for longer as base case</div><div class="tend-body">While energy keeps pushing headline inflation up, the Fed has no room to ease.</div></div>
+      <div class="tend-item low"><div class="tend-title">Long-term anchoring intact — no de-anchoring yet</div><div class="tend-body">Long-term inflation expectations remain consistent with 2%. Chronic inflation is not the base case.</div></div>
     </div>
   </div>
 
@@ -164,17 +183,17 @@
     </div>
     <div class="section">
       <div class="section-title">Key Variables</div>
-      <div class="topic-grid">
-        <div class="topic-item"><div class="topic-item-label">Inflation</div><div class="topic-item-value">Somewhat elevated</div><div class="topic-item-note">Near-term expectations rose on oil. Long-term still anchored.</div></div>
-        <div class="topic-item"><div class="topic-item-label">Labor Market</div><div class="topic-item-value">No new deterioration</div><div class="topic-item-note">SEP projects unemployment at 4,4% at end of 2026.</div></div>
-        <div class="topic-item"><div class="topic-item-label">GDP (SEP)</div><div class="topic-item-value">+2,4% est. 2026</div><div class="topic-item-note">Revised up vs December. +2,3% for 2027.</div></div>
-        <div class="topic-item"><div class="topic-item-label">PCE Inflation (SEP)</div><div class="topic-item-value">2,7% est. 2026</div><div class="topic-item-note">Slightly higher than December. 2,2% for 2027.</div></div>
+      <div class="kv-box">
+        <div class="kv-row"><div class="kv-left"><div class="kv-topic">Inflation</div><div class="kv-value">Somewhat elevated</div></div><div class="kv-note">Near-term expectations rose on oil. Long-term still anchored.</div></div>
+        <div class="kv-row"><div class="kv-left"><div class="kv-topic">Labor Market</div><div class="kv-value">No new deterioration</div></div><div class="kv-note">SEP projects unemployment at 4,4% at end of 2026.</div></div>
+        <div class="kv-row"><div class="kv-left"><div class="kv-topic">GDP (SEP)</div><div class="kv-value">+2,4% est. 2026</div></div><div class="kv-note">Revised up vs December. +2,3% for 2027.</div></div>
+        <div class="kv-row"><div class="kv-left"><div class="kv-topic">PCE Inflation (SEP)</div><div class="kv-value">2,7% est. 2026</div></div><div class="kv-note">Slightly higher than December. 2,2% for 2027.</div></div>
       </div>
     </div>
     <div class="section">
       <div class="section-title">Risk Balance</div>
       <ul class="risk-list">
-        <li class="risk-item"><span class="risk-tri tri-high"></span>Middle East conflict → energy price pressure</li>
+        <li class="risk-item"><span class="risk-tri tri-high"></span>Middle East conflict — energy price pressure</li>
         <li class="risk-item"><span class="risk-tri tri-med"></span>Persistent goods inflation from tariffs</li>
         <li class="risk-item"><span class="risk-tri tri-med"></span>Near-term inflation expectations rising</li>
         <li class="risk-item"><span class="risk-tri tri-low"></span>GDP revised up; consumer spending resilient</li>
@@ -182,16 +201,17 @@
     </div>
     <div class="section">
       <div class="section-title">SEP — Implied Dot Plot</div>
-      <div class="sep-row">
-        <div class="topic-item"><div class="topic-item-label">Median Fed Funds end-2026</div><div class="topic-item-value">3,4%</div><div class="topic-item-note">Unchanged vs December. Implies ~2 cuts of 25bp.</div></div>
-        <div class="topic-item"><div class="topic-item-label">Median Fed Funds end-2027</div><div class="topic-item-value">3,1%</div><div class="topic-item-note">Unchanged vs December.</div></div>
+      <div class="sep-box">
+        <div class="sep-row-item"><div class="sep-label">Median Fed Funds end-2026</div><div class="sep-value">3,4%</div><div class="sep-note">Unchanged vs December. Implies ~2 cuts of 25bp.</div></div>
+        <div class="sep-row-item"><div class="sep-label">Median Fed Funds end-2027</div><div class="sep-value">3,1%</div><div class="sep-note">Unchanged vs December.</div></div>
+        <div class="sep-row-item"><div class="sep-label">Longer run (neutral)</div><div class="sep-value">3,0%</div><div class="sep-note">Consistent with prior projections.</div></div>
       </div>
     </div>
     <div class="section">
       <div class="section-title">FOMC Vote — 11 for / 1 dissent</div>
       <div class="votes-row">
         <span class="vote-chip vote-for">Powell</span><span class="vote-chip vote-for">Williams</span><span class="vote-chip vote-for">Barr</span><span class="vote-chip vote-for">Bowman</span><span class="vote-chip vote-for">Cook</span><span class="vote-chip vote-for">Hammack</span><span class="vote-chip vote-for">Jefferson</span><span class="vote-chip vote-for">Kashkari</span><span class="vote-chip vote-for">Logan</span><span class="vote-chip vote-for">Paulson</span><span class="vote-chip vote-for">Waller</span>
-        <span class="vote-chip vote-dove">Miran (−25bp)</span>
+        <span class="vote-chip vote-dove">Miran (-25bp)</span>
       </div>
       <p class="votes-note">Waller switched from dovish dissent in January to voting with the majority. Only Miran pressed for a cut.</p>
     </div>
@@ -199,6 +219,13 @@
       <div class="section-title">Key Quote</div>
       <div class="quote-box">The implications of events in the <b>Middle East</b> for the U.S. economy are <b>uncertain</b>. In the near term, <b>higher energy prices will push up overall inflation</b>, but it is <b>too soon to know</b> the scope and duration of the potential effects.</div>
       <div class="quote-attr">— Jerome H. Powell, Chair of the Federal Reserve</div>
+    </div>
+    <div class="section">
+      <div class="section-title">Investment Implications</div>
+      <div class="tend-item high"><div class="tend-title">Middle East uncertainty delays rate path clarity</div><div class="tend-body">Energy-driven inflation adds upside risk. Fed stays on hold until scope of the shock is clearer.</div></div>
+      <div class="tend-item med"><div class="tend-title">Dot plot unchanged — but upside risks are growing</div><div class="tend-body">SEP signals ~2 cuts for 2026, but the energy shock could revise this upward at the next meeting.</div></div>
+      <div class="tend-item med"><div class="tend-title">Labor market stabilization supports soft landing</div><div class="tend-body">Unemployment flat at 4,4% and GDP revised up. Consumer resilience reduces urgency to cut.</div></div>
+      <div class="tend-item low"><div class="tend-title">Long-term expectations anchored — no systemic risk yet</div><div class="tend-body">Long-term inflation expectations consistent with 2%. No de-anchoring signal from markets or surveys.</div></div>
     </div>
   </div>
 
@@ -213,16 +240,16 @@
       <div class="section-title">Monetary Policy Tone</div>
       <div class="topic-grid">
         <div class="topic-item"><div class="topic-item-label">Bias</div><div class="topic-item-value">Neutral / Data-dependent</div><div class="tone-row"><span class="tone-label dove">Dove</span><div class="tone-track"><div class="tone-needle" style="left:50%"></div></div><span class="tone-label hawk">Hawk</span></div></div>
-        <div class="topic-item"><div class="topic-item-label">Next Moves</div><div class="topic-item-value">No preset course</div><div class="topic-item-note">Policy within neutral range after −75bp over prior three meetings.</div></div>
+        <div class="topic-item"><div class="topic-item-label">Next Moves</div><div class="topic-item-value">No preset course</div><div class="topic-item-note">Policy within neutral range after -75bp over prior three meetings.</div></div>
       </div>
     </div>
     <div class="section">
       <div class="section-title">Key Variables</div>
-      <div class="topic-grid">
-        <div class="topic-item"><div class="topic-item-label">Inflation</div><div class="topic-item-value">Somewhat elevated</div><div class="topic-item-note">Goods boosted by tariffs. Disinflation continuing in services.</div></div>
-        <div class="topic-item"><div class="topic-item-label">Labor Market</div><div class="topic-item-value">Stabilizing</div><div class="topic-item-note">Private payrolls +29K/mo. Lower immigration and labor force participation.</div></div>
-        <div class="topic-item"><div class="topic-item-label">Economic Activity</div><div class="topic-item-value">Solid pace</div><div class="topic-item-note">Resilient consumer spending; investment expanding. Housing weak.</div></div>
-        <div class="topic-item"><div class="topic-item-label">Tariffs</div><div class="topic-item-value">Pressure on goods</div><div class="topic-item-note">Effect expected to be transitory once pass-throughs are absorbed.</div></div>
+      <div class="kv-box">
+        <div class="kv-row"><div class="kv-left"><div class="kv-topic">Inflation</div><div class="kv-value">Somewhat elevated</div></div><div class="kv-note">Goods boosted by tariffs. Disinflation continuing in services.</div></div>
+        <div class="kv-row"><div class="kv-left"><div class="kv-topic">Labor Market</div><div class="kv-value">Stabilizing</div></div><div class="kv-note">Private payrolls +29K/mo. Lower immigration and labor force participation.</div></div>
+        <div class="kv-row"><div class="kv-left"><div class="kv-topic">Economic Activity</div><div class="kv-value">Solid pace</div></div><div class="kv-note">Resilient consumer spending; investment expanding. Housing weak.</div></div>
+        <div class="kv-row"><div class="kv-left"><div class="kv-topic">Tariffs</div><div class="kv-value">Pressure on goods</div></div><div class="kv-note">Effect expected to be transitory once pass-throughs are absorbed.</div></div>
       </div>
     </div>
     <div class="section">
@@ -238,7 +265,7 @@
       <div class="section-title">FOMC Vote — 10 for / 2 dissents</div>
       <div class="votes-row">
         <span class="vote-chip vote-for">Powell (Chair)</span><span class="vote-chip vote-for">Williams</span><span class="vote-chip vote-for">Barr</span><span class="vote-chip vote-for">Bowman</span><span class="vote-chip vote-for">Cook</span><span class="vote-chip vote-for">Hammack</span><span class="vote-chip vote-for">Jefferson</span><span class="vote-chip vote-for">Kashkari</span><span class="vote-chip vote-for">Logan</span><span class="vote-chip vote-for">Paulson</span>
-        <span class="vote-chip vote-dove">Miran (−25bp)</span><span class="vote-chip vote-dove">Waller (−25bp)</span>
+        <span class="vote-chip vote-dove">Miran (-25bp)</span><span class="vote-chip vote-dove">Waller (-25bp)</span>
       </div>
       <p class="votes-note">2 dovish dissents — both preferred to cut 25bp.</p>
     </div>
@@ -246,6 +273,13 @@
       <div class="section-title">Key Quote</div>
       <div class="quote-box">Monetary policy is <b>not on a preset course</b>, and we will make our decisions <b>on a meeting-by-meeting basis</b>.</div>
       <div class="quote-attr">— Jerome H. Powell, Chair of the Federal Reserve</div>
+    </div>
+    <div class="section">
+      <div class="section-title">Investment Implications</div>
+      <div class="tend-item med"><div class="tend-title">Pause after normalization — rates at neutral</div><div class="tend-body">After cutting 75bp, no urgency to move further. Policy is data-dependent with no preset path.</div></div>
+      <div class="tend-item med"><div class="tend-title">Tariff inflation risk remains the key variable to watch</div><div class="tend-body">Goods inflation driven by tariffs. If pass-through persists, next move could be a hike rather than a cut.</div></div>
+      <div class="tend-item low"><div class="tend-title">Labor market softening — but not alarming yet</div><div class="tend-body">Private payrolls low but stable. No urgent signal for the Fed to ease further on employment grounds.</div></div>
+      <div class="tend-item low"><div class="tend-title">Long-term anchoring provides policy flexibility</div><div class="tend-body">Long-term expectations at 2% give the Fed room to wait without losing credibility.</div></div>
     </div>
   </div>
 
@@ -258,25 +292,34 @@
           <colgroup><col style="width:22%"><col style="width:26%"><col style="width:26%"><col style="width:26%"></colgroup>
           <thead><tr><th>Variable</th><th>Jan 28</th><th>Mar 18</th><th>Apr 29</th></tr></thead>
           <tbody>
-            <tr><td class="row-label">Fed Funds</td><td>3,50–3,75%</td><td>3,50–3,75%</td><td>3,50–3,75%</td></tr>
+            <tr><td class="row-label">Fed Funds</td><td>3,50-3,75%</td><td>3,50-3,75%</td><td>3,50-3,75%</td></tr>
             <tr><td class="row-label">PCE total</td><td>2,9%</td><td>2,8%</td><td class="alert-cell">3,5%</td></tr>
             <tr><td class="row-label">Core PCE</td><td>3,0%</td><td>3,0%</td><td class="alert-cell">3,2%</td></tr>
             <tr><td class="row-label">Unemployment</td><td>4,4%</td><td>4,4%</td><td>4,3%</td></tr>
-            <tr><td class="row-label">Dovish dissents</td><td>2 (Miran, Waller)</td><td>1 (Miran)</td><td>1 (Miran)</td></tr>
-            <tr><td class="row-label">Hawkish dissents</td><td>—</td><td>—</td><td class="alert-cell">3 (Hammack, Kashkari, Logan)</td></tr>
-            <tr><td class="row-label">Geopolitical risk</td><td>Not mentioned</td><td>Middle East — uncertain</td><td class="alert-cell">Middle East — high impact</td></tr>
-            <tr><td class="row-label">Overall tone</td><td>Neutral</td><td>Neutral / Cautious</td><td class="alert-cell">Hawkish — wait and see</td></tr>
+            <tr><td class="row-label">Dovish dissents</td><td>2</td><td>1</td><td>1</td></tr>
+            <tr><td class="row-label">Hawkish dissents</td><td>0</td><td>0</td><td class="alert-cell">3</td></tr>
+            <tr><td class="row-label">Geopolitical risk</td><td>Not mentioned</td><td>Middle East</td><td class="alert-cell">Middle East</td></tr>
+            <tr><td class="row-label">Overall tone</td><td>Neutral</td><td>Neutral</td><td class="alert-cell">Hawkish</td></tr>
           </tbody>
         </table>
       </div>
     </div>
     <div class="section">
-      <div class="section-title">Investment Implications</div>
-      <div class="tend-item high"><div class="tend-title">Rate cuts pushed further out — duration repricing</div><div class="tend-body">Headline PCE jumped to 3,5% in April. Markets should price fewer cuts for 2026. Pressure on fixed income duration.</div></div>
-      <div class="tend-item high"><div class="tend-title">Growing internal division — FOMC more hawkish than it appears</div><div class="tend-body">Three hawks voted against the easing bias in April. The official statement softens an internally more restrictive stance.</div></div>
-      <div class="tend-item med"><div class="tend-title">Leadership transition — communication risk</div><div class="tend-body">Powell exits May 15, Warsh incoming. Possible shift in tone and policy signaling. Key variable to monitor closely.</div></div>
-      <div class="tend-item med"><div class="tend-title">Higher for longer as base case</div><div class="tend-body">While energy keeps pushing headline inflation up, the Fed has no room to ease. Short rates remain elevated.</div></div>
-      <div class="tend-item low"><div class="tend-title">Long-term anchoring intact — no de-anchoring yet</div><div class="tend-body">Long-term inflation expectations remain consistent with 2%. Chronic inflation is not the base case for now.</div></div>
+      <div class="section-title">Policy Bias — Evolution</div>
+      <div class="bias-stack">
+        <div class="bias-stack-item">
+          <div class="bias-stack-date">Jan 28</div>
+          <div class="bias-stack-tone"><span class="bias-mini-label dove">Dove</span><div class="tone-track"><div class="tone-needle" style="left:50%"></div></div><span class="bias-mini-label hawk">Hawk</span></div>
+        </div>
+        <div class="bias-stack-item">
+          <div class="bias-stack-date">Mar 18</div>
+          <div class="bias-stack-tone"><span class="bias-mini-label dove">Dove</span><div class="tone-track"><div class="tone-needle" style="left:55%"></div></div><span class="bias-mini-label hawk">Hawk</span></div>
+        </div>
+        <div class="bias-stack-item">
+          <div class="bias-stack-date">Apr 29</div>
+          <div class="bias-stack-tone"><span class="bias-mini-label dove">Dove</span><div class="tone-track"><div class="tone-needle" style="left:68%"></div></div><span class="bias-mini-label hawk">Hawk</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -288,10 +331,9 @@ function showMeeting(id, btn) {
   document.getElementById('panel-' + id).classList.add('active');
   btn.classList.add('active');
 }
-
 function downloadHTML() {
-  const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Fed Meeting Tracker</title><style>@import url('https://fonts.googleapis.com/css2?family=Aller:ital,wght@0,300;0,700;1,300&display=swap');*{box-sizing:border-box;margin:0;padding:0}:root{--mfo-green:#7BC143;--mfo-green-2:#B3D88C;--mfo-green-4:#E1F1D3;--mfo-coral:#E07F5C;--mfo-coral-light:#EAA992;--mfo-dark:#1B2127;--mfo-slate-2:#5D7082;--mfo-gray-3:#BEBEBE;--mfo-gray-4:#E6E6E6;--mfo-card-bg:#EBEBEB}body{font-family:'Aller',sans-serif;font-weight:300;background:#f5f5f5;color:#000;min-height:100vh;padding:2rem 1rem}.w{max-width:720px;margin:0 auto;background:#fff;border-radius:10px;padding:2rem 1.5rem 2.5rem;box-shadow:0 1px 4px rgba(0,0,0,.08)}.w-header{margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between}.w-header h2{font-size:20px;font-weight:700;color:var(--mfo-green);letter-spacing:-.01em}.tabs{display:flex;gap:5px;margin-bottom:1.25rem;flex-wrap:wrap}.tab{padding:6px 14px;font-size:12px;font-weight:300;font-family:'Aller',sans-serif;border-radius:4px;border:1px solid var(--mfo-gray-3);background:transparent;color:#000;cursor:pointer;transition:all .15s}.tab:hover{background:var(--mfo-gray-4)}.tab.active{background:var(--mfo-slate-2);border-color:var(--mfo-slate-2);color:#fff;font-weight:700}.tab-compare{padding:6px 14px;font-size:12px;font-weight:300;font-family:'Aller',sans-serif;border-radius:4px;border:1px solid var(--mfo-green-2);background:transparent;color:var(--mfo-slate-2);cursor:pointer;transition:all .15s}.tab-compare:hover{background:var(--mfo-green-4)}.tab-compare.active{background:var(--mfo-green);border-color:var(--mfo-green);color:#fff;font-weight:700}.meeting-panel{display:none}.meeting-panel.active{display:block}.top-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}.metric-card{background:var(--mfo-card-bg);border-radius:6px;padding:13px 14px;border:1px solid #d4d4d4}.metric-label{font-size:10px;color:var(--mfo-slate-2);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em;font-weight:300}.metric-value{font-size:21px;font-weight:700;color:#000;line-height:1}.metric-sub{font-size:11px;color:#000;margin-top:5px;font-weight:300}.badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:3px;font-weight:700;font-family:'Aller',sans-serif;letter-spacing:.02em}.badge-hold{background:var(--mfo-slate-2);color:#fff}.section{background:#fff;border:1px solid var(--mfo-gray-4);border-radius:6px;padding:13px 15px;margin-bottom:8px}.section-title{font-size:10px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--mfo-gray-4)}.topic-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.topic-item{padding:10px 11px;border-radius:5px;background:var(--mfo-gray-4)}.topic-item-label{font-size:10px;color:var(--mfo-slate-2);margin-bottom:3px;text-transform:uppercase;letter-spacing:.04em;font-weight:300}.topic-item-value{font-size:13px;color:#000;font-weight:700}.topic-item-note{font-size:12px;color:#000;margin-top:3px;line-height:1.4;font-weight:300}.tone-row{display:flex;align-items:center;gap:8px;margin-top:8px}.tone-label{font-size:11px;font-weight:300;white-space:nowrap}.tone-label.dove{color:var(--mfo-green)}.tone-label.hawk{color:var(--mfo-coral)}.tone-track{flex:1;height:5px;border-radius:3px;background:var(--mfo-gray-3);position:relative}.tone-needle{position:absolute;top:-3px;width:11px;height:11px;border-radius:50%;background:var(--mfo-coral);border:2px solid #fff;transform:translateX(-50%);box-shadow:0 0 0 1px var(--mfo-coral)}.risk-list{list-style:none;display:flex;flex-direction:column;gap:7px}.risk-item{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:#000;line-height:1.4;font-weight:300}.risk-tri{flex-shrink:0;margin-top:3px;width:0;height:0;border-style:solid}.tri-high{border-width:5px 0 5px 9px;border-color:transparent transparent transparent var(--mfo-coral)}.tri-med{border-width:5px 0 5px 9px;border-color:transparent transparent transparent var(--mfo-coral-light)}.tri-low{border-width:5px 0 5px 9px;border-color:transparent transparent transparent var(--mfo-green)}.votes-row{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}.vote-chip{font-size:11px;padding:3px 9px;border-radius:3px;font-family:'Aller',sans-serif;font-weight:300}.vote-for{background:var(--mfo-gray-4);color:#000;border:1px solid var(--mfo-gray-3)}.vote-dove{background:var(--mfo-green-4);color:#000;border:1px solid var(--mfo-green-2)}.vote-hawk{background:#fdeee9;color:var(--mfo-coral);border:1px solid var(--mfo-coral-light)}.votes-note{font-size:12px;color:#000;margin-top:7px;line-height:1.4;font-weight:300}.quote-box{background:var(--mfo-gray-4);border-left:3px solid var(--mfo-gray-3);padding:10px 13px;border-radius:0 5px 5px 0;font-size:13px;color:#000;line-height:1.65;font-weight:300;font-style:italic}.quote-box b{font-weight:700;font-style:italic}.quote-attr{font-size:11px;color:var(--mfo-slate-2);margin-top:7px;font-style:normal;font-weight:300}.sep-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.compare-wrap{overflow-x:auto}.compare-table{width:100%;border-collapse:collapse;font-size:12px;font-weight:300;table-layout:fixed}.compare-table th{text-align:left;padding:8px 10px;color:#000;font-weight:700;border-bottom:2px solid var(--mfo-green);font-size:11px;text-transform:uppercase;letter-spacing:.04em;vertical-align:bottom}.compare-table td{padding:8px 10px;color:#000;font-weight:300;border-bottom:1px solid var(--mfo-gray-4);vertical-align:top;line-height:1.5;word-wrap:break-word}.compare-table tr:last-child td{border-bottom:none}.compare-table .row-label{font-weight:700}.compare-table tr:nth-child(even) td{background:var(--mfo-gray-4)}.alert-cell{color:var(--mfo-coral)}.tend-item{border-left:3px solid var(--mfo-gray-3);padding:8px 11px;margin-bottom:7px;background:var(--mfo-gray-4);border-radius:0 5px 5px 0}.tend-item.high{border-left-color:var(--mfo-coral)}.tend-item.med{border-left-color:var(--mfo-coral-light)}.tend-item.low{border-left-color:var(--mfo-green)}.tend-title{font-size:13px;font-weight:700;color:#000;margin-bottom:2px}.tend-body{font-size:12px;color:#000;line-height:1.4;font-weight:300}</style></head><body>` + document.querySelector('.w').outerHTML.replace(/onclick="downloadHTML\(\)"/g,'style="display:none"') + `<script>function showMeeting(id,btn){document.querySelectorAll('.meeting-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab,.tab-compare').forEach(t=>t.classList.remove('active'));document.getElementById('panel-'+id).classList.add('active');btn.classList.add('active')}<\/script></body></html>`;
-  const blob = new Blob([html], {type:'text/html'});
+  const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Fed Meeting Tracker</title><style>@import url('https://fonts.googleapis.com/css2?family=Aller:ital,wght@0,300;0,700;1,300&display=swap');*{box-sizing:border-box;margin:0;padding:0}:root{--mfo-green:#7BC143;--mfo-green-2:#B3D88C;--mfo-green-4:#E1F1D3;--mfo-coral:#E07F5C;--mfo-coral-light:#EAA992;--mfo-dark:#1B2127;--mfo-slate-2:#5D7082;--mfo-gray-3:#BEBEBE;--mfo-gray-4:#E6E6E6;--mfo-card-bg:#EBEBEB}body{font-family:'Aller',sans-serif;font-weight:300;background:#f5f5f5;color:#000;min-height:100vh;padding:2rem 1rem}.w{max-width:720px;margin:0 auto;background:#fff;border-radius:10px;padding:2rem 1.5rem 2.5rem;box-shadow:0 1px 4px rgba(0,0,0,.08)}.w-header{margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between}.w-header h2{font-size:20px;font-weight:700;color:var(--mfo-green);letter-spacing:-.01em}.tabs{display:flex;gap:5px;margin-bottom:1.25rem;flex-wrap:wrap}.tab{padding:6px 14px;font-size:12px;font-weight:300;font-family:'Aller',sans-serif;border-radius:4px;border:1px solid var(--mfo-gray-3);background:transparent;color:#000;cursor:pointer;transition:all .15s}.tab:hover{background:var(--mfo-gray-4)}.tab.active{background:var(--mfo-slate-2);border-color:var(--mfo-slate-2);color:#fff;font-weight:700}.tab-compare{padding:6px 14px;font-size:12px;font-weight:300;font-family:'Aller',sans-serif;border-radius:4px;border:1px solid var(--mfo-green-2);background:transparent;color:var(--mfo-slate-2);cursor:pointer;transition:all .15s}.tab-compare:hover{background:var(--mfo-green-4)}.tab-compare.active{background:var(--mfo-green);border-color:var(--mfo-green);color:#fff;font-weight:700}.meeting-panel{display:none}.meeting-panel.active{display:block}.top-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}.metric-card{background:var(--mfo-card-bg);border-radius:6px;padding:13px 14px;border:1px solid #d4d4d4}.metric-label{font-size:10px;color:var(--mfo-slate-2);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em;font-weight:300}.metric-value{font-size:21px;font-weight:700;color:#000;line-height:1}.metric-sub{font-size:11px;color:#000;margin-top:5px;font-weight:300}.badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:3px;font-weight:700;font-family:'Aller',sans-serif;letter-spacing:.02em}.badge-hold{background:var(--mfo-slate-2);color:#fff}.section{background:#fff;border:1px solid var(--mfo-gray-4);border-radius:6px;padding:13px 15px;margin-bottom:8px}.section-title{font-size:10px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--mfo-gray-4)}.topic-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.topic-item{padding:10px 11px;border-radius:5px;background:var(--mfo-gray-4)}.topic-item-label{font-size:10px;color:var(--mfo-slate-2);margin-bottom:3px;text-transform:uppercase;letter-spacing:.04em;font-weight:300}.topic-item-value{font-size:13px;color:#000;font-weight:700}.topic-item-note{font-size:12px;color:#000;margin-top:3px;line-height:1.4;font-weight:300}.tone-row{display:flex;align-items:center;gap:8px;margin-top:8px}.tone-label{font-size:11px;font-weight:300;white-space:nowrap}.tone-label.dove{color:var(--mfo-green)}.tone-label.hawk{color:var(--mfo-coral)}.tone-track{flex:1;height:5px;border-radius:3px;background:var(--mfo-gray-3);position:relative}.tone-needle{position:absolute;top:-3px;width:11px;height:11px;border-radius:50%;background:var(--mfo-coral);border:2px solid #fff;transform:translateX(-50%);box-shadow:0 0 0 1px var(--mfo-coral)}.kv-box{background:var(--mfo-gray-4);border-radius:5px;overflow:hidden}.kv-row{display:grid;grid-template-columns:170px 1fr;gap:0;padding:7px 12px;border-bottom:1px solid #d8d8d8;align-items:center}.kv-row:last-child{border-bottom:none}.kv-left{display:flex;flex-direction:column;gap:2px}.kv-topic{font-size:10px;color:var(--mfo-slate-2);text-transform:uppercase;letter-spacing:.04em;font-weight:300}.kv-value{font-size:12px;color:#000;font-weight:700}.kv-note{font-size:12px;color:#000;font-weight:300;line-height:1.4}.sep-box{background:var(--mfo-gray-4);border-radius:5px;overflow:hidden}.sep-row-item{display:grid;grid-template-columns:175px 55px 1fr;gap:0;padding:7px 12px;border-bottom:1px solid #d8d8d8;align-items:center}.sep-row-item:last-child{border-bottom:none}.sep-label{font-size:12px;color:var(--mfo-slate-2);font-weight:300}.sep-value{font-size:12px;font-weight:700;color:#000}.sep-note{font-size:12px;color:#000;font-weight:300;line-height:1.3}.risk-list{list-style:none;display:flex;flex-direction:column;gap:6px}.risk-item{display:flex;align-items:center;gap:8px;font-size:13px;color:#000;line-height:1.4;font-weight:300}.risk-tri{flex-shrink:0;width:0;height:0;border-style:solid}.tri-high{border-width:4px 0 4px 7px;border-color:transparent transparent transparent var(--mfo-coral)}.tri-med{border-width:4px 0 4px 7px;border-color:transparent transparent transparent var(--mfo-coral-light)}.tri-low{border-width:4px 0 4px 7px;border-color:transparent transparent transparent var(--mfo-green)}.votes-row{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}.vote-chip{font-size:11px;padding:3px 9px;border-radius:3px;font-family:'Aller',sans-serif;font-weight:300}.vote-for{background:var(--mfo-gray-4);color:#000;border:1px solid var(--mfo-gray-3)}.vote-dove{background:var(--mfo-green-4);color:#000;border:1px solid var(--mfo-green-2)}.vote-hawk{background:#fdeee9;color:var(--mfo-coral);border:1px solid var(--mfo-coral-light)}.votes-note{font-size:12px;color:#000;margin-top:7px;line-height:1.4;font-weight:300}.quote-box{background:var(--mfo-gray-4);border-left:3px solid var(--mfo-gray-3);padding:10px 13px;border-radius:0 5px 5px 0;font-size:13px;color:#000;line-height:1.65;font-weight:300;font-style:italic}.quote-box b{font-weight:700;font-style:italic}.quote-attr{font-size:11px;color:var(--mfo-slate-2);margin-top:7px;font-style:normal;font-weight:300}.tend-item{border-left:3px solid var(--mfo-gray-3);padding:7px 11px;margin-bottom:6px;background:var(--mfo-gray-4);border-radius:0 5px 5px 0;display:flex;flex-direction:column;justify-content:center}.tend-item.high{border-left-color:var(--mfo-coral)}.tend-item.med{border-left-color:var(--mfo-coral-light)}.tend-item.low{border-left-color:var(--mfo-green)}.tend-title{font-size:12px;font-weight:700;color:#000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tend-body{font-size:11px;color:#000;line-height:1.3;font-weight:300;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}.compare-wrap{overflow-x:auto}.compare-table{width:100%;border-collapse:collapse;font-size:12px;font-weight:300;table-layout:fixed}.compare-table th{text-align:left;padding:8px 10px;color:#000;font-weight:700;border-bottom:2px solid var(--mfo-green);font-size:11px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}.compare-table td{padding:0 10px;color:#000;font-weight:300;border-bottom:1px solid var(--mfo-gray-4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;height:36px;line-height:36px;vertical-align:middle}.compare-table tr:last-child td{border-bottom:none}.compare-table .row-label{font-weight:700}.compare-table tr:nth-child(even) td{background:var(--mfo-gray-4)}.alert-cell{color:var(--mfo-coral)}.bias-stack{display:flex;flex-direction:column;gap:4px;max-width:340px}.bias-stack-item{background:var(--mfo-gray-4);border-radius:5px;padding:9px 12px}.bias-stack-date{font-size:10px;color:var(--mfo-slate-2);text-transform:uppercase;letter-spacing:.05em;font-weight:300;margin-bottom:3px}.bias-stack-tone{display:flex;align-items:center;gap:8px;margin-top:6px}.bias-mini-label{font-size:10px;font-weight:300;white-space:nowrap}.bias-mini-label.dove{color:var(--mfo-green)}.bias-mini-label.hawk{color:var(--mfo-coral)}</style></head><body>` + document.querySelector('.w').outerHTML.replace(/onclick="downloadHTML\(\)"/g,'style="display:none"') + `<script>function showMeeting(id,btn){document.querySelectorAll('.meeting-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab,.tab-compare').forEach(t=>t.classList.remove('active'));document.getElementById('panel-'+id).classList.add('active');btn.classList.add('active')}<\/script></body></html>`;
+  const blob = new Blob([html],{type:'text/html'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = 'fed-meeting-tracker.html';
