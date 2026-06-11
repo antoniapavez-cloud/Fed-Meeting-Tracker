@@ -2,15 +2,14 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Aller:ital,wght@0,300;0,700;1,300&display=swap');
 *{box-sizing:border-box;margin:0;padding:0;font-family:'Aller',sans-serif!important}
-:root{--g:#7BC143;--g2:#B3D88C;--g4:#E1F1D3;--c:#E07F5C;--cl:#EAA992;--dk:#1B2127;--sl:#5D7082;--gr3:#BEBEBE;--gr4:#E6E6E6;--cb:#EBEBEB}
-body,html{font-family:'Aller',sans-serif!important;font-weight:300}
+:root{--g:#7BC143;--g2:#B3D88C;--g4:#E1F1D3;--c:#E07F5C;--cl:#EAA992;--sl:#5D7082;--gr3:#BEBEBE;--gr4:#E6E6E6;--cb:#EBEBEB}
 .w{font-family:'Aller',sans-serif;font-weight:300;padding:1.5rem 1rem 2rem;max-width:680px;color:#000}
 .wh{margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between}
-.wh h2{font-size:20px;font-weight:700;color:var(--g);letter-spacing:-.01em;font-family:'Aller',sans-serif}
-.dlbtn{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;font-size:12px;font-weight:300;font-family:'Aller',sans-serif;border-radius:4px;border:1px solid var(--gr3);background:transparent;color:#000;cursor:pointer}
+.wh h2{font-size:20px;font-weight:700;color:var(--g);letter-spacing:-.01em}
+.dlbtn{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;font-size:12px;font-weight:300;border-radius:4px;border:1px solid var(--gr3);background:transparent;color:#000;cursor:pointer}
 .dlbtn:hover{background:var(--gr4)}
 .tabs{display:flex;gap:5px;margin-bottom:1.25rem;flex-wrap:wrap}
-.tb,.tbg{font-family:'Aller',sans-serif;padding:6px 14px;font-size:12px;border-radius:4px;cursor:pointer;transition:all .15s}
+.tb,.tbg{padding:6px 14px;font-size:12px;border-radius:4px;cursor:pointer;transition:all .15s}
 .tb{font-weight:300;border:1px solid var(--gr3);background:transparent;color:#000}
 .tb:hover{background:var(--gr4)}
 .tb.active{background:var(--sl);border-color:var(--sl);color:#fff;font-weight:700}
@@ -18,21 +17,21 @@ body,html{font-family:'Aller',sans-serif!important;font-weight:300}
 .tbg:hover{background:var(--g4)}
 .tbg.active{background:var(--g);border-color:var(--g);color:#fff;font-weight:700}
 .mp{display:none}.mp.active{display:block}
-.tr{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
-.mc{background:var(--cb);border-radius:6px;padding:11px 12px;border:1px solid #d4d4d4}
-.ml{font-size:10px;color:var(--sl);margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em;font-weight:300;font-family:'Aller',sans-serif}
-.mv{font-size:18px;font-weight:700;color:#000;line-height:1;font-family:'Aller',sans-serif}
-.ms{font-size:12px;color:#000;margin-top:4px;font-weight:300;font-family:'Aller',sans-serif}
-.bh{display:inline-block;font-size:10px;padding:2px 7px;border-radius:3px;font-weight:700;font-family:'Aller',sans-serif;background:var(--sl);color:#fff}
+.tr{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:10px}
+.mc{background:var(--cb);border-radius:6px;padding:10px;border:1px solid #d4d4d4}
+.ml{font-size:9px;color:var(--sl);margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em;font-weight:300}
+.mv{font-size:16px;font-weight:700;color:#000;line-height:1}
+.ms{font-size:11px;color:#000;margin-top:4px;font-weight:300}
+.bh{display:inline-block;font-size:9px;padding:2px 6px;border-radius:3px;font-weight:700;background:var(--sl);color:#fff}
 .sec{background:var(--color-background-primary);border:1px solid var(--gr4);border-radius:6px;padding:13px 15px;margin-bottom:8px}
-.st{font-size:10px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--gr4);font-family:'Aller',sans-serif}
+.st{font-size:10px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--gr4)}
 .tg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .ti{padding:10px 11px;border-radius:5px;background:var(--gr4)}
-.til{font-size:10px;color:var(--sl);margin-bottom:3px;text-transform:uppercase;letter-spacing:.04em;font-weight:300;font-family:'Aller',sans-serif}
-.tiv{font-size:12px;color:#000;font-weight:700;font-family:'Aller',sans-serif}
-.tin{font-size:12px;color:#000;margin-top:3px;line-height:1.4;font-weight:300;font-family:'Aller',sans-serif}
+.til{font-size:10px;color:var(--sl);margin-bottom:3px;text-transform:uppercase;letter-spacing:.04em;font-weight:300}
+.tiv{font-size:12px;color:#000;font-weight:700}
+.tin{font-size:12px;color:#000;margin-top:3px;line-height:1.4;font-weight:300}
 .tor{display:flex;align-items:center;gap:8px;margin-top:8px}
-.tol{font-size:11px;font-weight:300;white-space:nowrap;font-family:'Aller',sans-serif}
+.tol{font-size:11px;font-weight:300;white-space:nowrap}
 .tol.dove{color:var(--g)}.tol.hawk{color:var(--c)}
 .tt2{flex:1;height:5px;border-radius:3px;background:var(--gr3);position:relative}
 .tn{position:absolute;top:-3px;width:11px;height:11px;border-radius:50%;background:var(--c);border:2px solid #fff;transform:translateX(-50%);box-shadow:0 0 0 1px var(--c)}
@@ -40,58 +39,58 @@ body,html{font-family:'Aller',sans-serif!important;font-weight:300}
 .kvr{display:grid;grid-template-columns:170px 1fr;gap:0;padding:7px 12px;border-bottom:1px solid #d8d8d8;align-items:center}
 .kvr:last-child{border-bottom:none}
 .kvl{display:flex;flex-direction:column;gap:2px}
-.kvt{font-size:10px;color:var(--sl);text-transform:uppercase;letter-spacing:.04em;font-weight:300;font-family:'Aller',sans-serif}
-.kvv{font-size:12px;color:#000;font-weight:700;font-family:'Aller',sans-serif}
-.kvn{font-size:12px;color:#000;font-weight:300;line-height:1.4;font-family:'Aller',sans-serif}
+.kvt{font-size:10px;color:var(--sl);text-transform:uppercase;letter-spacing:.04em;font-weight:300}
+.kvv{font-size:12px;color:#000;font-weight:700}
+.kvn{font-size:12px;color:#000;font-weight:300;line-height:1.4}
 .spb{background:var(--gr4);border-radius:5px;overflow:hidden}
 .spr{display:grid;grid-template-columns:175px 55px 1fr;gap:0;padding:7px 12px;border-bottom:1px solid #d8d8d8;align-items:center}
 .spr:last-child{border-bottom:none}
-.spl{font-size:12px;color:var(--sl);font-weight:300;font-family:'Aller',sans-serif}
-.spv{font-size:12px;font-weight:700;color:#000;font-family:'Aller',sans-serif}
-.spn{font-size:12px;color:#000;font-weight:300;font-family:'Aller',sans-serif}
+.spl{font-size:12px;color:var(--sl);font-weight:300}
+.spv{font-size:12px;font-weight:700;color:#000}
+.spn{font-size:12px;color:#000;font-weight:300}
 .rl{list-style:none;display:flex;flex-direction:column;gap:6px}
-.ri{display:flex;align-items:center;gap:7px;font-size:12px;color:#000;line-height:1.4;font-weight:300;font-family:'Aller',sans-serif}
+.ri{display:flex;align-items:center;gap:7px;font-size:12px;color:#000;line-height:1.4;font-weight:300}
 .rt{flex-shrink:0;width:0;height:0;border-style:solid}
 .rh{border-width:5px 0 5px 8px;border-color:transparent transparent transparent var(--c)}
 .rm{border-width:5px 0 5px 8px;border-color:transparent transparent transparent var(--cl)}
 .rg{border-width:5px 0 5px 8px;border-color:transparent transparent transparent var(--g)}
 .vr{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
-.vc{font-size:11px;padding:3px 9px;border-radius:3px;font-family:'Aller',sans-serif;font-weight:300}
+.vc{font-size:11px;padding:3px 9px;border-radius:3px;font-weight:300}
 .vf{background:var(--gr4);color:#000;border:1px solid var(--gr3)}
 .vd{background:var(--g4);color:#000;border:1px solid var(--g2)}
 .vh{background:#fdeee9;color:var(--c);border:1px solid var(--cl)}
-.vn{font-size:12px;color:#000;margin-top:7px;line-height:1.4;font-weight:300;font-family:'Aller',sans-serif}
-.qb{background:var(--gr4);border-left:3px solid var(--gr3);padding:10px 13px;border-radius:0 5px 5px 0;font-size:12px;color:#000;line-height:1.65;font-weight:300;font-style:italic;font-family:'Aller',sans-serif}
-.qb b{font-weight:700;font-style:italic;font-family:'Aller',sans-serif}
-.qa{font-size:11px;color:var(--sl);margin-top:7px;font-style:normal;font-weight:300;font-family:'Aller',sans-serif}
+.vn{font-size:12px;color:#000;margin-top:7px;line-height:1.4;font-weight:300}
+.qb{background:var(--gr4);border-left:3px solid var(--gr3);padding:10px 13px;border-radius:0 5px 5px 0;font-size:12px;color:#000;line-height:1.65;font-weight:300;font-style:italic}
+.qb b{font-weight:700;font-style:italic}
+.qa{font-size:11px;color:var(--sl);margin-top:7px;font-style:normal;font-weight:300}
 .ii{border-left:3px solid var(--gr3);padding:7px 11px;margin-bottom:6px;background:var(--gr4);border-radius:0 5px 5px 0}
 .ii.hi{border-left-color:var(--c)}.ii.me{border-left-color:var(--cl)}.ii.lo{border-left-color:var(--g)}
-.iit{font-size:12px;font-weight:700;color:#000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Aller',sans-serif}
-.iib{font-size:12px;color:#000;line-height:1.3;font-weight:300;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px;font-family:'Aller',sans-serif}
-.ctb{width:100%;border-collapse:collapse;font-size:12px;font-weight:300;table-layout:fixed;font-family:'Aller',sans-serif}
-.ctb th{text-align:left;padding:8px 10px;color:#000;font-weight:700;border-bottom:2px solid var(--g);font-size:11px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;font-family:'Aller',sans-serif}
-.ctb td{padding:0 10px;color:#000;font-weight:300;border-bottom:1px solid var(--gr4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;height:36px;line-height:36px;vertical-align:middle;font-family:'Aller',sans-serif}
+.iit{font-size:12px;font-weight:700;color:#000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.iib{font-size:12px;color:#000;line-height:1.3;font-weight:300;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+.ctb{width:100%;border-collapse:collapse;font-size:12px;font-weight:300;table-layout:fixed}
+.ctb th{text-align:left;padding:8px 10px;color:#000;font-weight:700;border-bottom:2px solid var(--g);font-size:11px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+.ctb td{padding:0 10px;color:#000;font-weight:300;border-bottom:1px solid var(--gr4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;height:36px;line-height:36px;vertical-align:middle}
 .ctb tr:last-child td{border-bottom:none}
 .ctb .rl2{font-weight:700}
 .ctb tr:nth-child(even) td{background:var(--gr4)}
 .ac{color:var(--c)}
 .bs{display:flex;flex-direction:column;gap:4px;max-width:340px}
 .bi{background:var(--gr4);border-radius:5px;padding:9px 12px}
-.bd{font-size:10px;color:var(--sl);text-transform:uppercase;letter-spacing:.05em;font-weight:300;margin-bottom:3px;font-family:'Aller',sans-serif}
+.bd{font-size:10px;color:var(--sl);text-transform:uppercase;letter-spacing:.05em;font-weight:300;margin-bottom:3px}
 .bt{display:flex;align-items:center;gap:8px;margin-top:6px}
-.bml{font-size:10px;font-weight:300;white-space:nowrap;font-family:'Aller',sans-serif}
+.bml{font-size:10px;font-weight:300;white-space:nowrap}
 .bml.dove{color:var(--g)}.bml.hawk{color:var(--c)}
-/* Charts */
 .cs{background:var(--color-background-primary);border:1px solid var(--gr4);border-radius:6px;padding:13px 15px;margin-bottom:8px}
-.ct{font-size:10px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--gr4);font-family:'Aller',sans-serif}
+.ct{font-size:10px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--gr4)}
 .cw{width:100%;position:relative;cursor:crosshair}
 .cw canvas{display:block}
 .cl{display:flex;gap:16px;margin-top:8px;flex-wrap:wrap;justify-content:center}
-.li{display:flex;align-items:center;gap:5px;font-size:11px;color:#000;font-weight:300;font-family:'Aller',sans-serif}
+.li{display:flex;align-items:center;gap:5px;font-size:11px;color:#000;font-weight:300}
 .ll{width:16px;height:2px;border-radius:1px;flex-shrink:0}
 .ld{width:16px;height:0;border-top:2px dashed;flex-shrink:0}
 .lb{width:10px;height:10px;border-radius:2px;flex-shrink:0}
-.tooltip{position:fixed;background:#1B2127;color:#fff;font-family:'Aller',sans-serif;font-size:11px;font-weight:300;padding:5px 9px;border-radius:4px;pointer-events:none;display:none;z-index:9999;white-space:nowrap;line-height:1.6}
+.cnote{font-size:10px;color:var(--sl);margin-top:5px;font-style:italic;font-weight:300}
+.tooltip{position:fixed;background:#1B2127;color:#fff;font-size:11px;font-weight:300;padding:5px 9px;border-radius:4px;pointer-events:none;display:none;z-index:9999;white-space:nowrap;line-height:1.6}
 </style>
 
 <div class="tooltip" id="tooltip"></div>
@@ -116,7 +115,8 @@ body,html{font-family:'Aller',sans-serif!important;font-weight:300}
   <div class="mp active" id="panel-apr">
     <div class="tr">
       <div class="mc"><div class="ml">Fed Funds Rate</div><div class="mv">3,50-3,75%</div><div class="ms"><span class="bh">Unchanged</span></div></div>
-      <div class="mc"><div class="ml">PCE Total (Mar)</div><div class="mv">3,5%</div><div class="ms">Core PCE: 3,2%</div></div>
+      <div class="mc"><div class="ml">PCE Total (Mar)</div><div class="mv">3,5%</div><div class="ms">Core: 3,2%</div></div>
+      <div class="mc"><div class="ml">CPI Total (Mar)</div><div class="mv">3,3%</div><div class="ms">Core: 2,8%</div></div>
       <div class="mc"><div class="ml">Unemployment</div><div class="mv">4,3%</div><div class="ms">Slight improvement</div></div>
       <div class="mc"><div class="ml">GDP (Q4 2025)</div><div class="mv">+2,5%</div><div class="ms">Last reported</div></div>
     </div>
@@ -130,7 +130,7 @@ body,html{font-family:'Aller',sans-serif!important;font-weight:300}
 
   <!-- MAR -->
   <div class="mp" id="panel-mar">
-    <div class="tr"><div class="mc"><div class="ml">Fed Funds Rate</div><div class="mv">3,50-3,75%</div><div class="ms"><span class="bh">Unchanged</span></div></div><div class="mc"><div class="ml">PCE Total (Feb)</div><div class="mv">2,8%</div><div class="ms">Core PCE: 3,0%</div></div><div class="mc"><div class="ml">Unemployment</div><div class="mv">4,4%</div><div class="ms">Little changed</div></div><div class="mc"><div class="ml">GDP (Q4 2025)</div><div class="mv">+2,5%</div><div class="ms">Last reported</div></div></div>
+    <div class="tr"><div class="mc"><div class="ml">Fed Funds Rate</div><div class="mv">3,50-3,75%</div><div class="ms"><span class="bh">Unchanged</span></div></div><div class="mc"><div class="ml">PCE Total (Feb)</div><div class="mv">2,8%</div><div class="ms">Core: 3,0%</div></div><div class="mc"><div class="ml">CPI Total (Feb)</div><div class="mv">2,8%</div><div class="ms">Core: 3,1%</div></div><div class="mc"><div class="ml">Unemployment</div><div class="mv">4,4%</div><div class="ms">Little changed</div></div><div class="mc"><div class="ml">GDP (Q4 2025)</div><div class="mv">+2,5%</div><div class="ms">Last reported</div></div></div>
     <div class="sec"><div class="st">Monetary Policy Tone</div><div class="tg"><div class="ti"><div class="til">Bias</div><div class="tiv">Neutral / Cautious</div><div class="tor"><span class="tol dove">Dove</span><div class="tt2"><div class="tn" style="left:55%"></div></div><span class="tol hawk">Hawk</span></div></div><div class="ti"><div class="til">New Variable</div><div class="tiv">Middle East conflict</div><div class="tin">Adds uncertainty to the outlook. Near-term energy price pressure.</div></div></div></div>
     <div class="sec"><div class="st">Key Variables</div><div class="kvb"><div class="kvr"><div class="kvl"><div class="kvt">Inflation</div><div class="kvv">Somewhat elevated</div></div><div class="kvn">Near-term expectations rose on oil. Long-term still anchored.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Labor Market</div><div class="kvv">No new deterioration</div></div><div class="kvn">SEP projects unemployment at 4,4% at end of 2026.</div></div><div class="kvr"><div class="kvl"><div class="kvt">GDP (last reported)</div><div class="kvv">+2,5% Q4 2025</div></div><div class="kvn">Solid activity. SEP projects +2,4% for full year 2026.</div></div><div class="kvr"><div class="kvl"><div class="kvt">PCE Inflation (SEP)</div><div class="kvv">2,7% est. 2026</div></div><div class="kvn">Slightly higher than December. 2,2% for 2027.</div></div></div></div>
     <div class="sec"><div class="st">Risk Balance</div><ul class="rl"><li class="ri"><span class="rt rh"></span>Middle East conflict - energy price pressure</li><li class="ri"><span class="rt rm"></span>Persistent goods inflation from tariffs</li><li class="ri"><span class="rt rm"></span>Near-term inflation expectations rising</li><li class="ri"><span class="rt rg"></span>Solid GDP; consumer spending resilient</li></ul></div>
@@ -142,7 +142,7 @@ body,html{font-family:'Aller',sans-serif!important;font-weight:300}
 
   <!-- JAN -->
   <div class="mp" id="panel-jan">
-    <div class="tr"><div class="mc"><div class="ml">Fed Funds Rate</div><div class="mv">3,50-3,75%</div><div class="ms"><span class="bh">Unchanged</span></div></div><div class="mc"><div class="ml">PCE Total (Dec)</div><div class="mv">2,9%</div><div class="ms">Core PCE: 3,0%</div></div><div class="mc"><div class="ml">Unemployment</div><div class="mv">4,4%</div><div class="ms">Signs of stabilization</div></div><div class="mc"><div class="ml">GDP (Q3 2025)</div><div class="mv">+2,6%</div><div class="ms">Last reported</div></div></div>
+    <div class="tr"><div class="mc"><div class="ml">Fed Funds Rate</div><div class="mv">3,50-3,75%</div><div class="ms"><span class="bh">Unchanged</span></div></div><div class="mc"><div class="ml">PCE Total (Dec)</div><div class="mv">2,9%</div><div class="ms">Core: 3,0%</div></div><div class="mc"><div class="ml">CPI Total (Dec)</div><div class="mv">2,9%</div><div class="ms">Core: 3,2%</div></div><div class="mc"><div class="ml">Unemployment</div><div class="mv">4,4%</div><div class="ms">Signs of stabilization</div></div><div class="mc"><div class="ml">GDP (Q3 2025)</div><div class="mv">+2,6%</div><div class="ms">Last reported</div></div></div>
     <div class="sec"><div class="st">Monetary Policy Tone</div><div class="tg"><div class="ti"><div class="til">Bias</div><div class="tiv">Neutral / Data-dependent</div><div class="tor"><span class="tol dove">Dove</span><div class="tt2"><div class="tn" style="left:50%"></div></div><span class="tol hawk">Hawk</span></div></div><div class="ti"><div class="til">Next Moves</div><div class="tiv">No preset course</div><div class="tin">Policy within neutral range after -75bp over prior three meetings.</div></div></div></div>
     <div class="sec"><div class="st">Key Variables</div><div class="kvb"><div class="kvr"><div class="kvl"><div class="kvt">Inflation</div><div class="kvv">Somewhat elevated</div></div><div class="kvn">Goods boosted by tariffs. Disinflation continuing in services.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Labor Market</div><div class="kvv">Stabilizing</div></div><div class="kvn">Private payrolls +29K/mo. Lower immigration and labor force participation.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Economic Activity</div><div class="kvv">Solid pace</div></div><div class="kvn">Resilient consumer spending; investment expanding. Housing weak.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Tariffs</div><div class="kvv">Pressure on goods</div></div><div class="kvn">Effect expected to be transitory once pass-throughs are absorbed.</div></div></div></div>
     <div class="sec"><div class="st">Risk Balance</div><ul class="rl"><li class="ri"><span class="rt rm"></span>Tariff-driven inflation proving more persistent than expected</li><li class="ri"><span class="rt rm"></span>Further softening of the labor market</li><li class="ri"><span class="rt rg"></span>Long-term inflation expectations well anchored</li><li class="ri"><span class="rt rg"></span>Government shutdown temporary - effects reversible</li></ul></div>
@@ -153,81 +153,83 @@ body,html{font-family:'Aller',sans-serif!important;font-weight:300}
 
   <!-- EVOLUTION -->
   <div class="mp" id="panel-evo">
-    <div class="sec"><div class="st">Key Metrics - Evolution</div><div style="overflow-x:auto"><table class="ctb"><colgroup><col style="width:22%"><col style="width:26%"><col style="width:26%"><col style="width:26%"></colgroup><thead><tr><th>Variable</th><th>Apr 29</th><th>Mar 18</th><th>Jan 28</th></tr></thead><tbody><tr><td class="rl2">Fed Funds</td><td>3,50-3,75%</td><td>3,50-3,75%</td><td>3,50-3,75%</td></tr><tr><td class="rl2">PCE total</td><td class="ac">3,5%</td><td>2,8%</td><td>2,9%</td></tr><tr><td class="rl2">Core PCE</td><td class="ac">3,2%</td><td>3,0%</td><td>3,0%</td></tr><tr><td class="rl2">Unemployment</td><td>4,3%</td><td>4,4%</td><td>4,4%</td></tr><tr><td class="rl2">GDP (last reported)</td><td>+2,5% Q4 25</td><td>+2,5% Q4 25</td><td>+2,6% Q3 25</td></tr><tr><td class="rl2">Dovish dissents</td><td>1</td><td>1</td><td>2</td></tr><tr><td class="rl2">Hawkish dissents</td><td class="ac">3</td><td>0</td><td>0</td></tr><tr><td class="rl2">Geopolitical risk</td><td class="ac">Middle East</td><td>Middle East</td><td>Not mentioned</td></tr><tr><td class="rl2">Overall tone</td><td class="ac">Hawkish</td><td>Neutral</td><td>Neutral</td></tr></tbody></table></div></div>
+    <div class="sec"><div class="st">Key Metrics - Evolution</div><div style="overflow-x:auto"><table class="ctb"><colgroup><col style="width:22%"><col style="width:26%"><col style="width:26%"><col style="width:26%"></colgroup><thead><tr><th>Variable</th><th>Apr 29</th><th>Mar 18</th><th>Jan 28</th></tr></thead><tbody><tr><td class="rl2">Fed Funds</td><td>3,50-3,75%</td><td>3,50-3,75%</td><td>3,50-3,75%</td></tr><tr><td class="rl2">PCE total</td><td class="ac">3,5%</td><td>2,8%</td><td>2,9%</td></tr><tr><td class="rl2">Core PCE</td><td class="ac">3,2%</td><td>3,0%</td><td>3,0%</td></tr><tr><td class="rl2">CPI total</td><td class="ac">3,3%</td><td>2,8%</td><td>2,9%</td></tr><tr><td class="rl2">Core CPI</td><td>2,8%</td><td>3,1%</td><td>3,2%</td></tr><tr><td class="rl2">Unemployment</td><td>4,3%</td><td>4,4%</td><td>4,4%</td></tr><tr><td class="rl2">GDP (last reported)</td><td>+2,5% Q4 25</td><td>+2,5% Q4 25</td><td>+2,6% Q3 25</td></tr><tr><td class="rl2">Dovish dissents</td><td>1</td><td>1</td><td>2</td></tr><tr><td class="rl2">Hawkish dissents</td><td class="ac">3</td><td>0</td><td>0</td></tr><tr><td class="rl2">Geopolitical risk</td><td class="ac">Middle East</td><td>Middle East</td><td>Not mentioned</td></tr><tr><td class="rl2">Overall tone</td><td class="ac">Hawkish</td><td>Neutral</td><td>Neutral</td></tr></tbody></table></div></div>
     <div class="sec"><div class="st">Policy Bias - Evolution</div><div class="bs"><div class="bi"><div class="bd">Jan 28</div><div class="bt"><span class="bml dove">Dove</span><div class="tt2"><div class="tn" style="left:50%"></div></div><span class="bml hawk">Hawk</span></div></div><div class="bi"><div class="bd">Mar 18</div><div class="bt"><span class="bml dove">Dove</span><div class="tt2"><div class="tn" style="left:55%"></div></div><span class="bml hawk">Hawk</span></div></div><div class="bi"><div class="bd">Apr 29</div><div class="bt"><span class="bml dove">Dove</span><div class="tt2"><div class="tn" style="left:68%"></div></div><span class="bml hawk">Hawk</span></div></div></div></div>
   </div>
 
-  <!-- CHARTS: 1.FFR 2.PCE 3.CPI 4.UNE 5.GDP QoQ 6.GDP YoY -->
+  <!-- CHARTS -->
   <div class="mp" id="panel-charts">
-    <div class="cs"><div class="ct">Fed Funds Rate (%)</div><div class="cw" id="w1"><canvas id="c1"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>Fed Funds upper bound</div><div class="li"><div class="ld" style="border-color:#E07F5C"></div>Long-run 3,1%</div></div></div>
-    <div class="cs"><div class="ct">PCE Inflation — Total &amp; Core (%) YoY</div><div class="cw" id="w0"><canvas id="c0"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>PCE Total</div><div class="li"><div class="ll" style="background:#7BC143"></div>Core PCE</div><div class="li"><div class="ld" style="border-color:#E07F5C"></div>2% target</div></div></div>
-    <div class="cs"><div class="ct">CPI Inflation — Total &amp; Core (%) YoY</div><div class="cw" id="w4"><canvas id="c4"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>CPI Total</div><div class="li"><div class="ll" style="background:#7BC143"></div>Core CPI</div><div class="li"><div class="ld" style="border-color:#E07F5C"></div>2% target</div></div></div>
-    <div class="cs"><div class="ct">Unemployment Rate (%)</div><div class="cw" id="w2"><canvas id="c2"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>Unemployment rate</div></div></div>
-    <div class="cs"><div class="ct">GDP Growth — Real QoQ annualized (%)</div><div class="cw" id="w3"><canvas id="c3"></canvas></div><div class="cl"><div class="li"><div class="lb" style="background:#7BC143"></div>Positive</div><div class="li"><div class="lb" style="background:#E07F5C"></div>Negative / clipped</div></div></div>
-    <div class="cs"><div class="ct">GDP Growth — Real YoY (%)</div><div class="cw" id="w5"><canvas id="c5"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>GDP YoY</div><div class="li"><div class="ld" style="border-color:#E07F5C"></div>0%</div></div></div>
+    <div class="cs"><div class="ct">Fed Funds Rate (%)</div><div class="cw" id="w1"><canvas id="c1"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>Fed Funds upper bound</div><div class="li"><div class="ld" style="border-color:#E07F5C"></div>Long-run 3,1%</div></div><div class="cnote">Data through May 2026</div></div>
+    <div class="cs"><div class="ct">PCE Inflation — Total &amp; Core (%) YoY</div><div class="cw" id="w0"><canvas id="c0"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>PCE Total</div><div class="li"><div class="ll" style="background:#7BC143"></div>Core PCE</div></div><div class="cnote">Latest: Apr 2026 — Total 3,8% / Core 3,3%. Next release Jun 25</div></div>
+    <div class="cs"><div class="ct">CPI Inflation — Total &amp; Core (%) YoY</div><div class="cw" id="w4"><canvas id="c4"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>CPI Total</div><div class="li"><div class="ll" style="background:#7BC143"></div>Core CPI</div><div class="li"><div class="ld" style="border-color:#E07F5C"></div>2% target</div></div><div class="cnote">Latest: May 2026 — Total 4,2% / Core 2,9%</div></div>
+    <div class="cs"><div class="ct">Unemployment Rate (%)</div><div class="cw" id="w2"><canvas id="c2"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>Unemployment rate</div></div><div class="cnote">Latest: May 2026 — 4,3%</div></div>
+    <div class="cs"><div class="ct">GDP Growth — Real QoQ annualized (%)</div><div class="cw" id="w3"><canvas id="c3"></canvas></div><div class="cl"><div class="li"><div class="lb" style="background:#7BC143"></div>Positive</div><div class="li"><div class="lb" style="background:#E07F5C"></div>Negative / clipped</div></div><div class="cnote">Latest: Q1 2026 +1,6% (revised). Q2 advance estimate pending</div></div>
+    <div class="cs"><div class="ct">GDP Growth — Real YoY (%)</div><div class="cw" id="w5"><canvas id="c5"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>GDP YoY</div></div><div class="cnote">Latest: Q1 2026 +2,4% YoY</div></div>
   </div>
 </div>
 
 <script>
 const BLU='#5D7082',GRN='#7BC143',CRL='#E07F5C',GR4='#E6E6E6';
-const F="'Aller',sans-serif"; // font string for canvas
+const F="'Aller',sans-serif";
 const tip=document.getElementById('tooltip');
 function showT(e,h){tip.innerHTML=h;tip.style.display='block';tip.style.left=(e.clientX+14)+'px';tip.style.top=(e.clientY-28)+'px';}
 function hideT(){tip.style.display='none';}
 
-// Monthly labels Jan 2020 - Apr 2026
-const MLBL=[];
+// Monthly labels
 const MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-for(let y=2020;y<=2026;y++){const e=y===2026?4:12;for(let m=0;m<e;m++)MLBL.push(MN[m]+' '+y);}
-const NM=MLBL.length; // 76
+function mkLBL(endY,endM){const a=[];for(let y=2020;y<=endY;y++){const e=y===endY?endM:12;for(let m=0;m<e;m++)a.push(MN[m]+' '+y);}return a;}
+const LBL77=mkLBL(2026,5); // Jan2020-May2026 = 77
+const LBL76=mkLBL(2026,4); // Jan2020-Apr2026 = 76
+const JI=[0,12,24,36,48,60,72];
+const YL=['2020','2021','2022','2023','2024','2025','2026'];
+const QI=[0,4,8,12,16,20,24];
 
-// Year label positions (Jan of each year)
-const JAN_I=[0,12,24,36,48,60,72];
-const YR_L=['2020','2021','2022','2023','2024','2025','2026'];
+// ── Data ──────────────────────────────────────────────────────────────────────
+const FFR=[1.75,1.75,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.50,0.50,1.00,1.75,2.50,2.50,3.25,3.25,4.00,4.50,4.75,4.75,5.00,5.25,5.25,5.25,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.25,5.25,5.25,4.75,4.50,4.50,4.25,4.25,4.00,4.00,4.00,3.75,3.75,3.75,3.75,3.75,3.75,3.75,3.75,3.75,3.75,3.75];
+const PCET=[1.8,1.8,1.5,1.1,0.5,0.9,1.0,1.3,1.5,1.2,1.2,1.3,1.4,1.6,2.5,3.1,3.9,4.0,4.2,4.2,4.3,5.0,5.5,5.8,6.3,6.4,6.6,6.3,6.3,6.8,6.3,6.2,6.2,6.2,5.5,5.3,5.0,5.0,4.6,4.4,3.8,3.8,3.3,3.4,3.4,2.9,2.7,2.6,2.4,2.5,2.5,2.7,2.6,2.5,2.5,2.2,2.2,2.3,2.4,2.6,2.5,2.6,2.8,2.7,2.7,2.6,2.6,2.7,2.7,2.9,2.9,2.9,3.1,3.2,3.5,3.8];
+const PCEC=[1.7,1.8,1.6,1.1,1.0,1.2,1.3,1.4,1.5,1.4,1.4,1.4,1.5,1.5,2.0,3.0,3.5,3.5,3.6,3.6,3.6,4.2,4.7,4.9,5.2,5.2,5.2,4.9,4.8,4.8,4.6,4.9,5.1,5.0,4.7,4.7,4.6,4.7,4.6,4.6,4.7,4.2,4.2,3.8,3.7,3.4,3.2,3.0,2.8,2.8,2.7,2.8,2.6,2.6,2.6,2.7,2.6,2.8,2.8,2.9,2.7,2.7,3.0,2.9,2.8,2.7,2.7,2.8,2.9,3.0,3.0,3.0,3.1,3.1,3.2,3.3];
+const CPIT=[2.5,2.3,1.5,0.3,-0.1,0.6,1.0,1.3,1.4,1.2,1.2,1.4,1.4,1.7,2.6,4.2,5.0,5.4,5.4,5.3,5.4,6.2,6.8,7.0,7.5,7.9,8.5,8.3,8.6,9.1,8.5,8.3,8.2,7.7,7.1,6.5,6.4,6.0,5.0,4.9,4.0,3.0,3.2,3.7,3.7,3.2,3.1,3.4,3.1,3.5,3.2,3.4,3.3,3.0,2.9,2.5,2.4,2.4,2.4,2.7,2.9,2.8,2.8,2.8,2.5,2.4,2.4,2.6,2.8,3.2,3.2,2.9,3.0,2.8,3.3,3.8,4.2];
+const CPIC=[2.3,2.4,2.1,1.4,1.2,1.2,1.6,1.7,1.7,1.7,1.6,1.6,1.4,1.3,1.6,3.0,3.8,4.5,4.0,4.0,4.0,4.6,5.0,5.5,6.0,6.4,6.5,6.2,6.0,5.9,5.9,6.3,6.6,6.3,6.0,5.7,5.5,5.5,5.6,5.5,5.3,4.8,4.7,4.1,4.0,3.7,3.4,3.9,3.8,3.6,3.8,3.6,3.4,3.3,3.2,3.2,3.2,3.3,3.3,3.2,3.1,3.5,3.3,3.1,2.8,2.6,2.6,2.9,2.9,3.2,3.3,3.2,3.1,3.0,2.8,2.8,2.9];
+const UNE=[3.6,3.5,4.4,14.7,13.3,11.1,10.2,8.4,7.9,6.9,6.7,6.7,6.4,6.2,6.0,6.0,5.8,5.9,5.4,5.2,4.8,4.6,4.2,3.9,4.0,3.8,3.6,3.6,3.6,3.6,3.5,3.5,3.5,3.7,3.7,3.5,3.4,3.6,3.5,3.4,3.7,3.6,3.5,3.8,3.8,3.9,3.7,3.7,3.7,3.9,3.8,3.9,4.0,4.1,4.3,4.2,4.1,4.1,4.2,4.2,4.0,4.1,4.2,4.2,4.2,4.0,4.1,4.2,4.3,4.1,4.3,4.4,4.1,4.0,4.4,4.3,4.3];
+const GQL=['Q1 20','Q2 20','Q3 20','Q4 20','Q1 21','Q2 21','Q3 21','Q4 21','Q1 22','Q2 22','Q3 22','Q4 22','Q1 23','Q2 23','Q3 23','Q4 23','Q1 24','Q2 24','Q3 24','Q4 24','Q1 25','Q2 25','Q3 25','Q4 25','Q1 26'];
+const GQD=[-5.0,-31.2,33.8,4.5,6.3,6.7,2.3,6.9,-1.6,-0.6,3.2,2.6,2.2,2.1,4.9,3.4,1.6,3.0,2.8,2.3,2.5,2.8,2.6,2.5,1.6];
+const GYY=[-9.0,-9.1,3.4,3.5,0.5,12.2,4.9,5.7,3.7,-0.6,-1.9,1.0,1.8,2.4,2.9,3.1,2.9,3.1,2.7,2.5,2.5,3.0,2.7,2.4,2.4];
+const GC=8;
 
-// Fed Funds monthly
-const FFR_M=[1.75,1.75,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.50,0.50,1.00,1.75,2.50,2.50,3.25,3.25,4.00,4.50,4.75,4.75,5.00,5.25,5.25,5.25,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.25,5.25,5.25,4.75,4.50,4.50,4.25,4.25,4.00,4.00,4.00,3.75,3.75,3.75,3.75,3.75,3.75,3.75,3.75,3.75,3.75];
-// PCE Total monthly YoY
-const PCE_M=[1.8,1.8,1.5,1.1,0.5,0.9,1.0,1.3,1.5,1.2,1.2,1.3,1.4,1.6,2.5,3.1,3.9,4.0,4.2,4.2,4.3,5.0,5.5,5.8,6.3,6.4,6.6,6.3,6.3,6.8,6.3,6.2,6.2,6.2,5.5,5.3,5.0,5.0,4.6,4.4,3.8,3.8,3.3,3.4,3.4,2.9,2.7,2.6,2.4,2.5,2.5,2.7,2.6,2.5,2.5,2.2,2.2,2.3,2.4,2.6,2.5,2.6,2.8,2.7,2.7,2.6,2.6,2.7,2.7,2.9,2.9,2.9,3.1,3.2,3.5,3.5];
-// PCE Core monthly YoY
-const PCEC_M=[1.7,1.8,1.6,1.1,1.0,1.2,1.3,1.4,1.5,1.4,1.4,1.4,1.5,1.5,2.0,3.0,3.5,3.5,3.6,3.6,3.6,4.2,4.7,4.9,5.2,5.2,5.2,4.9,4.8,4.8,4.6,4.9,5.1,5.0,4.7,4.7,4.6,4.7,4.6,4.6,4.7,4.2,4.2,3.8,3.7,3.4,3.2,3.0,2.8,2.8,2.7,2.8,2.6,2.6,2.6,2.7,2.6,2.8,2.8,2.9,2.7,2.7,3.0,2.9,2.8,2.7,2.7,2.8,2.9,3.0,3.0,3.0,3.1,3.1,3.2,3.2];
-// CPI Total monthly YoY
-const CPI_M=[2.5,2.3,1.5,0.3,-0.1,0.6,1.0,1.3,1.4,1.2,1.2,1.4,1.4,1.7,2.6,4.2,5.0,5.4,5.4,5.3,5.4,6.2,6.8,7.0,7.5,7.9,8.5,8.3,8.6,9.1,8.5,8.3,8.2,7.7,7.1,6.5,6.4,6.0,5.0,4.9,4.0,3.0,3.2,3.7,3.7,3.2,3.1,3.4,3.1,3.5,3.2,3.4,3.3,3.0,2.9,2.5,2.4,2.4,2.4,2.7,2.9,2.8,2.8,2.8,2.5,2.4,2.4,2.6,2.8,3.2,3.2,2.9,3.0,2.8,2.8,2.8];
-// CPI Core monthly YoY
-const CPIC_M=[2.3,2.4,2.1,1.4,1.2,1.2,1.6,1.7,1.7,1.7,1.6,1.6,1.4,1.3,1.6,3.0,3.8,4.5,4.0,4.0,4.0,4.6,5.0,5.5,6.0,6.4,6.5,6.2,6.0,5.9,5.9,6.3,6.6,6.3,6.0,5.7,5.5,5.5,5.6,5.5,5.3,4.8,4.7,4.1,4.0,3.7,3.4,3.9,3.8,3.6,3.8,3.6,3.4,3.3,3.2,3.2,3.2,3.3,3.3,3.2,3.1,3.5,3.3,3.1,2.8,2.6,2.6,2.9,2.9,3.2,3.3,3.2,3.1,3.0,3.1,3.1];
-// Unemployment monthly
-const UNE_M=[3.6,3.5,4.4,14.7,13.3,11.1,10.2,8.4,7.9,6.9,6.7,6.7,6.4,6.2,6.0,6.0,5.8,5.9,5.4,5.2,4.8,4.6,4.2,3.9,4.0,3.8,3.6,3.6,3.6,3.6,3.5,3.5,3.5,3.7,3.7,3.5,3.4,3.6,3.5,3.4,3.7,3.6,3.5,3.8,3.8,3.9,3.7,3.7,3.7,3.9,3.8,3.9,4.0,4.1,4.3,4.2,4.1,4.1,4.2,4.2,4.0,4.1,4.2,4.2,4.2,4.0,4.1,4.2,4.3,4.1,4.3,4.4,4.1,4.0,4.4,4.3];
-// GDP QoQ quarterly
-const GDP_Q_LBL=['Q1 20','Q2 20','Q3 20','Q4 20','Q1 21','Q2 21','Q3 21','Q4 21','Q1 22','Q2 22','Q3 22','Q4 22','Q1 23','Q2 23','Q3 23','Q4 23','Q1 24','Q2 24','Q3 24','Q4 24','Q1 25','Q2 25','Q3 25','Q4 25','Q1 26'];
-const GDP_QD=[-5.0,-31.2,33.8,4.5,6.3,6.7,2.3,6.9,-1.6,-0.6,3.2,2.6,2.2,2.1,4.9,3.4,1.6,3.0,2.8,2.3,2.5,2.8,2.6,2.5,2.3];
-const GDP_CLIP=8;
-// GDP YoY quarterly
-const GDP_YOY=[-9.0,-9.1,3.4,3.5,0.5,12.2,4.9,5.7,3.7,-0.6,-1.9,1.0,1.8,2.4,2.9,3.1,2.9,3.1,2.7,2.5,2.5,3.0,2.7,2.4,2.4];
+// ── Auto axis ─────────────────────────────────────────────────────────────────
+function autoAx(data,forceZeroMin){
+  const mn=Math.min(...data),mx=Math.max(...data);
+  const range=mx-mn||1;
+  let lo=forceZeroMin?0:mn-range*0.08;
+  let hi=mx+range*0.08;
+  const raw=(hi-lo)/5;
+  const mag=Math.pow(10,Math.floor(Math.log10(raw)));
+  const niceSteps=[0.5,1,2,2.5,5,10].map(f=>f*mag);
+  const step=niceSteps.find(s=>s>=raw)||niceSteps[niceSteps.length-1];
+  lo=Math.floor(lo/step)*step;
+  hi=Math.ceil(hi/step)*step;
+  if(forceZeroMin&&lo>0) lo=0;
+  const tks=[];
+  for(let v=lo;v<=hi+1e-9;v=+(v+step).toFixed(10)) tks.push(+v.toFixed(6));
+  return{lo,hi,step,tks};
+}
 
-function renderLine(cid,wid,datasets,yMin,yMax,step,targetV,targetLbl){
+// ── Line render ───────────────────────────────────────────────────────────────
+function rLine(cid,wid,datasets,targetV,targetLbl,lblArr,xIdxArr){
   const cv=document.getElementById(cid),wr=document.getElementById(wid);
   if(!cv||!wr)return;
-  const DPR=window.devicePixelRatio||1;
-  const W=wr.offsetWidth,H=195;
-  cv.width=W*DPR;cv.height=H*DPR;
-  cv.style.width=W+'px';cv.style.height=H+'px';
+  const DPR=window.devicePixelRatio||1,W=wr.offsetWidth,H=195;
+  cv.width=W*DPR;cv.height=H*DPR;cv.style.width=W+'px';cv.style.height=H+'px';
   const ctx=cv.getContext('2d');ctx.scale(DPR,DPR);
-  const PL=30,PR=8,PT=8,PB=42;
-  const cW=W-PL-PR,cH=H-PT-PB;
-  const n=datasets[0].d.length;
-  const isQ=(n===GDP_Q_LBL.length);
-  const lblArr=isQ?GDP_Q_LBL:MLBL;
-  const xpIdx=isQ?[0,4,8,12,16,20,24]:JAN_I;
-  const xpLbl=YR_L;
-  const yr2=yMax-yMin;
+  const PL=30,PR=8,PT=8,PB=42,cW=W-PL-PR,cH=H-PT-PB,n=datasets[0].d.length;
+  const allD=datasets.flatMap(d=>d.d);
+  const forceZ=Math.min(...allD)>=0;
+  const ax=autoAx(allD,forceZ);
+  const yr=ax.hi-ax.lo;
   const xp=i=>PL+(i/(n-1))*cW;
-  const yp=v=>PT+cH-((v-yMin)/yr2)*cH;
+  const yp=v=>PT+cH-((v-ax.lo)/yr)*cH;
   ctx.fillStyle='#fff';ctx.fillRect(0,0,W,H);
-  // Y ticks
-  const tks=[];
-  for(let v=yMin;v<=yMax+1e-6;v=+(v+step).toFixed(6))tks.push(+v.toFixed(4));
-  if(!tks.some(v=>Math.abs(v)<1e-4)){tks.push(0);tks.sort((a,b)=>a-b);}
-  tks.forEach(v=>{
+  ax.tks.forEach(v=>{
     const y=yp(v),iz=Math.abs(v)<1e-4;
     ctx.strokeStyle=iz?'rgba(0,0,0,0.15)':GR4;ctx.lineWidth=iz?1:0.5;
     ctx.beginPath();ctx.moveTo(PL,y);ctx.lineTo(PL+cW,y);ctx.stroke();
@@ -242,19 +244,14 @@ function renderLine(cid,wid,datasets,yMin,yMax,step,targetV,targetLbl){
     ctx.fillStyle=CRL;ctx.font=`bold 9px ${F}`;ctx.textAlign='right';
     ctx.fillText(targetLbl,PL+cW-2,yt-4);
   }
-  // X labels
   ctx.fillStyle='#000';ctx.font=`9px ${F}`;ctx.textAlign='right';
-  xpIdx.forEach((idx,k)=>{
+  xIdxArr.forEach((idx,k)=>{
     if(idx>=n)return;
-    ctx.save();ctx.translate(xp(idx),H-PB+16);ctx.rotate(-Math.PI/6);
-    ctx.fillText(xpLbl[k],0,0);ctx.restore();
+    ctx.save();ctx.translate(xp(idx),H-PB+16);ctx.rotate(-Math.PI/6);ctx.fillText(YL[k],0,0);ctx.restore();
   });
-  // Lines
   datasets.forEach(ds=>{
     ctx.strokeStyle=ds.c;ctx.lineWidth=ds.w||2;ctx.lineJoin='round';ctx.lineCap='round';
-    ctx.beginPath();
-    ds.d.forEach((v,i)=>i===0?ctx.moveTo(xp(i),yp(v)):ctx.lineTo(xp(i),yp(v)));
-    ctx.stroke();
+    ctx.beginPath();ds.d.forEach((v,i)=>i===0?ctx.moveTo(xp(i),yp(v)):ctx.lineTo(xp(i),yp(v)));ctx.stroke();
     ctx.fillStyle=ds.c;ctx.beginPath();ctx.arc(xp(n-1),yp(ds.d[n-1]),3,0,Math.PI*2);ctx.fill();
   });
   cv.onmousemove=e=>{
@@ -268,50 +265,38 @@ function renderLine(cid,wid,datasets,yMin,yMax,step,targetV,targetLbl){
   cv.onmouseleave=hideT;
 }
 
-function renderBars(cid,wid){
+// ── Bars ─────────────────────────────────────────────────────────────────────
+function rBars(cid,wid){
   const cv=document.getElementById(cid),wr=document.getElementById(wid);
   if(!cv||!wr)return;
-  const DPR=window.devicePixelRatio||1;
-  const W=wr.offsetWidth,H=195;
-  cv.width=W*DPR;cv.height=H*DPR;
-  cv.style.width=W+'px';cv.style.height=H+'px';
+  const DPR=window.devicePixelRatio||1,W=wr.offsetWidth,H=195;
+  cv.width=W*DPR;cv.height=H*DPR;cv.style.width=W+'px';cv.style.height=H+'px';
   const ctx=cv.getContext('2d');ctx.scale(DPR,DPR);
-  const PL=30,PR=8,PT=8,PB=42;
-  const cW=W-PL-PR,cH=H-PT-PB;
-  const n=GDP_QD.length,yMin=-GDP_CLIP,yMax=GDP_CLIP,yr2=yMax-yMin;
-  const bW=(cW/n)*0.7;
-  const xp=i=>PL+(i/n)*cW+(cW/n)*0.15;
-  const yp=v=>PT+cH-((v-yMin)/yr2)*cH;
-  const y0=yp(0);
+  const PL=30,PR=8,PT=8,PB=42,cW=W-PL-PR,cH=H-PT-PB;
+  const n=GQD.length,yMin=-GC,yMax=GC,yr=yMax-yMin;
+  const bW=(cW/n)*0.7,xp=i=>PL+(i/n)*cW+(cW/n)*0.15;
+  const yp=v=>PT+cH-((v-yMin)/yr)*cH,y0=yp(0);
   ctx.fillStyle='#fff';ctx.fillRect(0,0,W,H);
-  for(let v=-GDP_CLIP;v<=GDP_CLIP;v+=2){
+  for(let v=-GC;v<=GC;v+=2){
     const y=yp(v),iz=v===0;
     ctx.strokeStyle=iz?'rgba(0,0,0,0.15)':GR4;ctx.lineWidth=iz?1:0.5;
     ctx.beginPath();ctx.moveTo(PL,y);ctx.lineTo(PL+cW,y);ctx.stroke();
-    ctx.fillStyle='#000';ctx.font=`9px ${F}`;ctx.textAlign='right';
-    ctx.fillText(v,PL-3,y+3);
+    ctx.fillStyle='#000';ctx.font=`9px ${F}`;ctx.textAlign='right';ctx.fillText(v,PL-3,y+3);
   }
-  GDP_QD.forEach((v,i)=>{
-    const cl=Math.max(-GDP_CLIP,Math.min(GDP_CLIP,v));
-    const ip=v>=0,bH=Math.abs(yp(cl)-y0),bY=ip?y0-bH:y0;
+  GQD.forEach((v,i)=>{
+    const cl=Math.max(-GC,Math.min(GC,v)),ip=v>=0,bH=Math.abs(yp(cl)-y0),bY=ip?y0-bH:y0;
     ctx.fillStyle=ip?GRN:CRL;ctx.fillRect(xp(i),bY,bW,bH);
-    if(Math.abs(v)>GDP_CLIP){
-      ctx.fillStyle=ip?GRN:CRL;ctx.font=`bold 8px ${F}`;ctx.textAlign='center';
-      ctx.fillText((v>0?'+':'')+v.toFixed(1)+'%',xp(i)+bW/2,ip?bY-3:bY+bH+9);
-    }
+    if(Math.abs(v)>GC){ctx.fillStyle=ip?GRN:CRL;ctx.font=`bold 8px ${F}`;ctx.textAlign='center';ctx.fillText((v>0?'+':'')+v.toFixed(1)+'%',xp(i)+bW/2,ip?bY-3:bY+bH+9);}
   });
   ctx.fillStyle='#000';ctx.font=`9px ${F}`;ctx.textAlign='right';
-  [0,4,8,12,16,20,24].forEach((qi,k)=>{
-    ctx.save();ctx.translate(xp(qi)+bW/2,H-PB+16);ctx.rotate(-Math.PI/6);
-    ctx.fillText(YR_L[k],0,0);ctx.restore();
-  });
+  QI.forEach((qi,k)=>{ctx.save();ctx.translate(xp(qi)+bW/2,H-PB+16);ctx.rotate(-Math.PI/6);ctx.fillText(YL[k],0,0);ctx.restore();});
   cv.onmousemove=e=>{
     const r=cv.getBoundingClientRect(),mx=e.clientX-r.left;
     if(mx<PL||mx>PL+cW){hideT();return;}
     let ci=0,md=Infinity;
-    for(let i=0;i<n;i++){const cx=xp(i)+bW/2;const d=Math.abs(cx-mx);if(d<md){md=d;ci=i;}}
-    const v=GDP_QD[ci];
-    showT(e,`<span style="opacity:.65">${GDP_Q_LBL[ci]}</span><br><span style="color:${v>=0?GRN:CRL}">&#9679;</span> GDP QoQ: <b>${v>0?'+':''}${v.toFixed(1)}%</b>${Math.abs(v)>GDP_CLIP?' <span style="opacity:.6">(clipped)</span>':''}`);
+    for(let i=0;i<GQD.length;i++){const cx=xp(i)+bW/2;const d=Math.abs(cx-mx);if(d<md){md=d;ci=i;}}
+    const v=GQD[ci];
+    showT(e,`<span style="opacity:.65">${GQL[ci]}</span><br><span style="color:${v>=0?GRN:CRL}">&#9679;</span> GDP QoQ: <b>${v>0?'+':''}${v.toFixed(1)}%</b>${Math.abs(v)>GC?' <span style="opacity:.6">(clipped)</span>':''}`);
   };
   cv.onmouseleave=hideT;
 }
@@ -319,12 +304,12 @@ function renderBars(cid,wid){
 let built=false;
 function buildCharts(){
   if(built)return;built=true;
-  renderLine('c1','w1',[{d:FFR_M,c:BLU,w:2.5,lbl:'Fed Funds'}],0,6,1,3.1,'3,1% LR');
-  renderLine('c0','w0',[{d:PCE_M,c:BLU,w:2,lbl:'PCE Total'},{d:PCEC_M,c:GRN,w:2,lbl:'Core PCE'}],0,10,1,2,'2%');
-  renderLine('c4','w4',[{d:CPI_M,c:BLU,w:2,lbl:'CPI Total'},{d:CPIC_M,c:GRN,w:2,lbl:'Core CPI'}],0,10,1,2,'2%');
-  renderLine('c2','w2',[{d:UNE_M,c:BLU,w:2,lbl:'Unemployment'}],0,16,2,null,null);
-  renderBars('c3','w3');
-  renderLine('c5','w5',[{d:GDP_YOY,c:BLU,w:2,lbl:'GDP YoY'}],GDP_YOY.reduce((a,b)=>Math.min(a,b),-11)>-12?-12:GDP_YOY.reduce((a,b)=>Math.min(a,b)),15,2,0,'0%');
+  rLine('c1','w1',[{d:FFR,c:BLU,w:2.5,lbl:'Fed Funds'}],3.1,'3,1% LR',LBL77,JI);
+  rLine('c0','w0',[{d:PCET,c:BLU,w:2,lbl:'PCE Total'},{d:PCEC,c:GRN,w:2,lbl:'Core PCE'}],null,null,LBL76,JI);
+  rLine('c4','w4',[{d:CPIT,c:BLU,w:2,lbl:'CPI Total'},{d:CPIC,c:GRN,w:2,lbl:'Core CPI'}],2,'2%',LBL77,JI);
+  rLine('c2','w2',[{d:UNE,c:BLU,w:2,lbl:'Unemployment'}],null,null,LBL77,JI);
+  rBars('c3','w3');
+  rLine('c5','w5',[{d:GYY,c:BLU,w:2,lbl:'GDP YoY'}],null,null,GQL,QI);
 }
 
 function sp(id,btn){
@@ -339,7 +324,7 @@ function dlHTML(){
   const s=Array.from(document.querySelectorAll('style')).map(x=>x.outerHTML).join('');
   const b=document.querySelector('.w').outerHTML;
   const sc=`<script>${document.querySelector('script').textContent}<\/script>`;
-  const html=`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Fed Meeting Tracker</title>${s}</head><body style="background:#f5f5f5;min-height:100vh;display:flex;justify-content:center;padding:2rem 1rem"><div style="max-width:720px;width:100%;background:#fff;border-radius:10px;padding:2rem 1.5rem 2.5rem;box-shadow:0 1px 4px rgba(0,0,0,.08)">${b}</div>${sc}<div class="tooltip" id="tooltip"></div></body></html>`;
+  const html=`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Fed Meeting Tracker</title>${s}</head><body style="background:#f5f5f5;min-height:100vh;display:flex;justify-content:center;padding:2rem 1rem"><div style="max-width:720px;width:100%;background:#fff;border-radius:10px;padding:2rem 1.5rem 2.5rem;box-shadow:0 1px 4px rgba(0,0,0,.08)">${b}</div><div class="tooltip" id="tooltip"></div>${sc}</body></html>`;
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download='fed-meeting-tracker.html';a.click();
 }
 </script>
