@@ -67,7 +67,6 @@
 .ii.hi{border-left-color:var(--c)}.ii.me{border-left-color:var(--cl)}.ii.lo{border-left-color:var(--g)}
 .iit{font-size:12px;font-weight:700;color:#000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .iib{font-size:12px;color:#000;line-height:1.3;font-weight:300;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
-/* Evolution table — compact 30px rows */
 .ctb{width:100%;border-collapse:collapse;font-size:12px;font-weight:300;table-layout:fixed}
 .ctb th{text-align:left;padding:6px 10px;color:#000;font-weight:700;border-bottom:2px solid var(--g);font-size:11px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
 .ctb td{padding:0 10px;color:#000;font-weight:300;border-bottom:1px solid var(--gr4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;height:30px;line-height:30px;vertical-align:middle}
@@ -152,7 +151,7 @@
     <div class="sec"><div class="st">Investment Implications</div><div class="ii me"><div class="iit">Pause after normalization - rates at neutral</div><div class="iib">After cutting 75bp, no urgency to move further. Policy is data-dependent with no preset path.</div></div><div class="ii me"><div class="iit">Tariff inflation risk remains the key variable to watch</div><div class="iib">Goods inflation driven by tariffs. If pass-through persists, next move could be a hike rather than a cut.</div></div><div class="ii lo"><div class="iit">Labor market softening - but not alarming yet</div><div class="iib">Private payrolls low but stable. No urgent signal for the Fed to ease further on employment grounds.</div></div><div class="ii lo"><div class="iit">Long-term anchoring provides policy flexibility</div><div class="iib">Long-term expectations at 2% give the Fed room to wait without losing credibility.</div></div></div>
   </div>
 
-  <!-- EVOLUTION — compact rows, bias most recent first -->
+  <!-- EVOLUTION -->
   <div class="mp" id="panel-evo">
     <div class="sec">
       <div class="st">Key Metrics - Evolution</div>
@@ -167,7 +166,7 @@
             <tr><td class="rl2">CPI total</td><td class="ac">3,3%</td><td>2,8%</td><td>2,9%</td></tr>
             <tr><td class="rl2">Core CPI</td><td>2,8%</td><td>3,1%</td><td>3,2%</td></tr>
             <tr><td class="rl2">Unemployment</td><td>4,3%</td><td>4,4%</td><td>4,4%</td></tr>
-            <tr><td class="rl2">GDP (last reported)</td><td>+2,5% Q4 25</td><td>+2,5% Q4 25</td><td>+2,6% Q3 25</td></tr>
+            <tr><td class="rl2">GDP QoQ</td><td>+2,5% Q4 25</td><td>+2,5% Q4 25</td><td>+2,6% Q3 25</td></tr>
             <tr><td class="rl2">Dovish dissents</td><td>1</td><td>1</td><td>2</td></tr>
             <tr><td class="rl2">Hawkish dissents</td><td class="ac">3</td><td>0</td><td>0</td></tr>
             <tr><td class="rl2">Geopolitical risk</td><td class="ac">Middle East</td><td>Middle East</td><td>Not mentioned</td></tr>
@@ -178,7 +177,6 @@
     </div>
     <div class="sec">
       <div class="st">Policy Bias - Evolution</div>
-      <!-- Most recent first -->
       <div class="bs">
         <div class="bi"><div class="bd">Apr 29</div><div class="bt"><span class="bml dove">Dove</span><div class="tt2"><div class="tn" style="left:68%"></div></div><span class="bml hawk">Hawk</span></div></div>
         <div class="bi"><div class="bd">Mar 18</div><div class="bt"><span class="bml dove">Dove</span><div class="tt2"><div class="tn" style="left:55%"></div></div><span class="bml hawk">Hawk</span></div></div>
@@ -189,12 +187,14 @@
 
   <!-- CHARTS -->
   <div class="mp" id="panel-charts">
-    <div class="cs"><div class="ct">Fed Funds Rate (%)</div><div class="cw" id="w1"><canvas id="c1"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>Fed Funds upper bound</div><div class="li"><div class="ld" style="border-color:#E07F5C"></div>Long-run 3,1%</div></div><div class="cnote">Data through May 2026</div></div>
-    <div class="cs"><div class="ct">PCE Inflation — Total &amp; Core (%) YoY</div><div class="cw" id="w0"><canvas id="c0"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>PCE Total</div><div class="li"><div class="ll" style="background:#7BC143"></div>Core PCE</div></div><div class="cnote">Latest: Apr 2026 — Total 3,8% / Core 3,3%. Next release Jun 25</div></div>
-    <div class="cs"><div class="ct">CPI Inflation — Total &amp; Core (%) YoY</div><div class="cw" id="w4"><canvas id="c4"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>CPI Total</div><div class="li"><div class="ll" style="background:#7BC143"></div>Core CPI</div><div class="li"><div class="ld" style="border-color:#E07F5C"></div>2% target</div></div><div class="cnote">Latest: May 2026 — Total 4,2% / Core 2,9%</div></div>
-    <div class="cs"><div class="ct">Unemployment Rate (%)</div><div class="cw" id="w2"><canvas id="c2"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>Unemployment rate</div></div><div class="cnote">Latest: May 2026 — 4,3%</div></div>
-    <div class="cs"><div class="ct">GDP Growth — Real QoQ annualized (%)</div><div class="cw" id="w3"><canvas id="c3"></canvas></div><div class="cl"><div class="li"><div class="lb" style="background:#7BC143"></div>Positive</div><div class="li"><div class="lb" style="background:#E07F5C"></div>Negative / clipped</div></div><div class="cnote">Latest: Q1 2026 +1,6% (revised)</div></div>
-    <div class="cs"><div class="ct">GDP Growth — Real YoY (%)</div><div class="cw" id="w5"><canvas id="c5"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>GDP YoY</div></div><div class="cnote">Latest: Q1 2026 +2,4% YoY</div></div>
+    <!-- Fed Funds: "Longer run" in legend, "3,1%" only on line (no "LR") -->
+    <div class="cs"><div class="ct">Fed Funds Rate (%)</div><div class="cw" id="w1"><canvas id="c1"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>Fed Funds upper bound</div><div class="li"><div class="ld" style="border-color:#E07F5C"></div>Longer run</div></div><div class="cnote">Data through May 2026</div></div>
+    <div class="cs"><div class="ct">PCE Inflation - Total &amp; Core (%) YoY</div><div class="cw" id="w0"><canvas id="c0"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>PCE Total</div><div class="li"><div class="ll" style="background:#7BC143"></div>Core PCE</div></div><div class="cnote">Latest: Apr 2026 - Total 3,8% / Core 3,3%. Next release Jun 25</div></div>
+    <div class="cs"><div class="ct">CPI Inflation - Total &amp; Core (%) YoY</div><div class="cw" id="w4"><canvas id="c4"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>CPI Total</div><div class="li"><div class="ll" style="background:#7BC143"></div>Core CPI</div><div class="li"><div class="ld" style="border-color:#E07F5C"></div>2% target</div></div><div class="cnote">Latest: May 2026 - Total 4,2% / Core 2,9%</div></div>
+    <!-- Unemployment: fixed axis 0-15 -->
+    <div class="cs"><div class="ct">Unemployment Rate (%)</div><div class="cw" id="w2"><canvas id="c2"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>Unemployment rate</div></div><div class="cnote">Latest: May 2026 - 4,3%</div></div>
+    <div class="cs"><div class="ct">GDP Growth - Real QoQ annualized (%)</div><div class="cw" id="w3"><canvas id="c3"></canvas></div><div class="cl"><div class="li"><div class="lb" style="background:#7BC143"></div>Positive</div><div class="li"><div class="lb" style="background:#E07F5C"></div>Negative / clipped</div></div><div class="cnote">Latest: Q1 2026 +1,6% (revised)</div></div>
+    <div class="cs"><div class="ct">GDP Growth - Real YoY (%)</div><div class="cw" id="w5"><canvas id="c5"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>GDP YoY</div></div><div class="cnote">Latest: Q1 2026 +2,4% YoY</div></div>
   </div>
 </div>
 
@@ -226,26 +226,34 @@ function autoAx(data){
   const step=[0.5,1,2,2.5,5,10].map(f=>f*mag).find(s=>s>=raw)||1;
   lo=Math.floor(lo/step)*step;hi=Math.ceil(hi/step)*step;
   if(mn>=0&&lo>0)lo=0;
-  const tks=[];
-  for(let v=lo;v<=hi+1e-9;v=+(v+step).toFixed(10))tks.push(+v.toFixed(6));
+  const tks=[];for(let v=lo;v<=hi+1e-9;v=+(v+step).toFixed(10))tks.push(+v.toFixed(6));
   return{lo,hi,tks};
 }
 
-function rLine(cid,wid,datasets,tv,tl,lbl,xi){
+function rLine(cid,wid,datasets,tv,tl,lbl,xi,fixedMax){
   const cv=document.getElementById(cid),wr=document.getElementById(wid);
   if(!cv||!wr)return;
   const DPR=window.devicePixelRatio||1,W=wr.offsetWidth,H=195;
   cv.width=W*DPR;cv.height=H*DPR;cv.style.width=W+'px';cv.style.height=H+'px';
   const ctx=cv.getContext('2d');ctx.scale(DPR,DPR);
   const PL=30,PR=8,PT=8,PB=42,cW=W-PL-PR,cH=H-PT-PB,n=datasets[0].d.length;
-  const ax=autoAx(datasets.flatMap(d=>d.d)),yr=ax.hi-ax.lo;
+  // If fixedMax provided, use fixed axis 0-fixedMax with nice steps
+  let ax;
+  if(fixedMax!=null){
+    const step=fixedMax<=15?5:10;
+    const tks=[];for(let v=0;v<=fixedMax;v+=step)tks.push(v);
+    ax={lo:0,hi:fixedMax,tks};
+  } else {
+    ax=autoAx(datasets.flatMap(d=>d.d));
+  }
+  const yr=ax.hi-ax.lo;
   const xp=i=>PL+(i/(n-1))*cW,yp=v=>PT+cH-((v-ax.lo)/yr)*cH;
   ctx.fillStyle='#fff';ctx.fillRect(0,0,W,H);
   ax.tks.forEach(v=>{
     const y=yp(v),iz=Math.abs(v)<1e-4;
     ctx.strokeStyle=iz?'rgba(0,0,0,0.15)':GR4;ctx.lineWidth=iz?1:0.5;
     ctx.beginPath();ctx.moveTo(PL,y);ctx.lineTo(PL+cW,y);ctx.stroke();
-    ctx.fillStyle='#000';ctx.font=`9px ${F}`;ctx.textAlign='right';
+    ctx.fillStyle='#000';ctx.font='9px '+F;ctx.textAlign='right';
     ctx.fillText(v%1===0?v.toFixed(0):v.toFixed(1),PL-3,y+3);
   });
   if(tv!=null){
@@ -253,10 +261,10 @@ function rLine(cid,wid,datasets,tv,tl,lbl,xi){
     ctx.strokeStyle=CRL;ctx.lineWidth=1.2;ctx.setLineDash([5,3]);
     ctx.beginPath();ctx.moveTo(PL,yt);ctx.lineTo(PL+cW,yt);ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle=CRL;ctx.font=`bold 9px ${F}`;ctx.textAlign='right';
+    ctx.fillStyle=CRL;ctx.font='bold 9px '+F;ctx.textAlign='right';
     ctx.fillText(tl,PL+cW-2,yt-4);
   }
-  ctx.fillStyle='#000';ctx.font=`9px ${F}`;ctx.textAlign='right';
+  ctx.fillStyle='#000';ctx.font='9px '+F;ctx.textAlign='right';
   xi.forEach((idx,k)=>{if(idx>=n)return;ctx.save();ctx.translate(xp(idx),H-PB+16);ctx.rotate(-Math.PI/6);ctx.fillText(YL[k],0,0);ctx.restore();});
   datasets.forEach(ds=>{
     ctx.strokeStyle=ds.c;ctx.lineWidth=ds.w||2;ctx.lineJoin='round';ctx.lineCap='round';
@@ -268,8 +276,8 @@ function rLine(cid,wid,datasets,tv,tl,lbl,xi){
     if(mx<PL||mx>PL+cW){hideT();return;}
     let ci=0,md=Infinity;
     for(let i=0;i<n;i++){const d=Math.abs(xp(i)-mx);if(d<md){md=d;ci=i;}}
-    const lines=datasets.map(ds=>`<span style="color:${ds.c}">&#9679;</span> ${ds.lbl}: <b>${ds.d[ci].toFixed(2)}%</b>`).join('<br>');
-    showT(e,`<span style="opacity:.65">${lbl[ci]}</span><br>${lines}`);
+    const lines=datasets.map(ds=>'<span style="color:'+ds.c+'">&#9679;</span> '+ds.lbl+': <b>'+ds.d[ci].toFixed(2)+'%</b>').join('<br>');
+    showT(e,'<span style="opacity:.65">'+lbl[ci]+'</span><br>'+lines);
   };
   cv.onmouseleave=hideT;
 }
@@ -288,14 +296,14 @@ function rBars(cid,wid){
     const y=yp(v),iz=v===0;
     ctx.strokeStyle=iz?'rgba(0,0,0,0.15)':GR4;ctx.lineWidth=iz?1:0.5;
     ctx.beginPath();ctx.moveTo(PL,y);ctx.lineTo(PL+cW,y);ctx.stroke();
-    ctx.fillStyle='#000';ctx.font=`9px ${F}`;ctx.textAlign='right';ctx.fillText(v,PL-3,y+3);
+    ctx.fillStyle='#000';ctx.font='9px '+F;ctx.textAlign='right';ctx.fillText(v,PL-3,y+3);
   }
   GQD.forEach((v,i)=>{
     const cl=Math.max(-GC,Math.min(GC,v)),ip=v>=0,bH=Math.abs(yp(cl)-y0),bY=ip?y0-bH:y0;
     ctx.fillStyle=ip?GRN:CRL;ctx.fillRect(xp(i),bY,bW,bH);
-    if(Math.abs(v)>GC){ctx.fillStyle=ip?GRN:CRL;ctx.font=`bold 8px ${F}`;ctx.textAlign='center';ctx.fillText((v>0?'+':'')+v.toFixed(1)+'%',xp(i)+bW/2,ip?bY-3:bY+bH+9);}
+    if(Math.abs(v)>GC){ctx.fillStyle=ip?GRN:CRL;ctx.font='bold 8px '+F;ctx.textAlign='center';ctx.fillText((v>0?'+':'')+v.toFixed(1)+'%',xp(i)+bW/2,ip?bY-3:bY+bH+9);}
   });
-  ctx.fillStyle='#000';ctx.font=`9px ${F}`;ctx.textAlign='right';
+  ctx.fillStyle='#000';ctx.font='9px '+F;ctx.textAlign='right';
   QI.forEach((qi,k)=>{ctx.save();ctx.translate(xp(qi)+bW/2,H-PB+16);ctx.rotate(-Math.PI/6);ctx.fillText(YL[k],0,0);ctx.restore();});
   cv.onmousemove=e=>{
     const r=cv.getBoundingClientRect(),mx=e.clientX-r.left;
@@ -303,7 +311,7 @@ function rBars(cid,wid){
     let ci=0,md=Infinity;
     for(let i=0;i<GQD.length;i++){const cx=xp(i)+bW/2,d=Math.abs(cx-mx);if(d<md){md=d;ci=i;}}
     const v=GQD[ci];
-    showT(e,`<span style="opacity:.65">${GQL[ci]}</span><br><span style="color:${v>=0?GRN:CRL}">&#9679;</span> GDP QoQ: <b>${v>0?'+':''}${v.toFixed(1)}%</b>${Math.abs(v)>GC?' <span style="opacity:.6">(clipped)</span>':''}`);
+    showT(e,'<span style="opacity:.65">'+GQL[ci]+'</span><br><span style="color:'+(v>=0?GRN:CRL)+'">&#9679;</span> GDP QoQ: <b>'+(v>0?'+':'')+v.toFixed(1)+'%</b>'+(Math.abs(v)>GC?' <span style="opacity:.6">(clipped)</span>':''));
   };
   cv.onmouseleave=hideT;
 }
@@ -311,12 +319,14 @@ function rBars(cid,wid){
 let built=false;
 function buildCharts(){
   if(built)return;built=true;
-  rLine('c1','w1',[{d:FFR,c:BLU,w:2.5,lbl:'Fed Funds'}],3.1,'3,1% LR',L77,JI);
-  rLine('c0','w0',[{d:PCET,c:BLU,w:2,lbl:'PCE Total'},{d:PCEC,c:GRN,w:2,lbl:'Core PCE'}],null,null,L76,JI);
-  rLine('c4','w4',[{d:CPIT,c:BLU,w:2,lbl:'CPI Total'},{d:CPIC,c:GRN,w:2,lbl:'Core CPI'}],2,'2%',L77,JI);
-  rLine('c2','w2',[{d:UNE,c:BLU,w:2,lbl:'Unemployment'}],null,null,L77,JI);
+  // Fed Funds: target label = "3,1%" only (no LR)
+  rLine('c1','w1',[{d:FFR,c:BLU,w:2.5,lbl:'Fed Funds'}],3.1,'3,1%',L77,JI,null);
+  rLine('c0','w0',[{d:PCET,c:BLU,w:2,lbl:'PCE Total'},{d:PCEC,c:GRN,w:2,lbl:'Core PCE'}],null,null,L76,JI,null);
+  rLine('c4','w4',[{d:CPIT,c:BLU,w:2,lbl:'CPI Total'},{d:CPIC,c:GRN,w:2,lbl:'Core CPI'}],2,'2%',L77,JI,null);
+  // Unemployment: fixed axis 0-15
+  rLine('c2','w2',[{d:UNE,c:BLU,w:2,lbl:'Unemployment'}],null,null,L77,JI,15);
   rBars('c3','w3');
-  rLine('c5','w5',[{d:GYY,c:BLU,w:2,lbl:'GDP YoY'}],null,null,GQL,QI);
+  rLine('c5','w5',[{d:GYY,c:BLU,w:2,lbl:'GDP YoY'}],null,null,GQL,QI,null);
 }
 
 function sp(id,btn){
@@ -330,8 +340,8 @@ function sp(id,btn){
 function dlHTML(){
   const s=Array.from(document.querySelectorAll('style')).map(x=>x.outerHTML).join('');
   const b=document.querySelector('.w').outerHTML;
-  const sc=`<script>${document.querySelector('script').textContent}<\/script>`;
-  const html=`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Fed Meeting Tracker</title>${s}</head><body style="background:#f5f5f5;min-height:100vh;display:flex;justify-content:center;padding:2rem 1rem"><div style="max-width:720px;width:100%;background:#fff;border-radius:10px;padding:2rem 1.5rem 2.5rem;box-shadow:0 1px 4px rgba(0,0,0,.08)">${b}</div><div class="tooltip" id="tooltip"></div>${sc}</body></html>`;
+  const sc='<script>'+document.querySelector('script').textContent+'<\/script>';
+  const html='<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Fed Meeting Tracker</title>'+s+'</head><body style="background:#f5f5f5;min-height:100vh;display:flex;justify-content:center;padding:2rem 1rem"><div style="max-width:720px;width:100%;background:#fff;border-radius:10px;padding:2rem 1.5rem 2.5rem;box-shadow:0 1px 4px rgba(0,0,0,.08)">'+b+'</div><div class="tooltip" id="tooltip"></div>'+sc+'</body></html>';
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download='fed-meeting-tracker.html';a.click();
 }
 </script>
