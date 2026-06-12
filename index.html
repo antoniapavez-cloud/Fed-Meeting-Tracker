@@ -8,14 +8,24 @@
 .wh h2{font-size:20px;font-weight:700;color:var(--g);letter-spacing:-.01em}
 .dlbtn{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;font-size:12px;font-weight:300;border-radius:4px;border:1px solid var(--gr3);background:transparent;color:#000;cursor:pointer}
 .dlbtn:hover{background:var(--gr4)}
-.tabs{display:flex;gap:5px;margin-bottom:1.25rem;flex-wrap:wrap}
-.tb,.tbg{padding:6px 14px;font-size:12px;border-radius:4px;cursor:pointer;transition:all .15s}
-.tb{font-weight:300;border:1px solid var(--gr3);background:transparent;color:#000}
+.tabs{display:flex;gap:5px;margin-bottom:1.25rem;flex-wrap:wrap;align-items:center}
+.tb,.tbg{padding:6px 14px;font-size:12px;border-radius:4px;cursor:pointer;transition:all .15s;border:none}
+.tb{font-weight:300;border:1px solid var(--gr3)!important;background:transparent;color:#000}
 .tb:hover{background:var(--gr4)}
-.tb.active{background:var(--sl);border-color:var(--sl);color:#fff;font-weight:700}
-.tbg{font-weight:300;border:1px solid var(--g2);background:transparent;color:var(--sl)}
+.tb.active{background:var(--sl);border-color:var(--sl)!important;color:#fff;font-weight:700}
+.tbg{font-weight:300;border:1px solid var(--g2)!important;background:transparent;color:var(--sl)}
 .tbg:hover{background:var(--g4)}
-.tbg.active{background:var(--g);border-color:var(--g);color:#fff;font-weight:700}
+.tbg.active{background:var(--g);border-color:var(--g)!important;color:#fff;font-weight:700}
+/* Older dropdown */
+.older-wrap{position:relative;display:inline-block}
+.older-btn{padding:6px 14px;font-size:12px;border-radius:4px;cursor:pointer;font-weight:300;border:1px solid var(--gr3)!important;background:transparent;color:#000;transition:all .15s}
+.older-btn:hover{background:var(--gr4)}
+.older-btn.has-active{background:var(--sl);border-color:var(--sl)!important;color:#fff;font-weight:700}
+.older-menu{display:none;position:absolute;top:calc(100% + 4px);left:0;background:#fff;border:1px solid var(--gr3);border-radius:5px;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:100;min-width:130px;overflow:hidden}
+.older-menu.open{display:block}
+.older-item{display:block;width:100%;padding:7px 14px;font-size:12px;font-weight:300;text-align:left;background:transparent;border:none;cursor:pointer;color:#000;white-space:nowrap}
+.older-item:hover{background:var(--gr4)}
+.older-item.active{background:var(--sl);color:#fff;font-weight:700}
 .mp{display:none}.mp.active{display:block}
 .tr{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:10px}
 .mc{background:var(--cb);border-radius:6px;padding:10px;border:1px solid #d4d4d4}
@@ -103,22 +113,34 @@
     </button>
   </div>
 
-  <div class="tabs">
-    <button class="tb active" onclick="sp('apr',this)">Apr 29</button>
-    <button class="tb" onclick="sp('mar',this)">Mar 18</button>
-    <button class="tb" onclick="sp('jan',this)">Jan 28</button>
+  <div class="tabs" id="tabs">
+    <!-- Recent meetings: month + short year -->
+    <button class="tb active" onclick="sp('apr',this)">Apr '26</button>
+    <button class="tb" onclick="sp('mar',this)">Mar '26</button>
+    <button class="tb" onclick="sp('jan',this)">Jan '26</button>
+    <!-- Older dropdown — add past meetings here as they accumulate -->
+    <div class="older-wrap" id="olderWrap">
+      <button class="older-btn" id="olderBtn" onclick="toggleOlder(event)">Older ▾</button>
+      <div class="older-menu" id="olderMenu">
+        <!-- Example older meetings (currently empty — add as needed):
+        <button class="older-item" onclick="sp('dec25',this,'older')">Dec '25</button>
+        <button class="older-item" onclick="sp('nov25',this,'older')">Nov '25</button>
+        -->
+        <span style="display:block;padding:7px 14px;font-size:11px;color:var(--sl);font-style:italic">No older meetings yet</span>
+      </div>
+    </div>
     <button class="tbg" onclick="sp('evo',this)">Evolution</button>
     <button class="tbg" onclick="sp('charts',this)">Charts</button>
   </div>
 
-  <!-- APR -->
+  <!-- APR '26 -->
   <div class="mp active" id="panel-apr">
     <div class="tr">
       <div class="mc"><div class="ml">Fed Funds Rate</div><div class="mv">3,50-3,75%</div><div class="ms"><span class="bh">Unchanged</span></div></div>
       <div class="mc"><div class="ml">PCE Total (Mar)</div><div class="mv">3,5%</div><div class="ms">Core: 3,2%</div></div>
       <div class="mc"><div class="ml">CPI Total (Mar)</div><div class="mv">3,3%</div><div class="ms">Core: 2,8%</div></div>
       <div class="mc"><div class="ml">Unemployment</div><div class="mv">4,3%</div><div class="ms">Slight improvement</div></div>
-      <div class="mc"><div class="ml">GDP (Q4 2025)</div><div class="mv">+2,5%</div><div class="ms">Last reported</div></div>
+      <div class="mc"><div class="ml">GDP (Q4 2025)</div><div class="mv">+2,4%</div><div class="ms">Revised final</div></div>
     </div>
     <div class="sec"><div class="st">Monetary Policy Tone</div><div class="tg"><div class="ti"><div class="til">Bias</div><div class="tiv">Hawkish - wait and see</div><div class="tor"><span class="tol dove">Dove</span><div class="tt2"><div class="tn" style="left:68%"></div></div><span class="tol hawk">Hawk</span></div></div><div class="ti"><div class="til">Key Shift</div><div class="tiv">More internal hawks</div><div class="tin">Hammack, Kashkari and Logan opposed the easing bias in the statement.</div></div></div></div>
     <div class="sec"><div class="st">Key Variables</div><div class="kvb"><div class="kvr"><div class="kvl"><div class="kvt">Inflation</div><div class="kvv">Elevated - moved up</div></div><div class="kvn">PCE rose to 3,5% on energy shock (Middle East). Core 3,2%.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Labor Market</div><div class="kvv">Stable but soft</div></div><div class="kvn">Unemployment 4,3%. Job gains remain low. Labor demand softened.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Activity</div><div class="kvv">Solid</div></div><div class="kvn">Consumer spending and investment resilient. Housing still weak.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Energy / Geopolitics</div><div class="kvv">Significant shock</div></div><div class="kvn">Middle East conflict drove oil higher. Duration and impact still unclear.</div></div></div></div>
@@ -128,21 +150,21 @@
     <div class="sec"><div class="st">Investment Implications</div><div class="ii hi"><div class="iit">Rate cuts pushed further out - duration repricing</div><div class="iib">PCE at 3,5% in April. Markets should price fewer cuts for 2026. Pressure on fixed income duration.</div></div><div class="ii hi"><div class="iit">Growing internal division - FOMC more hawkish than it appears</div><div class="iib">Three hawks voted against the easing bias. Official statement softens an internally more restrictive stance.</div></div><div class="ii me"><div class="iit">Leadership transition - communication risk</div><div class="iib">Powell exits May 15, Warsh incoming. Possible shift in tone and policy signaling.</div></div><div class="ii me"><div class="iit">Higher for longer as base case</div><div class="iib">While energy keeps pushing headline inflation up, the Fed has no room to ease.</div></div><div class="ii lo"><div class="iit">Long-term anchoring intact - no de-anchoring yet</div><div class="iib">Long-term inflation expectations remain consistent with 2%. Chronic inflation is not the base case.</div></div></div>
   </div>
 
-  <!-- MAR -->
+  <!-- MAR '26 -->
   <div class="mp" id="panel-mar">
-    <div class="tr"><div class="mc"><div class="ml">Fed Funds Rate</div><div class="mv">3,50-3,75%</div><div class="ms"><span class="bh">Unchanged</span></div></div><div class="mc"><div class="ml">PCE Total (Feb)</div><div class="mv">2,8%</div><div class="ms">Core: 3,0%</div></div><div class="mc"><div class="ml">CPI Total (Feb)</div><div class="mv">2,8%</div><div class="ms">Core: 3,1%</div></div><div class="mc"><div class="ml">Unemployment</div><div class="mv">4,4%</div><div class="ms">Little changed</div></div><div class="mc"><div class="ml">GDP (Q4 2025)</div><div class="mv">+2,5%</div><div class="ms">Last reported</div></div></div>
+    <div class="tr"><div class="mc"><div class="ml">Fed Funds Rate</div><div class="mv">3,50-3,75%</div><div class="ms"><span class="bh">Unchanged</span></div></div><div class="mc"><div class="ml">PCE Total (Feb)</div><div class="mv">2,8%</div><div class="ms">Core: 3,0%</div></div><div class="mc"><div class="ml">CPI Total (Feb)</div><div class="mv">2,8%</div><div class="ms">Core: 3,1%</div></div><div class="mc"><div class="ml">Unemployment</div><div class="mv">4,4%</div><div class="ms">Little changed</div></div><div class="mc"><div class="ml">GDP (Q4 2025)</div><div class="mv">+2,4%</div><div class="ms">Revised final</div></div></div>
     <div class="sec"><div class="st">Monetary Policy Tone</div><div class="tg"><div class="ti"><div class="til">Bias</div><div class="tiv">Neutral / Cautious</div><div class="tor"><span class="tol dove">Dove</span><div class="tt2"><div class="tn" style="left:55%"></div></div><span class="tol hawk">Hawk</span></div></div><div class="ti"><div class="til">New Variable</div><div class="tiv">Middle East conflict</div><div class="tin">Adds uncertainty to the outlook. Near-term energy price pressure.</div></div></div></div>
-    <div class="sec"><div class="st">Key Variables</div><div class="kvb"><div class="kvr"><div class="kvl"><div class="kvt">Inflation</div><div class="kvv">Somewhat elevated</div></div><div class="kvn">Near-term expectations rose on oil. Long-term still anchored.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Labor Market</div><div class="kvv">No new deterioration</div></div><div class="kvn">SEP projects unemployment at 4,4% at end of 2026.</div></div><div class="kvr"><div class="kvl"><div class="kvt">GDP (last reported)</div><div class="kvv">+2,5% Q4 2025</div></div><div class="kvn">Solid activity. SEP projects +2,4% for full year 2026.</div></div><div class="kvr"><div class="kvl"><div class="kvt">PCE Inflation (SEP)</div><div class="kvv">2,7% est. 2026</div></div><div class="kvn">Slightly higher than December. 2,2% for 2027.</div></div></div></div>
+    <div class="sec"><div class="st">Key Variables</div><div class="kvb"><div class="kvr"><div class="kvl"><div class="kvt">Inflation</div><div class="kvv">Somewhat elevated</div></div><div class="kvn">Near-term expectations rose on oil. Long-term still anchored.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Labor Market</div><div class="kvv">No new deterioration</div></div><div class="kvn">SEP projects unemployment at 4,4% at end of 2026.</div></div><div class="kvr"><div class="kvl"><div class="kvt">GDP (last reported)</div><div class="kvv">+2,4% Q4 2025</div></div><div class="kvn">Solid activity. SEP projects +2,4% for full year 2026.</div></div><div class="kvr"><div class="kvl"><div class="kvt">PCE Inflation (SEP)</div><div class="kvv">2,7% est. 2026</div></div><div class="kvn">Slightly higher than December. 2,2% for 2027.</div></div></div></div>
     <div class="sec"><div class="st">Risk Balance</div><ul class="rl"><li class="ri"><span class="rt rh"></span>Middle East conflict - energy price pressure</li><li class="ri"><span class="rt rm"></span>Persistent goods inflation from tariffs</li><li class="ri"><span class="rt rm"></span>Near-term inflation expectations rising</li><li class="ri"><span class="rt rg"></span>Solid GDP; consumer spending resilient</li></ul></div>
     <div class="sec"><div class="st">SEP - Implied Dot Plot</div><div class="spb"><div class="spr"><div class="spl">Median Fed Funds end-2026</div><div class="spv">3,4%</div><div class="spn">Unchanged vs December. Implies ~2 cuts of 25bp.</div></div><div class="spr"><div class="spl">Median Fed Funds end-2027</div><div class="spv">3,1%</div><div class="spn">Unchanged vs December.</div></div><div class="spr"><div class="spl">Longer run (neutral)</div><div class="spv">3,0%</div><div class="spn">Consistent with prior projections.</div></div></div></div>
     <div class="sec"><div class="st">FOMC Vote - 11 for / 1 dissent</div><div class="vr"><span class="vc vf">Powell</span><span class="vc vf">Williams</span><span class="vc vf">Barr</span><span class="vc vf">Bowman</span><span class="vc vf">Cook</span><span class="vc vf">Hammack</span><span class="vc vf">Jefferson</span><span class="vc vf">Kashkari</span><span class="vc vf">Logan</span><span class="vc vf">Paulson</span><span class="vc vf">Waller</span><span class="vc vd">Miran (-25bp)</span></div><p class="vn">Waller switched from dovish dissent in January to voting with the majority. Only Miran pressed for a cut.</p></div>
     <div class="sec"><div class="st">Key Quote</div><div class="qb">The implications of events in the <b>Middle East</b> for the U.S. economy are <b>uncertain</b>. In the near term, <b>higher energy prices will push up overall inflation</b>, but it is <b>too soon to know</b> the scope and duration of the potential effects.</div><div class="qa">- Jerome H. Powell, Chair of the Federal Reserve</div></div>
-    <div class="sec"><div class="st">Investment Implications</div><div class="ii hi"><div class="iit">Middle East uncertainty delays rate path clarity</div><div class="iib">Energy-driven inflation adds upside risk. Fed stays on hold until scope of the shock is clearer.</div></div><div class="ii me"><div class="iit">Dot plot unchanged - but upside risks are growing</div><div class="iib">SEP signals ~2 cuts for 2026, but the energy shock could revise this upward at the next meeting.</div></div><div class="ii me"><div class="iit">Labor market stabilization supports soft landing</div><div class="iib">Unemployment flat at 4,4% and GDP solid at +2,5%. Consumer resilience reduces urgency to cut.</div></div><div class="ii lo"><div class="iit">Long-term expectations anchored - no systemic risk yet</div><div class="iib">Long-term inflation expectations consistent with 2%. No de-anchoring signal from markets or surveys.</div></div></div>
+    <div class="sec"><div class="st">Investment Implications</div><div class="ii hi"><div class="iit">Middle East uncertainty delays rate path clarity</div><div class="iib">Energy-driven inflation adds upside risk. Fed stays on hold until scope of the shock is clearer.</div></div><div class="ii me"><div class="iit">Dot plot unchanged - but upside risks are growing</div><div class="iib">SEP signals ~2 cuts for 2026, but the energy shock could revise this upward at the next meeting.</div></div><div class="ii me"><div class="iit">Labor market stabilization supports soft landing</div><div class="iib">Unemployment flat at 4,4% and GDP solid at +2,4%. Consumer resilience reduces urgency to cut.</div></div><div class="ii lo"><div class="iit">Long-term expectations anchored - no systemic risk yet</div><div class="iib">Long-term inflation expectations consistent with 2%. No de-anchoring signal from markets or surveys.</div></div></div>
   </div>
 
-  <!-- JAN -->
+  <!-- JAN '26 -->
   <div class="mp" id="panel-jan">
-    <div class="tr"><div class="mc"><div class="ml">Fed Funds Rate</div><div class="mv">3,50-3,75%</div><div class="ms"><span class="bh">Unchanged</span></div></div><div class="mc"><div class="ml">PCE Total (Dec)</div><div class="mv">2,9%</div><div class="ms">Core: 3,0%</div></div><div class="mc"><div class="ml">CPI Total (Dec)</div><div class="mv">2,9%</div><div class="ms">Core: 3,2%</div></div><div class="mc"><div class="ml">Unemployment</div><div class="mv">4,4%</div><div class="ms">Signs of stabilization</div></div><div class="mc"><div class="ml">GDP (Q3 2025)</div><div class="mv">+2,6%</div><div class="ms">Last reported</div></div></div>
+    <div class="tr"><div class="mc"><div class="ml">Fed Funds Rate</div><div class="mv">3,50-3,75%</div><div class="ms"><span class="bh">Unchanged</span></div></div><div class="mc"><div class="ml">PCE Total (Dec)</div><div class="mv">2,9%</div><div class="ms">Core: 3,0%</div></div><div class="mc"><div class="ml">CPI Total (Dec)</div><div class="mv">2,9%</div><div class="ms">Core: 3,2%</div></div><div class="mc"><div class="ml">Unemployment</div><div class="mv">4,4%</div><div class="ms">Signs of stabilization</div></div><div class="mc"><div class="ml">GDP (Q3 2025)</div><div class="mv">+2,8%</div><div class="ms">Revised final</div></div></div>
     <div class="sec"><div class="st">Monetary Policy Tone</div><div class="tg"><div class="ti"><div class="til">Bias</div><div class="tiv">Neutral / Data-dependent</div><div class="tor"><span class="tol dove">Dove</span><div class="tt2"><div class="tn" style="left:50%"></div></div><span class="tol hawk">Hawk</span></div></div><div class="ti"><div class="til">Next Moves</div><div class="tiv">No preset course</div><div class="tin">Policy within neutral range after -75bp over prior three meetings.</div></div></div></div>
     <div class="sec"><div class="st">Key Variables</div><div class="kvb"><div class="kvr"><div class="kvl"><div class="kvt">Inflation</div><div class="kvv">Somewhat elevated</div></div><div class="kvn">Goods boosted by tariffs. Disinflation continuing in services.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Labor Market</div><div class="kvv">Stabilizing</div></div><div class="kvn">Private payrolls +29K/mo. Lower immigration and labor force participation.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Economic Activity</div><div class="kvv">Solid pace</div></div><div class="kvn">Resilient consumer spending; investment expanding. Housing weak.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Tariffs</div><div class="kvv">Pressure on goods</div></div><div class="kvn">Effect expected to be transitory once pass-throughs are absorbed.</div></div></div></div>
     <div class="sec"><div class="st">Risk Balance</div><ul class="rl"><li class="ri"><span class="rt rm"></span>Tariff-driven inflation proving more persistent than expected</li><li class="ri"><span class="rt rm"></span>Further softening of the labor market</li><li class="ri"><span class="rt rg"></span>Long-term inflation expectations well anchored</li><li class="ri"><span class="rt rg"></span>Government shutdown temporary - effects reversible</li></ul></div>
@@ -153,48 +175,34 @@
 
   <!-- EVOLUTION -->
   <div class="mp" id="panel-evo">
-    <div class="sec">
-      <div class="st">Key Metrics - Evolution</div>
-      <div style="overflow-x:auto">
-        <table class="ctb">
-          <colgroup><col style="width:22%"><col style="width:26%"><col style="width:26%"><col style="width:26%"></colgroup>
-          <thead><tr><th>Variable</th><th>Apr 29</th><th>Mar 18</th><th>Jan 28</th></tr></thead>
-          <tbody>
-            <tr><td class="rl2">Fed Funds</td><td>3,50-3,75%</td><td>3,50-3,75%</td><td>3,50-3,75%</td></tr>
-            <tr><td class="rl2">PCE total</td><td class="ac">3,5%</td><td>2,8%</td><td>2,9%</td></tr>
-            <tr><td class="rl2">Core PCE</td><td class="ac">3,2%</td><td>3,0%</td><td>3,0%</td></tr>
-            <tr><td class="rl2">CPI total</td><td class="ac">3,3%</td><td>2,8%</td><td>2,9%</td></tr>
-            <tr><td class="rl2">Core CPI</td><td>2,8%</td><td>3,1%</td><td>3,2%</td></tr>
-            <tr><td class="rl2">Unemployment</td><td>4,3%</td><td>4,4%</td><td>4,4%</td></tr>
-            <tr><td class="rl2">GDP QoQ</td><td>+2,5% Q4 25</td><td>+2,5% Q4 25</td><td>+2,6% Q3 25</td></tr>
-            <tr><td class="rl2">Dovish dissents</td><td>1</td><td>1</td><td>2</td></tr>
-            <tr><td class="rl2">Hawkish dissents</td><td class="ac">3</td><td>0</td><td>0</td></tr>
-            <tr><td class="rl2">Geopolitical risk</td><td class="ac">Middle East</td><td>Middle East</td><td>Not mentioned</td></tr>
-            <tr><td class="rl2">Overall tone</td><td class="ac">Hawkish</td><td>Neutral</td><td>Neutral</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="sec">
-      <div class="st">Policy Bias - Evolution</div>
-      <div class="bs">
-        <div class="bi"><div class="bd">Apr 29</div><div class="bt"><span class="bml dove">Dove</span><div class="tt2"><div class="tn" style="left:68%"></div></div><span class="bml hawk">Hawk</span></div></div>
-        <div class="bi"><div class="bd">Mar 18</div><div class="bt"><span class="bml dove">Dove</span><div class="tt2"><div class="tn" style="left:55%"></div></div><span class="bml hawk">Hawk</span></div></div>
-        <div class="bi"><div class="bd">Jan 28</div><div class="bt"><span class="bml dove">Dove</span><div class="tt2"><div class="tn" style="left:50%"></div></div><span class="bml hawk">Hawk</span></div></div>
-      </div>
-    </div>
+    <div class="sec"><div class="st">Key Metrics - Evolution</div><div style="overflow-x:auto"><table class="ctb"><colgroup><col style="width:22%"><col style="width:26%"><col style="width:26%"><col style="width:26%"></colgroup><thead><tr><th></th><th>Apr '26</th><th>Mar '26</th><th>Jan '26</th></tr></thead><tbody>
+      <tr><td class="rl2">Fed Funds</td><td>3,50-3,75%</td><td>3,50-3,75%</td><td>3,50-3,75%</td></tr>
+      <tr><td class="rl2">PCE total</td><td class="ac">3,5%</td><td>2,8%</td><td>2,9%</td></tr>
+      <tr><td class="rl2">Core PCE</td><td class="ac">3,2%</td><td>3,0%</td><td>3,0%</td></tr>
+      <tr><td class="rl2">CPI total</td><td class="ac">3,3%</td><td>2,8%</td><td>2,9%</td></tr>
+      <tr><td class="rl2">Core CPI</td><td>2,8%</td><td>3,1%</td><td>3,2%</td></tr>
+      <tr><td class="rl2">Unemployment</td><td>4,3%</td><td>4,4%</td><td>4,4%</td></tr>
+      <tr><td class="rl2">GDP QoQ</td><td>+2,4% Q4 25</td><td>+2,4% Q4 25</td><td>+2,8% Q3 25</td></tr>
+      <tr><td class="rl2">Dovish dissents</td><td>1</td><td>1</td><td>2</td></tr>
+      <tr><td class="rl2">Hawkish dissents</td><td class="ac">3</td><td>0</td><td>0</td></tr>
+      <tr><td class="rl2">Geopolitical risk</td><td class="ac">Middle East</td><td>Middle East</td><td>Not mentioned</td></tr>
+      <tr><td class="rl2">Overall tone</td><td class="ac">Hawkish</td><td>Neutral</td><td>Neutral</td></tr>
+    </tbody></table></div></div>
+    <div class="sec"><div class="st">Policy Bias - Evolution</div><div class="bs">
+      <div class="bi"><div class="bd">Apr '26</div><div class="bt"><span class="bml dove">Dove</span><div class="tt2"><div class="tn" style="left:68%"></div></div><span class="bml hawk">Hawk</span></div></div>
+      <div class="bi"><div class="bd">Mar '26</div><div class="bt"><span class="bml dove">Dove</span><div class="tt2"><div class="tn" style="left:55%"></div></div><span class="bml hawk">Hawk</span></div></div>
+      <div class="bi"><div class="bd">Jan '26</div><div class="bt"><span class="bml dove">Dove</span><div class="tt2"><div class="tn" style="left:50%"></div></div><span class="bml hawk">Hawk</span></div></div>
+    </div></div>
   </div>
 
   <!-- CHARTS -->
   <div class="mp" id="panel-charts">
-    <!-- Fed Funds: "Longer run" in legend, "3,1%" only on line (no "LR") -->
     <div class="cs"><div class="ct">Fed Funds Rate (%)</div><div class="cw" id="w1"><canvas id="c1"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>Fed Funds upper bound</div><div class="li"><div class="ld" style="border-color:#E07F5C"></div>Longer run</div></div><div class="cnote">Data through May 2026</div></div>
     <div class="cs"><div class="ct">PCE Inflation - Total &amp; Core (%) YoY</div><div class="cw" id="w0"><canvas id="c0"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>PCE Total</div><div class="li"><div class="ll" style="background:#7BC143"></div>Core PCE</div></div><div class="cnote">Latest: Apr 2026 - Total 3,8% / Core 3,3%. Next release Jun 25</div></div>
     <div class="cs"><div class="ct">CPI Inflation - Total &amp; Core (%) YoY</div><div class="cw" id="w4"><canvas id="c4"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>CPI Total</div><div class="li"><div class="ll" style="background:#7BC143"></div>Core CPI</div><div class="li"><div class="ld" style="border-color:#E07F5C"></div>2% target</div></div><div class="cnote">Latest: May 2026 - Total 4,2% / Core 2,9%</div></div>
-    <!-- Unemployment: fixed axis 0-15 -->
-    <div class="cs"><div class="ct">Unemployment Rate (%)</div><div class="cw" id="w2"><canvas id="c2"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>Unemployment rate</div></div><div class="cnote">Latest: May 2026 - 4,3%</div></div>
-    <div class="cs"><div class="ct">GDP Growth - Real QoQ annualized (%)</div><div class="cw" id="w3"><canvas id="c3"></canvas></div><div class="cl"><div class="li"><div class="lb" style="background:#7BC143"></div>Positive</div><div class="li"><div class="lb" style="background:#E07F5C"></div>Negative / clipped</div></div><div class="cnote">Latest: Q1 2026 +1,6% (revised)</div></div>
-    <div class="cs"><div class="ct">GDP Growth - Real YoY (%)</div><div class="cw" id="w5"><canvas id="c5"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>GDP YoY</div></div><div class="cnote">Latest: Q1 2026 +2,4% YoY</div></div>
+    <div class="cs"><div class="ct">Unemployment Rate (%)</div><div class="cw" id="w2"><canvas id="c2"></canvas></div><div class="cl"><div class="li"><div class="ll" style="background:#5D7082"></div>Unemployment Rate</div></div><div class="cnote">Latest: May 2026 - 4,3%</div></div>
+    <div class="cs"><div class="ct">GDP Growth - Real QoQ annualized (%)</div><div class="cw" id="w3"><canvas id="c3"></canvas></div><div class="cl"><div class="li"><div class="lb" style="background:#7BC143"></div>Positive</div><div class="li"><div class="lb" style="background:#E07F5C"></div>Negative / clipped</div></div><div class="cnote">Latest: Q1 2026 +1,6% (revised). Source: Bloomberg</div></div>
+    <div class="cs"><div class="ct">GDP Growth - Real YoY (%)</div><div class="cw" id="w5"><canvas id="c5"></canvas></div><div class="cl"><div class="li"><div class="lb" style="background:#7BC143"></div>Positive</div><div class="li"><div class="lb" style="background:#E07F5C"></div>Negative</div></div><div class="cnote">Latest: Q1 2026 +2,6% YoY. Source: Bloomberg</div></div>
   </div>
 </div>
 
@@ -202,22 +210,54 @@
 const BLU='#5D7082',GRN='#7BC143',CRL='#E07F5C',GR4='#E6E6E6';
 const F="'Aller',sans-serif";
 const tip=document.getElementById('tooltip');
-function showT(e,h){tip.innerHTML=h;tip.style.display='block';tip.style.left=(e.clientX+14)+'px';tip.style.top=(e.clientY-28)+'px';}
+
+// Smart tooltip: flips left when near right edge
+function showT(e,h){
+  tip.innerHTML=h;
+  tip.style.display='block';
+  const tw=tip.offsetWidth||180;
+  const vw=window.innerWidth;
+  const x=e.clientX;
+  if(x+tw+20>vw) tip.style.left=(x-tw-8)+'px';
+  else tip.style.left=(x+14)+'px';
+  tip.style.top=(e.clientY-28)+'px';
+}
 function hideT(){tip.style.display='none';}
+
+// Older dropdown toggle
+function toggleOlder(e){
+  e.stopPropagation();
+  document.getElementById('olderMenu').classList.toggle('open');
+}
+document.addEventListener('click',()=>document.getElementById('olderMenu').classList.remove('open'));
+
 const MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 function mkL(ey,em){const a=[];for(let y=2020;y<=ey;y++){const e=y===ey?em:12;for(let m=0;m<e;m++)a.push(MN[m]+' '+y);}return a;}
 const L77=mkL(2026,5),L76=mkL(2026,4);
-const JI=[0,12,24,36,48,60,72],YL=['2020','2021','2022','2023','2024','2025','2026'],QI=[0,4,8,12,16,20,24];
+const JI=[0,12,24,36,48,60,72],YL=['2020','2021','2022','2023','2024','2025','2026'];
+const GQL=['Q1 20','Q2 20','Q3 20','Q4 20','Q1 21','Q2 21','Q3 21','Q4 21','Q1 22','Q2 22','Q3 22','Q4 22','Q1 23','Q2 23','Q3 23','Q4 23','Q1 24','Q2 24','Q3 24','Q4 24','Q1 25','Q2 25','Q3 25','Q4 25','Q1 26'];
+const QI=[0,4,8,12,16,20,24];
+
 const FFR=[1.75,1.75,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.50,0.50,1.00,1.75,2.50,2.50,3.25,3.25,4.00,4.50,4.75,4.75,5.00,5.25,5.25,5.25,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.50,5.25,5.25,5.25,4.75,4.50,4.50,4.25,4.25,4.00,4.00,4.00,3.75,3.75,3.75,3.75,3.75,3.75,3.75,3.75,3.75,3.75,3.75];
 const PCET=[1.8,1.8,1.5,1.1,0.5,0.9,1.0,1.3,1.5,1.2,1.2,1.3,1.4,1.6,2.5,3.1,3.9,4.0,4.2,4.2,4.3,5.0,5.5,5.8,6.3,6.4,6.6,6.3,6.3,6.8,6.3,6.2,6.2,6.2,5.5,5.3,5.0,5.0,4.6,4.4,3.8,3.8,3.3,3.4,3.4,2.9,2.7,2.6,2.4,2.5,2.5,2.7,2.6,2.5,2.5,2.2,2.2,2.3,2.4,2.6,2.5,2.6,2.8,2.7,2.7,2.6,2.6,2.7,2.7,2.9,2.9,2.9,3.1,3.2,3.5,3.8];
 const PCEC=[1.7,1.8,1.6,1.1,1.0,1.2,1.3,1.4,1.5,1.4,1.4,1.4,1.5,1.5,2.0,3.0,3.5,3.5,3.6,3.6,3.6,4.2,4.7,4.9,5.2,5.2,5.2,4.9,4.8,4.8,4.6,4.9,5.1,5.0,4.7,4.7,4.6,4.7,4.6,4.6,4.7,4.2,4.2,3.8,3.7,3.4,3.2,3.0,2.8,2.8,2.7,2.8,2.6,2.6,2.6,2.7,2.6,2.8,2.8,2.9,2.7,2.7,3.0,2.9,2.8,2.7,2.7,2.8,2.9,3.0,3.0,3.0,3.1,3.1,3.2,3.3];
 const CPIT=[2.5,2.3,1.5,0.3,-0.1,0.6,1.0,1.3,1.4,1.2,1.2,1.4,1.4,1.7,2.6,4.2,5.0,5.4,5.4,5.3,5.4,6.2,6.8,7.0,7.5,7.9,8.5,8.3,8.6,9.1,8.5,8.3,8.2,7.7,7.1,6.5,6.4,6.0,5.0,4.9,4.0,3.0,3.2,3.7,3.7,3.2,3.1,3.4,3.1,3.5,3.2,3.4,3.3,3.0,2.9,2.5,2.4,2.4,2.4,2.7,2.9,2.8,2.8,2.8,2.5,2.4,2.4,2.6,2.8,3.2,3.2,2.9,3.0,2.8,3.3,3.8,4.2];
 const CPIC=[2.3,2.4,2.1,1.4,1.2,1.2,1.6,1.7,1.7,1.7,1.6,1.6,1.4,1.3,1.6,3.0,3.8,4.5,4.0,4.0,4.0,4.6,5.0,5.5,6.0,6.4,6.5,6.2,6.0,5.9,5.9,6.3,6.6,6.3,6.0,5.7,5.5,5.5,5.6,5.5,5.3,4.8,4.7,4.1,4.0,3.7,3.4,3.9,3.8,3.6,3.8,3.6,3.4,3.3,3.2,3.2,3.2,3.3,3.3,3.2,3.1,3.5,3.3,3.1,2.8,2.6,2.6,2.9,2.9,3.2,3.3,3.2,3.1,3.0,2.8,2.8,2.9];
 const UNE=[3.6,3.5,4.4,14.7,13.3,11.1,10.2,8.4,7.9,6.9,6.7,6.7,6.4,6.2,6.0,6.0,5.8,5.9,5.4,5.2,4.8,4.6,4.2,3.9,4.0,3.8,3.6,3.6,3.6,3.6,3.5,3.5,3.5,3.7,3.7,3.5,3.4,3.6,3.5,3.4,3.7,3.6,3.5,3.8,3.8,3.9,3.7,3.7,3.7,3.9,3.8,3.9,4.0,4.1,4.3,4.2,4.1,4.1,4.2,4.2,4.0,4.1,4.2,4.2,4.2,4.0,4.1,4.2,4.3,4.1,4.3,4.4,4.1,4.0,4.4,4.3,4.3];
-const GQL=['Q1 20','Q2 20','Q3 20','Q4 20','Q1 21','Q2 21','Q3 21','Q4 21','Q1 22','Q2 22','Q3 22','Q4 22','Q1 23','Q2 23','Q3 23','Q4 23','Q1 24','Q2 24','Q3 24','Q4 24','Q1 25','Q2 25','Q3 25','Q4 25','Q1 26'];
-const GQD=[-5.0,-31.2,33.8,4.5,6.3,6.7,2.3,6.9,-1.6,-0.6,3.2,2.6,2.2,2.1,4.9,3.4,1.6,3.0,2.8,2.3,2.5,2.8,2.6,2.5,1.6];
-const GYY=[-9.0,-9.1,3.4,3.5,0.5,12.2,4.9,5.7,3.7,-0.6,-1.9,1.0,1.8,2.4,2.9,3.1,2.9,3.1,2.7,2.5,2.5,3.0,2.7,2.4,2.4];
+
+// GDP QoQ — Bloomberg revised (exact from screenshot)
+const GQD=[-5.2,-28.0,34.9,4.3,5.7,6.7,3.3,7.0,-1.6,-0.6,3.2,2.7,2.2,2.5,4.9,3.4,1.6,3.6,3.3,1.9,-0.6,3.8,4.4,0.5,1.6];
 const GC=8;
+
+// GDP YoY — Bloomberg revised (exact from screenshot)
+// Q1 20:1.4 Q2 20:-7.4 Q3 20:-1.4 Q4 20:-0.9
+// Q1 21:1.8 Q2 21:12.4 Q3 21:5.2 Q4 21:5.8  (H=12.4 on 06/30/21 in Bloomberg)
+// Q1 22:4.0 Q2 22:2.5 Q3 22:2.3 Q4 22:1.3
+// Q1 23:2.3 Q2 23:2.8 Q3 23:3.2 Q4 23:3.4
+// Q1 24:2.9 Q2 24:3.1 Q3 24:2.8 Q4 24:2.4
+// Q1 25:2.0 Q2 25:2.1 Q3 25:2.3 Q4 25:2.0  (from Bloomberg table)
+// Q1 26:2.6 (latest per Bloomberg 03/31/26)
+const GYY=[1.4,-7.4,-1.4,-0.9,1.8,12.4,5.2,5.8,4.0,2.5,2.3,1.3,2.3,2.8,3.2,3.4,2.9,3.1,2.8,2.4,2.0,2.1,2.3,2.0,2.6];
 
 function autoAx(data){
   const mn=Math.min(...data),mx=Math.max(...data),range=mx-mn||1;
@@ -237,40 +277,16 @@ function rLine(cid,wid,datasets,tv,tl,lbl,xi,fixedMax){
   cv.width=W*DPR;cv.height=H*DPR;cv.style.width=W+'px';cv.style.height=H+'px';
   const ctx=cv.getContext('2d');ctx.scale(DPR,DPR);
   const PL=30,PR=8,PT=8,PB=42,cW=W-PL-PR,cH=H-PT-PB,n=datasets[0].d.length;
-  // If fixedMax provided, use fixed axis 0-fixedMax with nice steps
   let ax;
-  if(fixedMax!=null){
-    const step=fixedMax<=15?5:10;
-    const tks=[];for(let v=0;v<=fixedMax;v+=step)tks.push(v);
-    ax={lo:0,hi:fixedMax,tks};
-  } else {
-    ax=autoAx(datasets.flatMap(d=>d.d));
-  }
-  const yr=ax.hi-ax.lo;
-  const xp=i=>PL+(i/(n-1))*cW,yp=v=>PT+cH-((v-ax.lo)/yr)*cH;
+  if(fixedMax!=null){const s=5;const t=[];for(let v=0;v<=fixedMax;v+=s)t.push(v);ax={lo:0,hi:fixedMax,tks:t};}
+  else{ax=autoAx(datasets.flatMap(d=>d.d));}
+  const yr=ax.hi-ax.lo,xp=i=>PL+(i/(n-1))*cW,yp=v=>PT+cH-((v-ax.lo)/yr)*cH;
   ctx.fillStyle='#fff';ctx.fillRect(0,0,W,H);
-  ax.tks.forEach(v=>{
-    const y=yp(v),iz=Math.abs(v)<1e-4;
-    ctx.strokeStyle=iz?'rgba(0,0,0,0.15)':GR4;ctx.lineWidth=iz?1:0.5;
-    ctx.beginPath();ctx.moveTo(PL,y);ctx.lineTo(PL+cW,y);ctx.stroke();
-    ctx.fillStyle='#000';ctx.font='9px '+F;ctx.textAlign='right';
-    ctx.fillText(v%1===0?v.toFixed(0):v.toFixed(1),PL-3,y+3);
-  });
-  if(tv!=null){
-    const yt=yp(tv);
-    ctx.strokeStyle=CRL;ctx.lineWidth=1.2;ctx.setLineDash([5,3]);
-    ctx.beginPath();ctx.moveTo(PL,yt);ctx.lineTo(PL+cW,yt);ctx.stroke();
-    ctx.setLineDash([]);
-    ctx.fillStyle=CRL;ctx.font='bold 9px '+F;ctx.textAlign='right';
-    ctx.fillText(tl,PL+cW-2,yt-4);
-  }
+  ax.tks.forEach(v=>{const y=yp(v),iz=Math.abs(v)<1e-4;ctx.strokeStyle=iz?'rgba(0,0,0,0.15)':GR4;ctx.lineWidth=iz?1:0.5;ctx.beginPath();ctx.moveTo(PL,y);ctx.lineTo(PL+cW,y);ctx.stroke();ctx.fillStyle='#000';ctx.font='9px '+F;ctx.textAlign='right';ctx.fillText(v%1===0?v.toFixed(0):v.toFixed(1),PL-3,y+3);});
+  if(tv!=null){const yt=yp(tv);ctx.strokeStyle=CRL;ctx.lineWidth=1.2;ctx.setLineDash([5,3]);ctx.beginPath();ctx.moveTo(PL,yt);ctx.lineTo(PL+cW,yt);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle=CRL;ctx.font='bold 9px '+F;ctx.textAlign='right';ctx.fillText(tl,PL+cW-2,yt-4);}
   ctx.fillStyle='#000';ctx.font='9px '+F;ctx.textAlign='right';
   xi.forEach((idx,k)=>{if(idx>=n)return;ctx.save();ctx.translate(xp(idx),H-PB+16);ctx.rotate(-Math.PI/6);ctx.fillText(YL[k],0,0);ctx.restore();});
-  datasets.forEach(ds=>{
-    ctx.strokeStyle=ds.c;ctx.lineWidth=ds.w||2;ctx.lineJoin='round';ctx.lineCap='round';
-    ctx.beginPath();ds.d.forEach((v,i)=>i===0?ctx.moveTo(xp(i),yp(v)):ctx.lineTo(xp(i),yp(v)));ctx.stroke();
-    ctx.fillStyle=ds.c;ctx.beginPath();ctx.arc(xp(n-1),yp(ds.d[n-1]),3,0,Math.PI*2);ctx.fill();
-  });
+  datasets.forEach(ds=>{ctx.strokeStyle=ds.c;ctx.lineWidth=ds.w||2;ctx.lineJoin='round';ctx.lineCap='round';ctx.beginPath();ds.d.forEach((v,i)=>i===0?ctx.moveTo(xp(i),yp(v)):ctx.lineTo(xp(i),yp(v)));ctx.stroke();ctx.fillStyle=ds.c;ctx.beginPath();ctx.arc(xp(n-1),yp(ds.d[n-1]),3,0,Math.PI*2);ctx.fill();});
   cv.onmousemove=e=>{
     const r=cv.getBoundingClientRect(),mx=e.clientX-r.left;
     if(mx<PL||mx>PL+cW){hideT();return;}
@@ -282,26 +298,21 @@ function rLine(cid,wid,datasets,tv,tl,lbl,xi,fixedMax){
   cv.onmouseleave=hideT;
 }
 
-function rBars(cid,wid){
+function rBars(cid,wid,data,clip,lbl_title){
   const cv=document.getElementById(cid),wr=document.getElementById(wid);
   if(!cv||!wr)return;
   const DPR=window.devicePixelRatio||1,W=wr.offsetWidth,H=195;
   cv.width=W*DPR;cv.height=H*DPR;cv.style.width=W+'px';cv.style.height=H+'px';
   const ctx=cv.getContext('2d');ctx.scale(DPR,DPR);
-  const PL=30,PR=8,PT=8,PB=42,cW=W-PL-PR,cH=H-PT-PB,n=GQD.length;
-  const yMin=-GC,yMax=GC,yr=yMax-yMin,bW=(cW/n)*0.7;
+  const PL=30,PR=8,PT=8,PB=42,cW=W-PL-PR,cH=H-PT-PB,n=data.length;
+  const yMin=-clip,yMax=clip,yr=yMax-yMin,bW=(cW/n)*0.7;
   const xp=i=>PL+(i/n)*cW+(cW/n)*0.15,yp=v=>PT+cH-((v-yMin)/yr)*cH,y0=yp(0);
   ctx.fillStyle='#fff';ctx.fillRect(0,0,W,H);
-  for(let v=-GC;v<=GC;v+=2){
-    const y=yp(v),iz=v===0;
-    ctx.strokeStyle=iz?'rgba(0,0,0,0.15)':GR4;ctx.lineWidth=iz?1:0.5;
-    ctx.beginPath();ctx.moveTo(PL,y);ctx.lineTo(PL+cW,y);ctx.stroke();
-    ctx.fillStyle='#000';ctx.font='9px '+F;ctx.textAlign='right';ctx.fillText(v,PL-3,y+3);
-  }
-  GQD.forEach((v,i)=>{
-    const cl=Math.max(-GC,Math.min(GC,v)),ip=v>=0,bH=Math.abs(yp(cl)-y0),bY=ip?y0-bH:y0;
+  for(let v=-clip;v<=clip;v+=2){const y=yp(v),iz=v===0;ctx.strokeStyle=iz?'rgba(0,0,0,0.15)':GR4;ctx.lineWidth=iz?1:0.5;ctx.beginPath();ctx.moveTo(PL,y);ctx.lineTo(PL+cW,y);ctx.stroke();ctx.fillStyle='#000';ctx.font='9px '+F;ctx.textAlign='right';ctx.fillText(v,PL-3,y+3);}
+  data.forEach((v,i)=>{
+    const cl=Math.max(-clip,Math.min(clip,v)),ip=v>=0,bH=Math.abs(yp(cl)-y0),bY=ip?y0-bH:y0;
     ctx.fillStyle=ip?GRN:CRL;ctx.fillRect(xp(i),bY,bW,bH);
-    if(Math.abs(v)>GC){ctx.fillStyle=ip?GRN:CRL;ctx.font='bold 8px '+F;ctx.textAlign='center';ctx.fillText((v>0?'+':'')+v.toFixed(1)+'%',xp(i)+bW/2,ip?bY-3:bY+bH+9);}
+    if(Math.abs(v)>clip){ctx.fillStyle=ip?GRN:CRL;ctx.font='bold 8px '+F;ctx.textAlign='center';ctx.fillText((v>0?'+':'')+v.toFixed(1)+'%',xp(i)+bW/2,ip?bY-3:bY+bH+9);}
   });
   ctx.fillStyle='#000';ctx.font='9px '+F;ctx.textAlign='right';
   QI.forEach((qi,k)=>{ctx.save();ctx.translate(xp(qi)+bW/2,H-PB+16);ctx.rotate(-Math.PI/6);ctx.fillText(YL[k],0,0);ctx.restore();});
@@ -309,9 +320,9 @@ function rBars(cid,wid){
     const r=cv.getBoundingClientRect(),mx=e.clientX-r.left;
     if(mx<PL||mx>PL+cW){hideT();return;}
     let ci=0,md=Infinity;
-    for(let i=0;i<GQD.length;i++){const cx=xp(i)+bW/2,d=Math.abs(cx-mx);if(d<md){md=d;ci=i;}}
-    const v=GQD[ci];
-    showT(e,'<span style="opacity:.65">'+GQL[ci]+'</span><br><span style="color:'+(v>=0?GRN:CRL)+'">&#9679;</span> GDP QoQ: <b>'+(v>0?'+':'')+v.toFixed(1)+'%</b>'+(Math.abs(v)>GC?' <span style="opacity:.6">(clipped)</span>':''));
+    for(let i=0;i<n;i++){const cx=xp(i)+bW/2,d=Math.abs(cx-mx);if(d<md){md=d;ci=i;}}
+    const v=data[ci];
+    showT(e,'<span style="opacity:.65">'+GQL[ci]+'</span><br><span style="color:'+(v>=0?GRN:CRL)+'">&#9679;</span> '+lbl_title+': <b>'+(v>0?'+':'')+v.toFixed(1)+'%</b>'+(Math.abs(v)>clip?' <span style="opacity:.6">(clipped)</span>':''));
   };
   cv.onmouseleave=hideT;
 }
@@ -319,21 +330,28 @@ function rBars(cid,wid){
 let built=false;
 function buildCharts(){
   if(built)return;built=true;
-  // Fed Funds: target label = "3,1%" only (no LR)
   rLine('c1','w1',[{d:FFR,c:BLU,w:2.5,lbl:'Fed Funds'}],3.1,'3,1%',L77,JI,null);
   rLine('c0','w0',[{d:PCET,c:BLU,w:2,lbl:'PCE Total'},{d:PCEC,c:GRN,w:2,lbl:'Core PCE'}],null,null,L76,JI,null);
   rLine('c4','w4',[{d:CPIT,c:BLU,w:2,lbl:'CPI Total'},{d:CPIC,c:GRN,w:2,lbl:'Core CPI'}],2,'2%',L77,JI,null);
-  // Unemployment: fixed axis 0-15
-  rLine('c2','w2',[{d:UNE,c:BLU,w:2,lbl:'Unemployment'}],null,null,L77,JI,15);
-  rBars('c3','w3');
-  rLine('c5','w5',[{d:GYY,c:BLU,w:2,lbl:'GDP YoY'}],null,null,GQL,QI,null);
+  rLine('c2','w2',[{d:UNE,c:BLU,w:2,lbl:'Unemployment Rate'}],null,null,L77,JI,15);
+  rBars('c3','w3',GQD,GC,'GDP QoQ');
+  rBars('c5','w5',GYY,GC,'GDP YoY');
 }
 
-function sp(id,btn){
+function sp(id,btn,source){
   document.querySelectorAll('.mp').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tb,.tbg').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.older-item').forEach(t=>t.classList.remove('active'));
+  const olderBtn=document.getElementById('olderBtn');
   document.getElementById('panel-'+id).classList.add('active');
-  btn.classList.add('active');
+  if(source==='older'){
+    btn.classList.add('active');
+    olderBtn.classList.add('has-active');
+    document.getElementById('olderMenu').classList.remove('open');
+  } else {
+    btn.classList.add('active');
+    olderBtn.classList.remove('has-active');
+  }
   if(id==='charts')setTimeout(buildCharts,60);
 }
 
