@@ -2,11 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Aller:ital,wght@0,300;0,700;1,300&display=swap');
 *{box-sizing:border-box;margin:0;padding:0;font-family:'Aller',sans-serif!important}
 :root{--g:#7BC143;--g2:#B3D88C;--g4:#E1F1D3;--c:#E07F5C;--cl:#EAA992;--sl:#5D7082;--gr3:#BEBEBE;--gr4:#E6E6E6;--cb:#EBEBEB}
-.w{font-family:'Aller',sans-serif;font-weight:300;padding:1.5rem 1rem 2rem;max-width:680px;color:#000}
-.wh{margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between}
+.w{font-family:'Aller',sans-serif;font-weight:300;padding:1.5rem 1rem 2rem;max-width:680px;color:#000;margin:0 auto}
+.wh{margin-bottom:1.5rem}
 .wh h2{font-size:20px;font-weight:700;color:var(--g);letter-spacing:-.01em}
-.dlbtn{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;font-size:12px;font-weight:300;border-radius:4px;border:1px solid var(--gr3);background:transparent;color:#000;cursor:pointer}
-.dlbtn:hover{background:var(--gr4)}
 .tabs{display:flex;gap:5px;margin-bottom:1.25rem;flex-wrap:wrap;align-items:center}
 .tb,.tbg{padding:6px 14px;font-size:12px;border-radius:4px;cursor:pointer;transition:all .15s;border:none}
 .tb{font-weight:300;border:1px solid var(--gr3)!important;background:transparent;color:#000}
@@ -104,10 +102,6 @@
 <div class="w">
   <div class="wh">
     <h2>Fed Meeting Tracker</h2>
-    <button class="dlbtn" onclick="dlHTML()">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      Download HTML
-    </button>
   </div>
 
   <div class="tabs" id="tabs">
@@ -345,15 +339,7 @@ function sp(id,btn,source){
   }
   if(id==='charts')setTimeout(buildCharts,60);
 }
-
-function dlHTML(){
-  const s=Array.from(document.querySelectorAll('style')).map(x=>x.outerHTML).join('');
-  const b=document.querySelector('.w').outerHTML;
-  const tip='<div class="tooltip" id="tooltip"></div>';
-  const sc='<scr'+'ipt>'+_FMT_SCRIPT+'<'+'/script>';
-  const html='<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Fed Meeting Tracker</title>'+s+'</head><body style="background:#f5f5f5;min-height:100vh;display:flex;justify-content:center;padding:2rem 1rem"><div style="max-width:720px;width:100%;background:#fff;border-radius:10px;padding:2rem 1.5rem 2.5rem;box-shadow:0 1px 4px rgba(0,0,0,.08)">'+tip+b+'</div>'+sc+'</body></html>';
-  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download='fed-meeting-tracker.html';a.click();
-}</script>
+</script>
 </div>
 <script>
 const BLU='#5D7082',GRN='#7BC143',CRL='#E07F5C',GR4='#E6E6E6';
@@ -488,12 +474,4 @@ function sp(id,btn,source){
   if(id==='charts')setTimeout(buildCharts,60);
 }
 
-function dlHTML(){
-  const s=Array.from(document.querySelectorAll('style')).map(x=>x.outerHTML).join('');
-  const b=document.querySelector('.w').outerHTML;
-  const tip='<div class="tooltip" id="tooltip"></div>';
-  const sc='<scr'+'ipt>'+_FMT_SCRIPT+'<'+'/script>';
-  const html='<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Fed Meeting Tracker</title>'+s+'</head><body style="background:#f5f5f5;min-height:100vh;display:flex;justify-content:center;padding:2rem 1rem"><div style="max-width:720px;width:100%;background:#fff;border-radius:10px;padding:2rem 1.5rem 2.5rem;box-shadow:0 1px 4px rgba(0,0,0,.08)">'+tip+b+'</div>'+sc+'</body></html>';
-  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download='fed-meeting-tracker.html';a.click();
-}
 </script>
