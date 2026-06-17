@@ -23,11 +23,18 @@
 .older-item:hover{background:var(--gr4)}
 .older-item.active{background:var(--sl);color:#fff;font-weight:700}
 .mp{display:none}.mp.active{display:block}
-.tr{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:10px}
+
 .mc{background:var(--cb);border-radius:6px;padding:10px;border:1px solid #d4d4d4}
 .ml{font-size:9px;color:var(--sl);margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em;font-weight:300}
 .mv{font-size:16px;font-weight:700;color:#000;line-height:1}
 .ms{font-size:11px;color:#000;margin-top:4px;font-weight:300}
+.mgrp{border:1px solid #d4d4d4;border-radius:6px;padding:8px 10px 10px;flex:1}
+.mgrp-title{font-size:9px;color:var(--sl);text-transform:uppercase;letter-spacing:.06em;font-weight:300;margin-bottom:7px}
+.mgrp-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.tr{display:flex;gap:7px;margin-bottom:10px;align-items:stretch}
+.mc{background:var(--cb);border-radius:6px;padding:10px;border:1px solid #d4d4d4}
+.mc.ffr{min-width:120px;flex-shrink:0}
+.mc-sm{background:var(--cb);border-radius:5px;padding:7px 9px;border:1px solid #d4d4d4}.mc-sm .ms{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mc-sm .mv{font-size:15px}
 .bh{display:inline-block;font-size:9px;padding:2px 6px;border-radius:3px;font-weight:700;background:var(--sl);color:#fff}
 .sec{background:var(--color-background-primary);border:1px solid var(--gr4);border-radius:6px;padding:13px 15px;margin-bottom:8px}
 .st{font-size:10px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--gr4)}
@@ -123,11 +130,13 @@
   <!-- JUN '26 -->
   <div class="mp active" id="panel-jun">
     <div class="tr">
-      <div class="mc"><div class="ml">Fed Funds Rate</div><div class="mv">3,50-3,75%</div><div class="ms"><span class="bh">Unchanged</span></div></div>
-      <div class="mc"><div class="ml">PCE Total (Apr)</div><div class="mv">3,8%</div><div class="ms">Core: 3,3%</div></div>
-      <div class="mc"><div class="ml">CPI Total (May)</div><div class="mv">4,2%</div><div class="ms">Core: 2,9%</div></div>
-      <div class="mc"><div class="ml">Unemployment</div><div class="mv">4,3%</div><div class="ms">Changed little</div></div>
-      <div class="mc"><div class="ml">GDP (Q1 2026)</div><div class="mv">+1,6%</div><div class="ms">Revised final</div></div>
+      <div class="mc ffr"><div class="ml">Fed Funds Rate</div><div class="mv">3,50-3,75%</div><div class="ms"><span class="bh">Unchanged</span></div></div>
+      <div class="mgrp"><div class="mgrp-title">Current data at meeting date</div><div class="mgrp-inner">
+        <div class="mc-sm"><div class="ml">PCE Total (Apr)</div><div class="mv">3,8%</div><div class="ms">Core: 3,3%</div></div>
+        <div class="mc-sm"><div class="ml">CPI Total (May)</div><div class="mv">4,2%</div><div class="ms">Core: 2,9%</div></div>
+        <div class="mc-sm"><div class="ml">Unemployment</div><div class="mv">4,3%</div><div class="ms">Changed little</div></div>
+        <div class="mc-sm"><div class="ml">GDP (Q1 2026)</div><div class="mv">+1,6%</div><div class="ms">Revised final</div></div>
+      </div></div>
     </div>
     <div class="sec"><div class="st">Monetary Policy Tone</div><div class="tg"><div class="ti"><div class="til">Bias</div><div class="tiv">Hawkish - price stability focus</div><div class="tor"><span class="tol dove">Dove</span><div class="tt2"><div class="tn" style="left:72%"></div></div><span class="tol hawk">Hawk</span></div></div><div class="ti"><div class="til">Key Shift</div><div class="tiv">Forward guidance eliminated</div><div class="tin">Warsh removed forward guidance. Shorter, factual statement. No easing bias. Unanimous vote.</div></div></div></div>
     <div class="sec"><div class="st">Key Variables</div><div class="kvb"><div class="kvr"><div class="kvl"><div class="kvt">Inflation</div><div class="kvv">Elevated - energy-driven</div></div><div class="kvn">PCE 3,8% (Apr). CPI 4,2% (May). Supply shocks in energy sector persist. Committee will deliver price stability.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Labor Market</div><div class="kvv">Stable</div></div><div class="kvn">Unemployment 4,3%. Job gains kept pace with workforce growth. SEP: 4,3% through end-2026.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Activity</div><div class="kvv">Solid pace</div></div><div class="kvn">GDP Q1 2026 +1,6%. Productivity and capital investment both strong. SEP: +2,2% for 2026.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Fed Framework Review</div><div class="kvv">5 task forces launched</div></div><div class="kvn">Communications, balance sheet, data, productivity/AI, inflation frameworks. Warsh leading institutional reset.</div></div></div></div>
@@ -141,11 +150,13 @@
   <!-- APR '26 -->
   <div class="mp" id="panel-apr">
     <div class="tr">
-      <div class="mc"><div class="ml">Fed Funds Rate</div><div class="mv">3,50-3,75%</div><div class="ms"><span class="bh">Unchanged</span></div></div>
-      <div class="mc"><div class="ml">PCE Total (Mar)</div><div class="mv">3,5%</div><div class="ms">Core: 3,2%</div></div>
-      <div class="mc"><div class="ml">CPI Total (Mar)</div><div class="mv">3,3%</div><div class="ms">Core: 2,8%</div></div>
-      <div class="mc"><div class="ml">Unemployment</div><div class="mv">4,3%</div><div class="ms">Slight improvement</div></div>
-      <div class="mc"><div class="ml">GDP (Q4 2025)</div><div class="mv">+0,5%</div><div class="ms">Revised final</div></div>
+      <div class="mc ffr"><div class="ml">Fed Funds Rate</div><div class="mv">3,50-3,75%</div><div class="ms"><span class="bh">Unchanged</span></div></div>
+      <div class="mgrp"><div class="mgrp-title">Current data at meeting date</div><div class="mgrp-inner">
+        <div class="mc-sm"><div class="ml">PCE Total (Mar)</div><div class="mv">3,5%</div><div class="ms">Core: 3,2%</div></div>
+        <div class="mc-sm"><div class="ml">CPI Total (Mar)</div><div class="mv">3,3%</div><div class="ms">Core: 2,8%</div></div>
+        <div class="mc-sm"><div class="ml">Unemployment</div><div class="mv">4,3%</div><div class="ms">Slight improvement</div></div>
+        <div class="mc-sm"><div class="ml">GDP (Q4 2025)</div><div class="mv">+0,5%</div><div class="ms">Revised final</div></div>
+      </div></div>
     </div>
     <div class="sec"><div class="st">Monetary Policy Tone</div><div class="tg"><div class="ti"><div class="til">Bias</div><div class="tiv">Hawkish - wait and see</div><div class="tor"><span class="tol dove">Dove</span><div class="tt2"><div class="tn" style="left:68%"></div></div><span class="tol hawk">Hawk</span></div></div><div class="ti"><div class="til">Key Shift</div><div class="tiv">More internal hawks</div><div class="tin">Hammack, Kashkari and Logan opposed the easing bias in the statement.</div></div></div></div>
     <div class="sec"><div class="st">Key Variables</div><div class="kvb"><div class="kvr"><div class="kvl"><div class="kvt">Inflation</div><div class="kvv">Elevated - moved up</div></div><div class="kvn">PCE rose to 3,5% on energy shock (Middle East). Core 3,2%.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Labor Market</div><div class="kvv">Stable but soft</div></div><div class="kvn">Unemployment 4,3%. Job gains remain low. Labor demand softened.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Activity</div><div class="kvv">Solid</div></div><div class="kvn">Consumer spending and investment resilient. Housing still weak.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Energy / Geopolitics</div><div class="kvv">Significant shock</div></div><div class="kvn">Middle East conflict drove oil higher. Duration and impact still unclear.</div></div></div></div>
@@ -157,7 +168,15 @@
 
   <!-- MAR '26 -->
   <div class="mp" id="panel-mar">
-    <div class="tr"><div class="mc"><div class="ml">Fed Funds Rate</div><div class="mv">3,50-3,75%</div><div class="ms"><span class="bh">Unchanged</span></div></div><div class="mc"><div class="ml">PCE Total (Feb)</div><div class="mv">2,8%</div><div class="ms">Core: 3,0%</div></div><div class="mc"><div class="ml">CPI Total (Feb)</div><div class="mv">2,8%</div><div class="ms">Core: 3,1%</div></div><div class="mc"><div class="ml">Unemployment</div><div class="mv">4,4%</div><div class="ms">Little changed</div></div><div class="mc"><div class="ml">GDP (Q4 2025)</div><div class="mv">+0,5%</div><div class="ms">Revised final</div></div></div>
+    <div class="tr">
+      <div class="mc ffr"><div class="ml">Fed Funds Rate</div><div class="mv">3,50-3,75%</div><div class="ms"><span class="bh">Unchanged</span></div></div>
+      <div class="mgrp"><div class="mgrp-title">Current data at meeting date</div><div class="mgrp-inner">
+        <div class="mc-sm"><div class="ml">PCE Total (Feb)</div><div class="mv">2,8%</div><div class="ms">Core: 3,0%</div></div>
+        <div class="mc-sm"><div class="ml">CPI Total (Feb)</div><div class="mv">2,8%</div><div class="ms">Core: 3,1%</div></div>
+        <div class="mc-sm"><div class="ml">Unemployment</div><div class="mv">4,4%</div><div class="ms">Little changed</div></div>
+        <div class="mc-sm"><div class="ml">GDP (Q4 2025)</div><div class="mv">+0,5%</div><div class="ms">Revised final</div></div>
+      </div></div>
+    </div>
     <div class="sec"><div class="st">Monetary Policy Tone</div><div class="tg"><div class="ti"><div class="til">Bias</div><div class="tiv">Neutral / Cautious</div><div class="tor"><span class="tol dove">Dove</span><div class="tt2"><div class="tn" style="left:55%"></div></div><span class="tol hawk">Hawk</span></div></div><div class="ti"><div class="til">New Variable</div><div class="tiv">Middle East conflict</div><div class="tin">Adds uncertainty to the outlook. Near-term energy price pressure.</div></div></div></div>
     <div class="sec"><div class="st">Key Variables</div><div class="kvb"><div class="kvr"><div class="kvl"><div class="kvt">Inflation</div><div class="kvv">Somewhat elevated</div></div><div class="kvn">Near-term expectations rose on oil. Long-term still anchored.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Labor Market</div><div class="kvv">No new deterioration</div></div><div class="kvn">SEP projects unemployment at 4,4% at end of 2026.</div></div><div class="kvr"><div class="kvl"><div class="kvt">GDP (last reported)</div><div class="kvv">+0,5% Q4 2025</div></div><div class="kvn">Soft quarter. SEP projects +2,4% for full year 2026.</div></div><div class="kvr"><div class="kvl"><div class="kvt">PCE Inflation (SEP)</div><div class="kvv">2,7% est. 2026</div></div><div class="kvn">Up vs December (2,4%). Middle East energy shock embedded in projections.</div></div></div></div>
     <div class="sec"><div class="st">Risk Balance</div><ul class="rl"><li class="ri"><span class="rt rh"></span>Middle East conflict - energy price pressure</li><li class="ri"><span class="rt rm"></span>Persistent goods inflation from tariffs</li><li class="ri"><span class="rt rm"></span>Near-term inflation expectations rising</li><li class="ri"><span class="rt rg"></span>Solid GDP; consumer spending resilient</li></ul></div>
@@ -169,7 +188,15 @@
 
   <!-- JAN '26 (Older) -->
   <div class="mp" id="panel-jan">
-    <div class="tr"><div class="mc"><div class="ml">Fed Funds Rate</div><div class="mv">3,50-3,75%</div><div class="ms"><span class="bh">Unchanged</span></div></div><div class="mc"><div class="ml">PCE Total (Dec)</div><div class="mv">2,9%</div><div class="ms">Core: 3,0%</div></div><div class="mc"><div class="ml">CPI Total (Dec)</div><div class="mv">2,9%</div><div class="ms">Core: 3,2%</div></div><div class="mc"><div class="ml">Unemployment</div><div class="mv">4,4%</div><div class="ms">Signs of stabilization</div></div><div class="mc"><div class="ml">GDP (Q3 2025)</div><div class="mv">+4,4%</div><div class="ms">Revised final</div></div></div>
+    <div class="tr">
+      <div class="mc ffr"><div class="ml">Fed Funds Rate</div><div class="mv">3,50-3,75%</div><div class="ms"><span class="bh">Unchanged</span></div></div>
+      <div class="mgrp"><div class="mgrp-title">Current data at meeting date</div><div class="mgrp-inner">
+        <div class="mc-sm"><div class="ml">PCE Total (Dec)</div><div class="mv">2,9%</div><div class="ms">Core: 3,0%</div></div>
+        <div class="mc-sm"><div class="ml">CPI Total (Dec)</div><div class="mv">2,9%</div><div class="ms">Core: 3,2%</div></div>
+        <div class="mc-sm"><div class="ml">Unemployment</div><div class="mv">4,4%</div><div class="ms">Signs of stabilization</div></div>
+        <div class="mc-sm"><div class="ml">GDP (Q3 2025)</div><div class="mv">+4,4%</div><div class="ms">Revised final</div></div>
+      </div></div>
+    </div>
     <div class="sec"><div class="st">Monetary Policy Tone</div><div class="tg"><div class="ti"><div class="til">Bias</div><div class="tiv">Neutral / Data-dependent</div><div class="tor"><span class="tol dove">Dove</span><div class="tt2"><div class="tn" style="left:50%"></div></div><span class="tol hawk">Hawk</span></div></div><div class="ti"><div class="til">Next Moves</div><div class="tiv">No preset course</div><div class="tin">Policy within neutral range after -75bp over prior three meetings.</div></div></div></div>
     <div class="sec"><div class="st">Key Variables</div><div class="kvb"><div class="kvr"><div class="kvl"><div class="kvt">Inflation</div><div class="kvv">Somewhat elevated</div></div><div class="kvn">Goods boosted by tariffs. Disinflation continuing in services.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Labor Market</div><div class="kvv">Stabilizing</div></div><div class="kvn">Private payrolls +29K/mo. Lower immigration and labor force participation.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Economic Activity</div><div class="kvv">Solid pace</div></div><div class="kvn">Resilient consumer spending; investment expanding. Housing weak.</div></div><div class="kvr"><div class="kvl"><div class="kvt">Tariffs</div><div class="kvv">Pressure on goods</div></div><div class="kvn">Effect expected to be transitory once pass-throughs are absorbed.</div></div></div></div>
     <div class="sec"><div class="st">Risk Balance</div><ul class="rl"><li class="ri"><span class="rt rm"></span>Tariff-driven inflation proving more persistent than expected</li><li class="ri"><span class="rt rm"></span>Further softening of the labor market</li><li class="ri"><span class="rt rg"></span>Long-term inflation expectations well anchored</li><li class="ri"><span class="rt rg"></span>Government shutdown temporary - effects reversible</li></ul></div>
