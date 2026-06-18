@@ -3,7 +3,8 @@
 *{box-sizing:border-box;margin:0;padding:0;font-family:'Aller',sans-serif!important}
 :root{--g:#7BC143;--g2:#B3D88C;--g4:#E1F1D3;--c:#E07F5C;--cl:#EAA992;--sl:#5D7082;--gr3:#BEBEBE;--gr4:#E6E6E6;--cb:#EBEBEB}
 .w{font-family:'Aller',sans-serif;font-weight:300;padding:1.5rem 1rem 2rem;max-width:680px;color:#000;margin:0 auto}
-.wh{margin-bottom:1.5rem}
+.wh{margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between}
+.pub-badge{font-size:10px;font-weight:700;letter-spacing:.08em;color:#1a9fcc;text-transform:uppercase;white-space:nowrap}
 .wh h2{font-size:20px;font-weight:700;color:var(--g);letter-spacing:-.01em}
 .tabs{display:flex;gap:5px;margin-bottom:1.25rem;flex-wrap:wrap;align-items:center}
 .tb,.tbg{padding:6px 14px;font-size:12px;border-radius:4px;cursor:pointer;transition:all .15s;border:none}
@@ -111,6 +112,7 @@
 <div class="w">
   <div class="wh">
     <h2>Fed Meeting Tracker</h2>
+    <span class="pub-badge">Información pública</span>
   </div>
 
   <div class="tabs" id="tabs">
