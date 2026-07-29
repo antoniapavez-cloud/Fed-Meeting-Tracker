@@ -94,6 +94,9 @@
 .ctb th{text-align:left;padding:6px 10px;color:#000;font-weight:700;border-bottom:2px solid var(--g);font-size:11px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
 .ctb td{padding:0 10px;color:#000;font-weight:300;border-bottom:1px solid var(--gr4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;height:30px;line-height:30px;vertical-align:middle}
 .ctb tr:last-child td{border-bottom:none}
+.ctb th:first-child,.ctb td:first-child{position:sticky;left:0;background:#fff;z-index:2}
+.ctb tr:nth-child(even) td:first-child{background:var(--gr4)}
+.ctb thead th:first-child{background:#fff;z-index:3}
 .ctb .rl2{font-weight:700}
 .ctb tr:nth-child(even) td{background:var(--gr4)}
 .ac{color:var(--c)}
@@ -258,14 +261,14 @@
 
   <!-- EVOLUTION -->
   <div class="mp" id="panel-evo">
-    <div class="sec"><div class="st">Key Metrics - Evolution</div><div style="overflow-x:auto"><table class="ctb"><colgroup><col style="width:20%"><col style="width:16%"><col style="width:16%"><col style="width:16%"><col style="width:16%"><col style="width:16%"></colgroup><thead><tr><th></th><th>Jul '26</th><th>Jun '26</th><th>Apr '26</th><th>Mar '26</th></tr></thead><tbody>
+    <div class="sec"><div class="st">Key Metrics - Evolution</div><div style="overflow-x:auto;padding-bottom:6px"><table class="ctb" style="min-width:680px;table-layout:fixed"><colgroup><col style="min-width:130px;width:130px"><col style="min-width:100px;width:100px"><col style="min-width:100px;width:100px"><col style="min-width:100px;width:100px"><col style="min-width:100px;width:100px"><col style="min-width:110px;width:110px"></colgroup><thead><tr><th></th><th>Jul '26</th><th>Jun '26</th><th>Apr '26</th><th>Mar '26</th><th>Jan '26</th></tr></thead><tbody>
       <tr><td class="rl2">Fed Funds</td><td>3,50-3,75%</td><td>3,50-3,75%</td><td>3,50-3,75%</td><td>3,50-3,75%</td><td>3,50-3,75%</td></tr>
       <tr><td class="rl2">PCE total</td><td class="ac">4,1%</td><td class="ac">3,8%</td><td class="ac">3,5%</td><td>2,8%</td><td>2,9%</td></tr>
       <tr><td class="rl2">Core PCE</td><td class="ac">3,4%</td><td class="ac">3,3%</td><td class="ac">3,2%</td><td>3,0%</td><td>3,0%</td></tr>
-      <tr><td class="rl2">CPI total</td><td class="ac">4,0%</td><td class="ac">4,2%</td><td class="ac">3,3%</td><td>2,8%</td><td>2,9%</td></tr>
-      <tr><td class="rl2">Core CPI</td><td>2,9%</td><td>2,9%</td><td>2,8%</td><td>3,1%</td><td>3,2%</td></tr>
+      <tr><td class="rl2">CPI total</td><td class="ac">3,5%</td><td class="ac">4,2%</td><td class="ac">3,3%</td><td>2,8%</td><td>2,9%</td></tr>
+      <tr><td class="rl2">Core CPI</td><td>2,6%</td><td>2,9%</td><td>2,8%</td><td>3,1%</td><td>3,2%</td></tr>
       <tr><td class="rl2">Unemployment</td><td>4,2%</td><td>4,3%</td><td>4,3%</td><td>4,4%</td><td>4,4%</td></tr>
-      <tr><td class="rl2">GDP QoQ</td><td>+2,8% Q2 26</td><td>+1,6% Q1 26</td><td>+0,5% Q4 25</td><td>+0,5% Q4 25</td><td>+4,4% Q3 25</td></tr>
+      <tr><td class="rl2">GDP QoQ</td><td>+2,1% Q1 26</td><td>+1,6% Q1 26</td><td>+0,5% Q4 25</td><td>+0,5% Q4 25</td><td>+4,4% Q3 25</td></tr>
       <tr><td class="rl2">Dovish dissents</td><td>0</td><td>0</td><td>1</td><td>1</td><td>2</td></tr>
       <tr><td class="rl2">Hawkish dissents</td><td class="ac">3</td><td>0</td><td class="ac">3</td><td>0</td><td>0</td></tr>
       <tr><td class="rl2">Geopolitical risk</td><td class="ac">Middle East</td><td class="ac">Middle East</td><td class="ac">Middle East</td><td class="ac">Middle East</td><td>Not mentioned</td></tr>
