@@ -12,16 +12,19 @@
 *{box-sizing:border-box;margin:0;padding:0;font-family:'Aller',sans-serif!important}
 :root{--g:#7BC143;--g2:#B3D88C;--g4:#E1F1D3;--c:#E07F5C;--cl:#EAA992;--sl:#5D7082;--gr3:#BEBEBE;--gr4:#E6E6E6;--cb:#EBEBEB}
 .w{font-family:'Aller',sans-serif;font-weight:300;padding:1.5rem 1rem 2rem;max-width:700px;color:#000;margin:0 auto}
-.wh{margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between}
-.pub-badge{font-size:10px;font-weight:700;letter-spacing:.08em;color:#1a9fcc;text-transform:uppercase;white-space:nowrap;line-height:1}
-.wh h2{font-size:20px;font-weight:700;color:var(--g);letter-spacing:-.01em;line-height:1}
-.tabs{display:flex;gap:5px;margin-bottom:1.25rem;flex-wrap:wrap;align-items:center}
+.wh{margin-bottom:1.25rem;display:flex;align-items:flex-start;justify-content:space-between}
+.wh h2{line-height:1;font-size:20px;font-weight:700;color:var(--g);letter-spacing:-.01em}
+.wh-meta{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.wh-tag{font-size:10px;font-weight:700;letter-spacing:.08em;color:#1A9FCC;text-transform:uppercase;line-height:1}
+.wh-sub{font-size:10px;font-weight:300;color:#969696;line-height:1.3;white-space:nowrap}
+.tabs{display:flex;gap:5px;margin:0 0 1.25rem;padding-bottom:1.1rem;border-bottom:1px solid #E6E6E6;flex-wrap:wrap;align-items:center}
 .tb,.tbg{padding:6px 14px;font-size:12px;border-radius:4px;cursor:pointer;transition:all .15s;border:none}
 .tb{font-weight:300;border:1px solid var(--gr3)!important;background:transparent;color:#000}
 
 .tb:hover{background:var(--gr4)}
 .tb.active{background:var(--sl);border-color:var(--sl)!important;color:#fff;font-weight:700}
 .tbg{font-weight:300;border:1px solid var(--g2)!important;background:transparent;color:var(--sl)}
+.tbg-first{margin-left:auto}
 .tbg:hover{background:var(--g4)}
 .tbg.active{background:var(--g);border-color:var(--g)!important;color:#fff;font-weight:700}
 .older-wrap{position:relative;display:inline-block}
@@ -35,19 +38,19 @@
 .older-item.active{background:var(--sl);color:#fff;font-weight:700}
 .mp{display:none}.mp.active{display:block}
 
-.mc{background:var(--cb);border-radius:6px;padding:10px;border:1px solid #d4d4d4}
+.mc{background:#EBEBEB;border:1px solid #d4d4d4;border-radius:6px;padding:10px}
 .ml{font-size:9px;color:var(--sl);margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em;font-weight:300}
 .mv{font-size:16px;font-weight:700;color:#000;line-height:1}
 .ms{font-size:11px;color:#000;margin-top:4px;font-weight:300}
 .mgrp{border:1px solid #d4d4d4;border-radius:6px;padding:8px 10px 10px;flex:1}
 .mgrp-title{font-size:9px;color:var(--sl);text-transform:uppercase;letter-spacing:.06em;font-weight:300;margin-bottom:7px}
-.mgrp-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.mgrp-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .tr{display:flex;gap:7px;margin-bottom:10px;align-items:stretch}
-.mc{background:var(--cb);border-radius:6px;padding:10px;border:1px solid #d4d4d4}
+.mc{background:#EBEBEB;border:1px solid #d4d4d4;border-radius:6px;padding:10px}
 .mc.ffr{min-width:120px;flex-shrink:0}
 .mc-sm{background:var(--cb);border-radius:5px;padding:7px 9px;border:1px solid #d4d4d4}.mc-sm .ms{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mc-sm .mv{font-size:15px}
 .bh{display:inline-block;font-size:9px;padding:2px 6px;border-radius:3px;font-weight:700;background:var(--sl);color:#fff}
-.sec{background:var(--color-background-primary);border:1px solid var(--gr4);border-radius:6px;padding:13px 15px;margin-bottom:8px}
+.sec{background:var(--color-background-primary);border:1px solid var(--gr4);border-radius:6px;padding:13px 15px;margin-bottom:16px}
 .st{font-size:10px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--gr4)}
 .tg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .ti{padding:10px 11px;border-radius:5px;background:var(--gr4)}
@@ -128,9 +131,10 @@
 <div class="w">
   <div class="wh">
     <h2>Fed Meeting Tracker</h2>
-    <div style="text-align:right">
-      <span class="pub-badge">Información pública</span>
-      <div style="font-size:9px;color:var(--gr3);font-weight:300;margin-top:3px;letter-spacing:.03em;line-height:1.6">Periodicidad: por reunión FOMC<br>Última actualización: 29 Jul 2026</div>
+    <div class="wh-meta">
+      <span class="wh-tag">Información pública</span>
+      <span class="wh-sub">Periodicidad: por reunión FOMC</span>
+      <span class="wh-sub">Última actualización: 29 Jul 2026</span>
     </div>
   </div>
 
@@ -145,7 +149,7 @@
       <div class="older-menu" id="olderMenu">
       </div>
     </div>
-    <button class="tbg" onclick="sp('evo',this)">Evolution</button>
+    <button class="tbg tbg-first" onclick="sp('evo',this)">Evolution</button>
     <button class="tbg" onclick="sp('charts',this)">Charts</button>
   </div>
   <div class="sep-row" id="sepRow"></div>
