@@ -246,7 +246,7 @@
     <div class="sec"><div class="st">SEP - September 2026</div><div class="spb">
       <div class="spr"><div class="spl">Median Fed Funds end-2026</div><div class="spv">4,1%<span class="aru">↑</span></div><div class="spn">Up sharply vs June (3,8%). Implies one more hike in 2026.</div></div>
       <div class="spr"><div class="spl">Median Fed Funds end-2027</div><div class="spv">4,1%<span class="aru">↑</span></div><div class="spn">Up vs June (3,6%). Higher for longer path.</div></div>
-      <div class="spr"><div class="spl">Longer run (neutral)</div><div class="spv">3,6%</div><div class="spn">Unchanged vs June.</div></div>
+      <div class="spr"><div class="spl">Longer run (neutral)</div><div class="spv">3,2%<span class="aru">↑</span></div><div class="spn">Up vs June (3,1%).</div></div>
       <div class="spr"><div class="spl">PCE inflation 2026</div><div class="spv">3,7%<span class="aru">↑</span></div><div class="spn">Up vs June (3,6%). Commodity and geopolitical pressures embedded.</div></div>
       <div class="spr"><div class="spl">Core PCE inflation 2026</div><div class="spv">3,4%</div><div class="spn">Unchanged vs June. Broad-based pressure persists.</div></div>
       <div class="spr"><div class="spl">Real GDP 2026</div><div class="spv">2,3%<span class="aru">↑</span></div><div class="spn">Up vs June (2,2%). Economy strengthening.</div></div>
@@ -551,7 +551,7 @@ function rBars(cid,wid,data,clip,lbl_title){
 let built=false;
 function buildCharts(){
   if(built)return;built=true;
-  rLine('c1','w1',[{d:FFR,c:BLU,w:2.5,lbl:'Fed Funds'}],3.1,'3,1%',LFFR,JI,null,1);
+  rLine('c1','w1',[{d:FFR,c:BLU,w:2.5,lbl:'Fed Funds'}],3.2,'3,2%',LFFR,JI,null,1);
   rLine('c0','w0',[{d:PCET,c:BLU,w:2,lbl:'PCE Total'},{d:PCEC,c:GRN,w:2,lbl:'Core PCE'}],null,null,L76,JI,null);
   rLine('c4','w4',[{d:CPIT,c:BLU,w:2,lbl:'CPI Total'},{d:CPIC,c:GRN,w:2,lbl:'Core CPI'}],2,'2%',L77,JI,null,2);
   rLine('c2','w2',[{d:UNE,c:BLU,w:2,lbl:'Unemployment Rate'}],null,null,L77,JI,15);
@@ -762,7 +762,7 @@ function rBars(cid,wid,data,clip,lbl_title){
 let built=false;
 function buildCharts(){
   if(built)return;built=true;
-  rLine('c1','w1',[{d:FFR,c:BLU,w:2.5,lbl:'Fed Funds'}],3.1,'3,1%',LFFR,JI,null,1);
+  rLine('c1','w1',[{d:FFR,c:BLU,w:2.5,lbl:'Fed Funds'}],3.2,'3,2%',LFFR,JI,null,1);
   rLine('c0','w0',[{d:PCET,c:BLU,w:2,lbl:'PCE Total'},{d:PCEC,c:GRN,w:2,lbl:'Core PCE'}],null,null,L76,JI,null);
   rLine('c4','w4',[{d:CPIT,c:BLU,w:2,lbl:'CPI Total'},{d:CPIC,c:GRN,w:2,lbl:'Core CPI'}],2,'2%',L77,JI,null,2);
   rLine('c2','w2',[{d:UNE,c:BLU,w:2,lbl:'Unemployment Rate'}],null,null,L77,JI,15);
